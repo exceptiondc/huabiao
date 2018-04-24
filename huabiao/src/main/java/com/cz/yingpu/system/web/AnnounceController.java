@@ -68,7 +68,7 @@ public class AnnounceController  extends BaseController {
 		type = type == null ? "" : type;
 		model.addAttribute("type", type);
 	
-		switch(type) {
+	/*	switch(type) {
 			case "companystate":
 				//request.setAttribute("desc", request.getAttribute("descr"));
 				listurl = companyState;
@@ -89,7 +89,7 @@ public class AnnounceController  extends BaseController {
 				
 			default:
 				listurl = "/announce/announceList";
-		}
+		}*/
 		
 		return listurl;
 	}

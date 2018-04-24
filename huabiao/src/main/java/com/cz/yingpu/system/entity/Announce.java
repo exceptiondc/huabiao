@@ -65,8 +65,18 @@ public class Announce  extends BaseEntity {
 	private java.util.Date postTime;
 	
 	
+	private String type;
+	@WhereSQL(sql="type=:type")
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
-	@WhereSQL(sql="weight=:Announce_postTime")
+	@WhereSQL(sql="postTime=:Announce_postTime")
 	public java.util.Date getPostTime() {
 		return postTime;
 	}
@@ -80,7 +90,7 @@ public class Announce  extends BaseEntity {
 	private java.lang.String keyword;
 	
 
-	@WhereSQL(sql="weight=:Announce_weight")
+	@WhereSQL(sql="keyword=:keyword")
 	public java.lang.String getKeyword() {
 		return keyword;
 	}

@@ -13,14 +13,22 @@
 
         var ue = UE.getEditor('editor'),
         
-        	urlTpls = {
+        /* 	urlTpls = {
        	    	   list : '/system/{TYPE}/list/json',
        	    	   look : '/system/{TYPE}/look/json',
        	    	   del : '/system/{TYPE}/delete',
        	    	   add : '/system/{TYPE}/save',
        	    	   update : '/system/{TYPE}/update'
         	},
-        	
+        	 */
+        	 urlTpls = {
+         	    	   list : '/system/announce/list/json',
+         	    	   look : '/system/announce/look/json',
+         	    	   del : '/system/announce/delete',
+         	    	   add : '/system/announce/save',
+         	    	   update : '/system/announce/update'
+          	},
+          	
         	OP = {
         		LIST : 'list',
         		LOOK : 'look',
@@ -87,6 +95,7 @@
             $('#type-tab a').click(function() {
             	currentType = $(this)[0].id;	
             	location.href = location.href.replace(/\?type=.+?$/, '') + '?type=' + currentType;
+            	//location.href = location.href + '?type=' + currentType;
             	location.reload();
             });
             
@@ -160,10 +169,6 @@
             $(".iconI").attr('src',result.data.icon || "") ;
             ue.setContent(result.data.content) ;
         }
-
-
-
-
         function deleteRole(){
             var id=jQuery("#id").val();
             if(!id||id==""){
@@ -174,14 +179,15 @@
                 mydelete(_url,listurl + '?type=' + currentType,null,"确定删除？");
             }
         }
-
         function doupdate(){
             jQuery("#content").val(UE.getEditor('editor').getContent()) ;
+            $('#stype').val(currentType);
             commonUpdateForm("updateForm",listurl  + '?type=' + currentType,'更新成功！');
         }
 
         function dosave(){
             jQuery("#content").val(UE.getEditor('editor').getContent()) ;
+            $('#stype').val(currentType);
             commonSaveForm("updateForm",listurl + '?type=' + currentType,'添加成功！');
         }
 		
@@ -193,7 +199,7 @@
         //-->
     </script>
 
-    <form class="form-horizontal" method="post"  action="${ctx}/system/${(type)!'announce'}/list"  name="searchForm" id="searchForm">
+    <form class="form-horizontal" method="post"  action="${ctx}/system/announce/list"  name="searchForm" id="searchForm">
         <input type="hidden" name="pageIndex" id="pageIndex" value="${(returnDatas.page.pageIndex)!'1'}" />
         <input type="hidden" name="sort" id="page_sort" value="${(returnDatas.page.sort)!'desc'}"  />
         <input type="hidden" name="order" id="page_order" value="${(returnDatas.page.order)!'id'}"  />
@@ -203,11 +209,13 @@
         	<div class="pull-left" style="margin-top: 10px;	">
         		<div id="type-tab" style="heigth: 100%;">
         			<!-- <a id="serviceintroduce" style="padding: 8px 15px; background: #428BCA; color: #fff;">法律法规</a> -->
-        			<a id="news" style="padding: 8px 15px; background: #428BCA; color: #fff;">行业新闻</a>
-<!--         			<a id="contractsample" style="padding: 8px 15px; background: #428BCA; color: #fff;">合同范本</a>
-        			<a id="announce" style="padding: 8px 15px; background: #428BCA; color: #fff;">平台公告</a>
-        			<a id="companystate" style="padding: 8px 15px; background: #428BCA; color: #fff;">华表网络动态</a>
- -->        		</div>
+        			<a id="news" style="padding: 8px 15px; background: #428BCA; color: #fff;">新闻列表</a>
+         			<a id="cases" style="padding: 8px 15px; background: #428BCA; color: #fff;">成功案例</a>
+         			<a id="schemes" style="padding: 8px 15px; background: #428BCA; color: #fff;">解决方案</a>
+         			<a id="intros" style="padding: 8px 15px; background: #428BCA; color: #fff;">公司简介</a>
+         			<a id="hsj" style="padding: 8px 15px; background: #428BCA; color: #fff;">华事记</a>
+         			<a id="zpqs" style="padding: 8px 15px; background: #428BCA; color: #fff;">招聘启事</a>
+        		</div>
         	</div>
             <div class="pull-right">
                 <a id="btn_reload" href="javascript:location.reload();"
@@ -277,11 +285,13 @@
                 </div>
                 <div class="widget-body">
                     <div class="widget-main">
-                        <form id="updateForm" name="updateForm"  action="${ctx}/system/TYPE/update"    method="post" class="form-horizontal clearfix">
+                        <form id="updateForm" name="updateForm"  action="${ctx}/system/announce/update"    method="post" class="form-horizontal clearfix">
 					        <input type="hidden" name="createTime" id="createTime" />
 					        <input type="hidden" name="createDate" id="createDate" />
                             <input type="hidden" name="id" id="id">
                             <input type="hidden" id="content" name="content" value=""/>
+                            
+                              <input type="hidden" id="stype" name="type" value=""/>
                             <div class="form-group col-xs-9">
                                 <label class="col-sm-4 control-label" for="title">标题*：</label>
                                 <div class="col-sm-8">
