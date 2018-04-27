@@ -1,0 +1,174 @@
+
+.main {
+	width: 1200px;
+	margin: 0 auto;
+	padding: 100px 0 150px 0;
+	background: #fff;
+}
+
+.aboutwe_list {
+	display: flex;
+	min-height: 800px;
+}
+
+.aboutwe_list .list_title {
+	border-right: 1px solid #E7E7E7;
+}
+
+.list_title ul li {
+	font-size: 16px;
+	color: #666;
+	padding: 0 70px 0 20px;
+	border-left: 4px solid transparent;
+}
+
+.list_title ul li:not(:last-child) {
+	margin-bottom: 30px;
+}
+
+.list_content {
+	width: 980px;
+	margin-left: 60px;
+}
+
+.list_content .gs_text h3 {
+	margin: 50px 0;
+	font-size: 18px;
+	color: #333;
+	font-weight: normal;
+}
+
+.list_content .gs_text p {
+	font-size: 14px;
+	color: #666;
+	text-indent: 2em;
+	text-align: justify;
+	line-height:30px;
+}
+
+.on {
+	color: #FFA800!important;
+	border-left-color: #FFA800!important;
+}
+
+.we_info {
+	margin-top: 78px;
+}
+
+.we_title {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.we_title h3 {
+	font-size: 18px;
+	color: #333;
+	font-weight: normal;
+}
+
+.we_title p {
+	font-size: 12px;
+	color: #666;
+	margin: 20px 0 30px 0;
+}
+
+.we_info .we_phone {
+	padding: 80px 0;
+	border-top: 1px solid #F0F0F0;
+	border-bottom: 1px solid #F0F0F0;
+}
+
+.we_info .we_phone ul {
+	display: flex;
+	justify-content: space-between;
+	padding: 0 156px;
+}
+
+.we_info .we_phone ul li a {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.we_info .we_phone ul li a p {
+	font-size: 16px;
+	color: #333;
+	margin: 22px 0 12px 0;
+}
+
+.we_info .we_phone ul li a span {
+	font-size: 12px;
+	color: #999;
+}
+
+.we_code {
+	display: flex;
+	justify-content: center;
+	margin-top: 30px;
+}
+
+.list_title ul li {
+	cursor: pointer;
+}
+
+.recruit ul {
+	display: flex;
+	flex-direction: column;
+}
+
+.recruit ul > li:not(:last-child) {
+	margin-bottom: 20px;
+	border-bottom: 1px solid #F3F3F3;
+}
+
+.recruit ul > li a {
+	padding: 30px 60px 20px 30px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.recruit ul > li a .recruit_info .post {
+	display: flex;
+	margin-bottom: 20px;
+}
+
+.recruit ul > li a .recruit_info .post p {
+	font-size: 16px;
+	color: #333;
+	margin-right: 20px;
+}
+
+.recruit ul > li a .recruit_info .post span {
+	font-size: 16px;
+	color: #FFA800;
+}
+
+.recruit ul > li a .recruit_info ol {
+	display: flex;
+}
+
+.recruit ul > li a .recruit_info ol li {
+	font-size: 12px;
+	color: #999;
+	padding: 0 20px;
+}
+
+.recruit ul > li a .recruit_info ol li:nth-child(2) {
+	border-left: 1px solid #D4D4D4;
+	border-right: 1px solid #D4D4D4;
+}
+
+.recruit ul > li a .recruit_info ol li:first-child {
+	padding-left: 0;
+}
+
+.recruit_time {
+	font-size: 12px;
+	color: #999;
+}
+
+.curr {
+	background: #F3F3F3;
+}

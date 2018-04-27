@@ -1,0 +1,72 @@
+
+.main {
+	width: 1200px;
+	min-height: 800px;
+	margin: 0 auto;
+	padding-top: 80px;
+}
+
+.post_content .post_title .post_name {
+	display: flex;
+	margin-bottom: 48px;
+}
+
+.post_content .post_title .post_name p {
+	font-size: 24px;
+	color: #333;
+	margin-right: 20px;
+}
+
+.post_content .post_title .post_name span {
+	font-size: 24px;
+	color: #FFA800;
+}
+
+.post_content .post_title ol {
+	display: flex;
+}
+
+.post_content .post_title ol li {
+	font-size: 14px;
+	color: #666;
+	padding: 0 20px;
+}
+
+.post_content .post_title ol li:first-child {
+	padding-left: 0;
+}
+
+.post_text {
+	margin-top: 82px;
+}
+
+.post_text h4 {
+	font-size: 16px;
+	color: #333;
+	font-weight: normal;
+}
+
+.post_text > span {
+	width: 24px;
+	border-top: 2px solid #FFA800;
+	margin-top: 10px;
+	display: block; 
+}
+
+.post_text p {
+	font-size: 14px;
+	color: #666;
+	line-height: 40px;
+}
+
+.post_text h3 {
+	font-size: 14px;
+	font-weight: normal;
+	color: #999;
+	margin-top: 80px;
+}
+
+.post_text h3 span {
+	color: #FFA800;
+	margin-left: 14px;
+}
