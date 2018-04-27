@@ -47,17 +47,7 @@ $(function(){
 		$(this).css({'height': 'auto', 'box-shadow':'none'})
 	});
 
-	$('.news_list a').hover(function(){
-		$(this).css({
-			'background': '#fff',
-			'box-shadow': '10px 0px 24px rgba(0,0,0,0.06)'
-		});
-	},function(){
-		$(this).css({
-			'background': '#f3f3f3', 
-			'box-shadow': 'none'
-		})
-	});
+	
 
 	//轮播图
 	var bannerImg = function (){
@@ -122,6 +112,18 @@ $(function(){
 				    	nextEl: '.swiper-button-next',
 				    	prevEl: '.swiper-button-prev',
 				  	},
+				});
+
+				$('.news_list').hover(function(){
+					$(this).css({
+						'background': '#fff',
+						'box-shadow': '10px 0px 24px rgba(0,0,0,0.06)'
+					});
+				},function(){
+					$(this).css({
+						'background': '#f3f3f3', 
+						'box-shadow': 'none'
+					})
 				});
 
 				$('#swiper-container2 .swiper-wrapper .swiper-slide').click(function(){
