@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name = "format-detection" content = "telephone=no">
+		<title>营普金服查询系统</title>
+		<link rel="stylesheet" href="weui/weui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/recharge.css"/>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../pc/js/utils.js"></script>
+		<style type="text/css">
+			
+		</style>
+	</head>
+	<body ontouchstart>
+		<div class="header">
+			<a href="javascript:void(0)" id="backLink">
+				<span class="go-back"></span>
+			</a>
+			<h4>充值提现</h4>
+		</div>
+		<form id="abc" action="">
+			<div class="weui_cells" id="record">
+					<div class="weui_cell">
+						<div class="weui_cell_hd">
+							<label class="weui_label user">用户名称</label>
+						</div>
+						<div class="weui_cell_bd weui_cell_primary">
+							<input type="search" class="search" name="userName" style="" required="" placeholder="Search" x-webkit-speech="" x-webkit-grammar="builtin:search" lang="zh-CN">
+						</div>
+						<div class="weui_cell_ft">
+							<span onclick="loadList(abc)">搜索</span>
+						</div>
+						
+					</div>
+					<div class="weui_cell date">
+						<div class="weui_cell_hd">
+							<label class="weui_label" style="width: 40px;height: 22px;">
+								<img src="img/date-icon.png" style="width: 22px;height: 22px;"/>
+							</label>
+						</div>
+						<div class="weui_cell_bd date-box">
+							<input name="startTime" type="date" class="weui_input" placeholder="年/月/日">
+						</div>
+						<div class="weui_cell_bd" style="padding:0 3px;">
+							至
+						</div>
+						<div class="weui_cell_bd date-box">
+							<input name="endTime" type="date"  class="weui_input" placeholder="年/月/日">
+						</div>
+				</div>
+			</form>
+			
+		
+				
+		</div>
+	
+	<script type="x-tpl" id="list-item-reviewing">
+		<div class="weui_cell wait">
+				<div class="weui_cell_bd manage">
+					<div class="yongjin">
+						<span class="user">$realName：$phone</span>
+						<span class="money"><i>$amount</i>元</span>
+					</div>
+					<div class="des">
+						<span class="time">提交时间：$createTime</span>
+						<span class="state">处理中</span>
+						
+					</div>
+					<div class="button_sp_area" style="height: 45px;">
+						<a onclick="withdrawPass($id)" class="weui_btn weui_btn_mini weui_btn_primary manage-btn">通过</a>
+						<a onclick="withdrawReject($id,'')" class="weui_btn weui_btn_mini weui_btn_warn manage-btn">驳回</a>
+					</div>
+				</div>
+
+			</div>
+	</script>
+	<script type="x-tpl" id="list-item-pass">
+		<div class="weui_cell pass">
+				<div class="weui_cell_bd manage">
+					<div class="yongjin">
+						<span class="user">$realName：$phone</span>
+						<span class="money"><i>$amount</i>元</span>
+					</div>
+					<div class="des">
+						<span class="time">提交时间：$createTime</span>
+						<span class="time">审核时间：$auditingTime</span>
+						<span class="state">已审核</span>
+						
+					</div>
+					
+				</div>
+
+			</div>
+	</script>	
+	<script type="x-tpl" id="list-item-reject">
+		<div class="weui_cell quit">
+				<div class="weui_cell_bd manage">
+					<div class="yongjin">
+						<span class="user">$realName：$phone</span>
+						<span class="money"><i>$amount</i>元</span>
+					</div>
+					<div class="des">
+						<span class="time">提交时间：$createTime</span>
+						<span class="time">审核时间：$auditingTime</span>
+						<span class="state">已驳回</span>
+						
+					</div>
+						<div class="weui_cell text">
+						<div class="weui_cell_hd">
+							<p>驳回原因：</p>
+						</div>
+						<div class="weui_cell_bd">
+							$rejectreason
+						</div>
+					</div>
+				</div>
+
+			</div>
+	</script>	
+	
+	
+	<!--<script src="./zepto.min.js"></script>
+    <script src="./example.js"></script>-->
+    <script src="../layer-v3.0.3/layer/layer.js"></script>
+	<script type="text/javascript">
+
+	var gId;
+	function edit(id, content) {
+		if (!!id) {
+			gId = id;
+			
+			layer.open({
+				title : '请输入驳回理由',
+				type : 1,
+				content : '<div style="width: 100%; height: 100%;"><div style="width: 80%; height: 90%; margin: 0 10%; padding: 4% 0;">'
+						+ '<textarea style="width: 100%; height: 90%;" name="edit_desc" maxLength="255">' + content + '</textarea></div></div>',
+				area : ['80%', '50%'],
+				btn : ['提交', '取消'],
+				yes : function() {
+					submit(id);
+					layer.closeAll();
+				},
+				btn1 : function() {
+					layer.closeAll();
+				}
+			});
+		}
+	}
+
+	function withdrawPass(id) {
+		var index = layer.confirm('是否通过审核？', function() {
+			layer.closeAll();
+			layer.load(2);
+			$.get('/yingpu/system/withdraw/history/audit/pass/json', { id : id }, function(data) {
+				layer.closeAll();
+				if (data.status == 'success') {
+					layer.alert('审核通过！');
+					setTimeout(function() {
+						location.reload();
+					}, 500);
+				}
+				else {
+					layer.alert('审核失败！');
+					setTimeout(function() {
+						location.reload();
+					}, 500);
+				}
+			});
+		}, function() {} );
+		
+	}
+
+
+	function withdrawReject	(id, old) {
+		edit(id, old);
+	}
+
+
+	function submit(id) {
+		layer.load(2);
+		$.post('/yingpu/system/withdraw/history/audit/reject/json', { id : id, rejectreason : $('[name=edit_desc]').val() }, function(data) {
+			layer.closeAll();
+			if (data.status == 'success') {
+				layer.alert('审核完成！');
+				setTimeout(function() {
+					location.reload();
+				}, 500);
+			}
+			else {
+				layer.alert('审核失败！');
+				setTimeout(function() {
+					location.reload();
+				}, 500);
+			}
+		});
+	}
+
+		$(function(){
+			$("#backLink").click(function(event) {
+			    event.preventDefault();
+			    history.back(1);
+			});
+			
+			loadList();
+		});
+		
+		
+		onLoadMore = loadList;
+		function loadList(a, b){
+			layer.load(2);
+			var param = a && $(a).serialize() || {};
+// 			param.pageSize = 10;
+			param.pageIndex = pageIndex++
+			$.post('../operator/withdraw/history/list/json', param, function(data) {
+				loadComplete(data.page.hasNext);
+				layer.closeAll();
+				var d = data,
+					tpl = $('#tpl').html();
+
+				a && $('#record').find('.wait,.pass,.quit').fadeOut();
+				$.each(d.data,function(i, o) {
+					o.status--;
+					o.createTime = !!o.createTime && new Date(parseInt(o.createTime)).Format("yyyy-MM-dd hh:mm:ss");
+					o.auditingTime = !!o.auditingTime && new Date(parseInt(o.auditingTime)).Format("yyyy-MM-dd hh:mm:ss");
+					$('#record').append($($('#list-item-' + ['reviewing', 'pass', 'reject'][o.status]).html().formatStr(o)).fadeIn('slow'));
+				});
+			});
+			
+			return false;
+		}
+		
+		
+	
+	</script>
+	</body>
+</html>

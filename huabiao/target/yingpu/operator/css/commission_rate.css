@@ -1,0 +1,23 @@
+body, html { background-color: #f5f5f5; overflow-x: hidden; }
+.commission-rate-title { display: -webkit-flex; display: flex;  flex-flow: row nowrap; background-color: #F0EFF4; color: #878788; font-size: 1.4rem; margin: 0px 0; }
+.commission-rate-title .cell { flex: 1 1 100%; text-align: center; padding: 13px 0; }
+
+.commission-rate-item { position: relative; display: -webkit-flex; display: flex; flex-flow: row nowrap; font-size: 1.3rem; justify-content:center; align-items:center; border-bottom: 1px solid #e3e3e3; background: #fff; }
+.commission-rate-item .cell { flex: 1 1 100%; text-align: center; padding: 13px 0; }
+
+.commission-rate-item input { display: inline-block; text-align: center; padding: 0 0; margin: 0 5px; border: none; outline: none; width: 30%; }
+.commission-rate-item .cell:last-child input { width: 30%; }
+.commission-rate-item input.error { border-bottom: 1px solid #f00; }
+.commission-rate-item input.error:focus { border-bottom: 1px solid #f00; }
+.commission-rate-item input:focus { border-bottom: 1px solid #000; }
+.commission-rate-item select { padding: 7px 10px; border: none; border-bottom: 1px solid #e0e0e0; background: #fff; }
+
+.commission-rate-item .write-blue { width: 1.4rem; height: 1.4rem; display: inline-block; background: 0px 0px/1.4rem 1.4rem url(../img/write-blue.png) no-repeat; vertical-align: sub; }
+.commission-rate-item .write-gray { width: 1.4rem; height: 1.4rem; display: inline-block; background: 0px 0px/1.4rem 1.4rem url(../img/write-gray.png) no-repeat; vertical-align: sub; }
+
+.submit-box { margin: 50px 0; width: 100%; display: flex; flex-flow: column nowrap; align-items: center; }
+.submit-box button { background: #5EA0FB; color: #fff; padding: 10px 30px; border: none; outline: none; }
+
+#compute-container { display: none; }
+#btn-add { width: 5rem; height: 5rem; position: fixed; right: 30px; bottom: 30px; background: 0px 0px/5rem 5rem url(../img/btn-add.png) no-repeat; }
+#undo { background: #333; color: #fff; padding: 7px 15px; position: fixed; top: 55px; right: -100px; }

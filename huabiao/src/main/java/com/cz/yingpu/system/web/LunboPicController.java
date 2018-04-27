@@ -100,7 +100,6 @@ public class LunboPicController  extends BaseController {
 		downFile(response, file, fileName,true);
 		return;
 	}
-	
 		/**
 	 * 查看操作,调用APP端lookjson方法
 	 */
@@ -110,8 +109,6 @@ public class LunboPicController  extends BaseController {
 		model.addAttribute(GlobalStatic.returnDatas, returnObject);
 		return "/system/lunbopic/lunbopicLook";
 	}
-
-	
 	/**
 	 * 查看的Json格式数据,为APP端提供数据
 	 */

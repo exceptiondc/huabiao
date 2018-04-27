@@ -1,0 +1,257 @@
+.center{
+	width: 1200px;
+	margin: 0 auto;
+}
+
+.left{
+	float: left;
+}
+.right{
+	float: right;
+}
+
+.clearfix:after{         
+	content: ".";     /**//*内容为“.”就是一个英文的句号而已。也可以不写。*/  
+	display: block;   /**//*加入的这个元素转换为块级元素。*/  
+	clear: both;     /**//*清除左右两边浮动。*/  
+	visibility: hidden;      /**//*可见度设为隐藏。注意它和display:none;是有区别的。visibility:hidden;仍然占据空间，只是看不到而已；*/  
+	line-height: 0;    /**//*行高为0；*/  
+	height: 0;     /**//*高度为0；*/  
+	font-size:0;    /**//*字体大小为0；*/  
+}  
+
+/*header部分*/
+
+.header-nav{
+	width: 1200px;
+	height: 90px;
+	text-align: center;
+	margin: 0 auto;
+}
+.header-nav .logo{
+	font-size: 32px;
+	font-weight: bold;
+	color: rgb(255, 192, 1);
+	padding-top: 26px;
+    width: 527px;
+}
+.header-nav .logo img{
+	width: 100%;
+}
+.header-nav .logo p span{
+	color: #D1D1D1;
+}
+.header-nav ul{
+	width: 598px;
+	height: 50px;
+	margin: 20px auto;
+}
+.header-nav ul li{
+	float: left;
+	margin-left: 25px;
+	height: 50px;
+	line-height: 50px;
+}
+.header-nav ul li a{
+	display: inline-block;
+	margin: 0 10px;
+	font-size: 16px;
+}
+.header-nav ul li:nth-child(1) a{
+	width: 60px;
+	margin-left: 30px;
+}
+.header-nav ul li a.active{
+	color: rgb(255, 192, 1);;
+}
+.header-nav ul li a:hover{
+	color: rgb(255, 192, 1);;
+}
+
+.main-container{
+	width: 100%;
+	overflow: hidden;
+}
+
+.main-container .banner{
+	width: 100%;
+	height: 450px;
+}
+.main-container .banner.case{
+	background: url(../img/case-banner.jpg) no-repeat center;
+}
+
+.main-container .content{
+	margin: 84px auto;
+}
+
+
+/*联系我们板块*/
+.contract{
+	width: 100%;
+    height: 620px;
+    background: url(../img/aboutUs-bg.jpg) no-repeat top;
+    padding-top: 40px;
+}
+.contract .tit{
+	padding-top: 20px;
+}
+.contract .tit h3{
+	color: rgb(255, 255, 255);
+    font-size: 24px;
+    line-height: 36px;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+.contract .tit h3 span{
+	color: rgb(206, 206, 206);
+	font-size: 16px;
+	margin-left: 20px;
+	margin-top: 10px;
+}
+.contract .main{
+	margin-top: 7px;
+}
+.contract .main .msg{
+	width: 324px;
+}
+.contract .main .msg p{
+	line-height: 36px;
+    color: #ffffff;
+    font-size: 14px;
+}
+.contract .main .msg p.company{
+	font-size: 16px;
+	color: #FFC001;
+	line-height: 36px;
+	margin-bottom: 30px;
+}
+.contract .main .msg p span{
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	margin-right: 6px;
+	vertical-align: middle;
+}
+.contract .main .msg p span.weixin{
+	background: url(../img/weixin.png) no-repeat center;
+}
+.contract .main .msg p span.weibo{
+	background: url(../img/weibo.png) no-repeat center;
+}
+.contract .main .msg p span.qq{
+	background: url(../img/qq.png) no-repeat center;
+}
+
+.contract .main .box{
+	width: 724px;
+    height: 443px;
+    background: #ffffffb5;
+    margin-left: 86px;
+}
+.contract .main .box form{
+	width: 570px;
+    margin-top: 67px;
+    margin-left: 70px;
+}
+.contract .main .box form div.list{
+	width: 100%;
+	margin-bottom: 26px;
+}
+.contract .main .box form div.list span{
+	font-size: 15px;
+	color: rgb(130,130,130);
+	font-weight: bold;
+	margin-right: 10px;
+}
+.contract .main .box form div.list input{
+	width: 506px;
+	padding-left: 10px;
+	height: 36px;
+	line-height: 36px;
+	border: 1px solid rgba(191,191,191,0.3);
+	background: #eee;
+	font-size: 14px;
+}
+.contract .main .box form div.list.pos{
+	position: relative;
+	height: 110px;
+	
+}
+.contract .main .box form div.list.pos span{
+	position: absolute;
+	top: 45%;
+}
+.contract .main .box form div.list input[type='number']::-webkit-outer-spin-button,
+.contract .main .box form div.list input[type='number']::-webkit-inner-spin-button{
+	-webkit-appearance: none !important;
+}
+.contract .main .box form div.list input[type='number']{
+	-moz-appearance: textfield;
+}
+.contract .main .box form div.list textarea{
+	width: 506px;
+	padding-left: 10px;
+	line-height: 36px;
+	border: 1px solid rgba(191,191,191,0.3);
+	position: absolute;
+    left: 41px;
+    background: #eee;
+    font-size: 14px;
+}
+
+.contract .main .box form .btn{
+	width: 518px;
+    height: 44px;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    line-height: 44px;
+    background: #ffad2b;
+    border: none;
+    outline: none;
+    margin-left: 45px;
+}
+
+/*底部脚本*/
+.bottom{
+	width: 100%;
+	overflow: hidden;
+	background: rgba(0,0,0,0.6);
+}
+.bottom .foot{
+	margin: 30px auto 40px;
+	/*text-align: center;*/
+}
+.bottom .foot p{
+	text-align: center;
+	font-size: 14px;
+	color: #fff;
+	line-height: 22px;	
+}
+.bottom .foot .link{
+	font-size: 14px;
+	color: #A6A6A6;
+	line-height: 28px;
+	border-bottom: 1px solid #DDDDDD;
+	margin-bottom: 30px;
+}
+.bottom .foot .link a{
+	display: inline-block;
+	color: #A6A6A6;
+	margin-left: 20px;
+}
+
+/*QQ*/
+.QQ{ height:168px;  position:fixed; top:50%; margin-top:-90px; z-index:999; right:0; width:48px;}
+.QQ a{display:block; width:100%; color:#fff; font-weight:bold; font-size:16px; height:59px; line-height:59px;  position:absolute;  right:0px;background:rgba(0,0,0,0.3) none repeat scroll 0 0 !important;filter:Alpha(opacity=80) ; background:#000; z-index:999;transition: 0.3s;-webkit-transition: 0.3s;}
+
+.QQ a span{display:block; height:59px; padding-left:50px; width:130px;}
+.qq_ico{top:0px;}
+.qq_ph{top:59px;}
+.qq_top{top:118px;}
+.qq_ico span{background:url(../img/qq_ico.png) no-repeat 10px center;}
+.qq_ph span{background:url(../img/qq_ph.png) no-repeat 13px center;}
+.qq_top span{background:url(../img/qq_top.png) no-repeat 15px center;}
+.QQ a:hover{width:170px; right:0px;}
+.md{position:absolute; bottom:80px; width:64px; height:64px; left:50%; margin-left:-39px; z-index:999; cursor:pointer}

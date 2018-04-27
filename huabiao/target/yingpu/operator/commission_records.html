@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name = "format-detection" content = "telephone=no">
+		<title>营普金服查询系统</title>
+		<link rel="stylesheet" href="weui/weui.min.css"/>
+		
+		<!--<link rel="stylesheet" type="text/css" href="../../../../css/reset.css"/>-->
+		<!--<link rel="stylesheet" type="text/css" href="css/query_system.css"/>-->
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			html{
+				font-size: 62.5%;
+			}
+			body{
+				background: #f5f5f9;	
+			}
+
+			.header{
+				width: 100%;
+				/*height: 190px;*/
+				background: #5ea0fb;
+				text-align: center;
+				padding: 1px 0;
+				height: 44px;
+				line-height: 44px;
+				clear: both;
+				overflow: hidden;
+				position: relative;
+			}
+			.header a{
+				float: left;
+				height: 44px;
+				width: 44px;
+			}
+			.header a .go-back{
+				display: inline-block;
+				width: 12px;
+				height: 12px;
+				border: 1px solid #fff;
+				border-bottom: none;
+				border-left: none;
+				transform: rotate(225deg);
+				vertical-align: middle;
+				/*margin-left: 11px;*/
+			}
+			.header h4{
+				min-height: 2.25rem;
+			    position: absolute;
+			    margin: 0;
+			    text-align: center;
+			    white-space: nowrap;
+			    right: 5rem;
+			    left: 5rem;
+			    width: auto;
+			    overflow: hidden;
+			    text-overflow: ellipsis;
+			    z-index: 2;
+			    font-size: 1.7rem;
+			    color: #fff;
+			    font-weight: normal;
+			}
+			/*佣金记录*/
+			.commission{
+				width: 100%;
+			}
+			.commission .yongjin{
+				font-size: 1.6rem;
+				clear: both;
+				overflow: hidden;
+			}
+			.commission .des{
+				font-size: 1.2rem;
+				clear: both;
+				overflow: hidden;
+			}
+			.commission .yongjin .user,.commission .des .project{
+				float: left;
+				width: 57%;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+			}
+			.commission .yongjin .money,.commission .des .time{
+				float: right;
+				
+			}
+			.commission .yongjin .money i{
+				font-style: normal;	
+				color: #FF0000;
+			}
+		</style>
+	</head>
+	<body ontouchstart>
+		<div class="header">
+			<a href="javascript:void(0)" id="backLink">
+				<span class="go-back"></span>
+			</a>
+			<h4>佣金记录</h4>
+		</div>
+		<div class="weui_cells" style="margin-top:0px;" id="info">
+
+				
+		</div>
+		
+		
+		
+		
+		
+		
+	</body>
+	<!--<script src="./zepto.min.js"></script>
+    <script src="./example.js"></script>-->
+    <script src="../layer-v3.0.3/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../pc/js/utils.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#backLink").click(function(event) {
+			    event.preventDefault();
+			    history.back(1);
+			});
+			loadList();
+		});
+		
+		
+		onLoadMore = loadList;
+		function loadList(){
+				layer.load(2);
+				$.post('../operator/commission/list/json',{pageIndex : pageIndex++},function(data){
+					loadComplete(data.page.hasNext);
+					layer.closeAll();
+					var dat=data;
+
+				/*	pageIndex = pageIndex
+					pageCount = data.page.pageCount;
+					pageSize=data.page.pageSize;*/
+					data=data.data;
+					var html='';
+				if(data==undefined||data.length<=0){
+					$('#info').empty();
+					$('#info').append('<h3 aligin="center" style="text-align: center;">暂无记录</h3>');
+					/*generatePaginationNav(pageIndex, dat.page.pageCount, '#page-nav-btn');*/
+					return false;
+				}
+					$.each(data,function(i,o){
+						html+='	<div class="weui_cell">';
+						html+='	<div class="weui_cell_bd commission">';
+						html+='<div class="yongjin">';
+						html+='<span class="user">用户：'+o.phone+'</span>';
+						html+='<span class="money">佣金：<i>'+o.amount+'</i>元</span>';
+						html+='</div>';
+						html+='	<div class="des">';
+					/*	html+='<span class="money">佣金：<i>3.2</i>元</span';*/
+						html+='	<span class="project">项目名称：'+o.projectname+'</span>';
+						html+='		<span class="time">'+o.createTime+'</span>';
+						/*html+='<tr><td>期限：1个月</td></tr>';*/
+						html+='</div></div></div>';
+					});
+// 				$('#info').empty();
+				$('#info').append(html);	
+			//	generatePaginationNav(pageIndex, dat.page.pageCount, '#page-nav-btn');					
+									
+								
+ 
+				});
+			}
+		
+		
+	</script>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>营普金服查询系统</title>
+		<link rel="stylesheet" href="weui/weui.min.css"/>
+		<!--<link rel="stylesheet" type="text/css" href="../../../../css/reset.css"/>-->
+		<!--<link rel="stylesheet" type="text/css" href="css/query_system.css"/>-->
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			html{
+				font-size: 62.5%;
+			}
+			body{
+				background: #f5f5f9;	
+			}
+			.header{
+				width: 100%;
+				/*height: 190px;*/
+				background: #5ea0fb;
+				text-align: center;
+				padding: 1px 0;
+				height: 44px;
+				line-height: 44px;
+				clear: both;
+				overflow: hidden;
+				position: relative;
+			}
+			.header a{
+				float: left;
+				height: 44px;
+				width: 44px;
+			}
+			.header a .go-back{
+				display: inline-block;
+				width: 12px;
+				height: 12px;
+				border: 1px solid #fff;
+				border-bottom: none;
+				border-left: none;
+				transform: rotate(225deg);
+				vertical-align: middle;
+				/*margin-left: 11px;*/
+			}
+			.header h4{
+				min-height: 2.25rem;
+			    position: absolute;
+			    margin: 0;
+			    text-align: center;
+			    white-space: nowrap;
+			    right: 5rem;
+			    left: 5rem;
+			    width: auto;
+			    overflow: hidden;
+			    text-overflow: ellipsis;
+			    z-index: 2;
+			    font-size: 1.7rem;
+			    color: #fff;
+			    font-weight: normal;
+			}
+			.shuru:before{
+				
+				content: " ";
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 1px;
+				border-top: 1px solid #fff;
+				color: #D9D9D9;
+				-webkit-transform-origin: 0 0;
+				transform-origin: 0 0;
+				-webkit-transform: scaleY(0.5);
+				transform: scaleY(0.5);
+				left: 15px;
+			}
+			.tixian{
+				font-size: 1.5rem;
+			}
+			.shuru label{
+				font-size: 2.5rem;
+			}
+			.shuru input{
+				font-size: 2rem;
+			}
+			.weui_cell{
+				height: 3rem;
+			}
+			.gray{
+				background: #ddd;
+				color: #666;
+			}
+			.weui_btn{
+				height: 44px;
+				font-size: 1.5rem;
+				line-height: 44px;
+			}
+			.weui_btn_area{
+				margin-top: 3rem;
+			}
+			.find{
+				clear: both;
+			    overflow: hidden;
+			    width: 100%;
+			}
+			.find a{
+				display: block;
+				padding: 2px;
+				border: 1px solid #007AFF;
+				color: #007AFF;
+				font-size: 1.5rem;
+			}
+		</style>
+	</head>
+	<body ontouchstart>
+		<div class="header">
+			<a href="javascript:void(0)" id="backLink">
+				<span class="go-back"></span>
+			</a>
+			<h4>提现</h4>
+		</div>
+		<div class="weui_cells tixian">
+			<div class="weui_cell">
+				<p>提现金额</p>
+			</div>
+			
+			<div class="weui_cell shuru">
+				
+				<div class="weui_cell_hd">
+			       <label class="weui_label" style="width: 3rem;">￥</label>
+			    </div>
+			    <div class="weui_cell_bd weui_cell_primary">
+			    	<input class="weui_input" type="text" name="" id="withdraw-amount" value="" />
+			    </div>
+			</div>
+
+			<div class="weui_cell">
+				<div class="find">
+					<p style="float:left;">可提现金额 <span id="available-amount">0.00</span> 元</p>
+					<p style="float: right;"><a href="withdraw_records.html">查看提现记录</a></p>
+				</div>
+
+				
+				
+		</div>
+		<div class="weui_btn_area">
+			<a href="javascript:;" class="weui_btn gray">确认提交</a>
+		</div>
+		<!-- 	<div class="weui_btn_area" id="withdrawBtn">
+				<a href="javascript:;" class="weui_btn weui_btn_primary">确认提交</a>
+			</div> -->
+		
+		
+		<div class="weui_dialog_confirm" id="tip" style="display: none;">
+		    <div class="weui_mask"></div>
+		    <div class="weui_dialog">
+		        <div class="weui_dialog_hd"><strong class="weui_dialog_title">温馨提示</strong></div>
+		        <div class="weui_dialog_bd" style="text-align: center;font-size: 1.4rem;">佣金提现将于T+1后结算，联系电话</br>18192812977(郭先生)。</div>
+		        <div class="weui_dialog_ft">
+		            <a href="javascript:;" class="weui_btn_dialog default" onclick="$('#tip').hide();">取消</a>
+		            <a href="javascript:;" class="weui_btn_dialog primary" onclick="submit()">确定</a>
+		        </div>
+		    </div>
+		</div>
+		
+	</body>
+	<!--<script src="./zepto.min.js"></script>
+    <script src="./example.js"></script>-->
+    <script src="../layer-v3.0.3/layer/layer.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#backLink").click(function(event) {
+			    event.preventDefault();
+			    history.back(1);
+			});
+		});
+			
+		var user = JSON.parse(sessionStorage.user || '{}'),
+			availableAmount = user.commission || 0;
+		
+		$(document).on('keyup change blur', "#withdraw-amount", function(){
+			var amount = $('#withdraw-amount').val();
+			
+			if (!amount || amount > availableAmount || amount < 100 || amount % 100 != 0) {
+				$('.weui_btn_area a').addClass('gray').removeClass('weui_btn_primary');
+			}
+			else {
+				$('.weui_btn_area a').removeClass('gray').addClass('weui_btn_primary');
+			}
+			
+			/* if (!amount) {
+				layer.msg('请输入提现金额！');
+				return;
+			}
+			
+			if (amount > availableAmount) {
+				layer.msg('提现金额不能大于可用余额！');
+				return;
+			}
+			
+			if (amount < 100 || amount % 100 != 0) {
+				layer.msg('提现金额最小为100，必须为100整数倍！');
+				return;
+			} */
+			
+	
+		})
+
+		.on('click', '.weui_btn_area a', function() {
+			if (!$(this).hasClass('gray')) {
+				$("#tip").show();
+			}
+		});
+		
+		
+		function submit() {
+			$('#tip').hide();
+			layer.load(2);
+			if ($('#withdraw-amount').val() <= availableAmount) {
+				layer.closeAll();
+				$.post('withdraw/apply/json', { userid : user.id, amount : $('#withdraw-amount').val() }, function(d) {
+					if (d.status != 'success') {
+						layer.alert(d.message || '对不起，提交失败！');
+						return;
+					}
+					
+					layer.msg('提交成功，请耐心等待审核通过');
+					availableAmount -= $('#withdraw-amount').val();
+					user.commission = availableAmount;
+					sessionStorage.user = JSON.stringify(user);
+					$('#available-amount').html(availableAmount.toFixed(2));
+					$('.weui_btn_area a').addClass('gray').removeClass('weui_btn_primary');
+				})
+			}
+		}
+		
+		
+		$('#available-amount').html(availableAmount.toFixed(2));
+	</script>
+</html>

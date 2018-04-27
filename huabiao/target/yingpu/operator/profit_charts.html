@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name = "format-detection" content = "telephone=no">
+		<title>营普金服查询系统</title>
+		<link rel="stylesheet" href="weui/weui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/profit_charts.css"/>
+		<!--<link rel="stylesheet" type="text/css" href="../../../../css/reset.css"/>-->
+		<!--<link rel="stylesheet" type="text/css" href="css/query_system.css"/>-->
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+		
+		
+			
+			
+		</style>
+	</head>
+	<body ontouchstart>
+		<div class="header">
+			<a href="javascript:void(0)" id="backLink">
+				<span class="go-back"></span>
+			</a>
+			<h4>收益折线图</h4>
+		</div>
+		<div class="weui_cells">
+			<div class="tab">
+				<ul class="weui_cell menu" id="menu">
+					<li class="active">近一周</li>
+					<li>近一月</li>
+					<li>近三月</li>
+					<li>近六月</li>
+				</ul>
+			</div>
+			
+			
+			<div class="weui_cell chart" id="chart">
+				<div class="item" id="chartWeek" style="width: 100%;height: 320px;">
+					
+				</div>
+				<div class="item" id="chartMonth" style="width: 100%;height: 320px;display: none;">
+
+				</div>
+				<div class="item" id="chartMonthT" style="width: 100%;height: 320px;display: none;">
+					
+				</div>
+				<div class="item" id="chartMonthS" style="width: 100%;height: 320px;display: none;">
+
+				</div>
+				
+			</div>
+				
+		</div>
+		
+		
+	</body>
+	<script src="js/dist/echarts.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var days = [7, 30, 90, 180],
+			data = [];
+		window.onload=function(){
+			
+			
+			$("#backLink").click(function(event) {
+			    event.preventDefault();
+			    history.back(1);
+			});
+			
+			
+			
+			 
+//			console.log(yugi(10));
+			
+			
+			var $li = $('#menu li');
+			var $item = $('#chart .item');
+
+				$li.click(function(){
+					var $this = $(this);
+					var $t = $this.index();
+					$li.removeClass();
+					$this.addClass('active');
+					$item.css('display','none');
+					$item.eq($t).css('display','block');
+					$.post('../operator/tongji/json',{daynum:days[$t]},function(data){
+						
+						renderCharts($t, data.data.map(function(e) {
+							return e.createTime.substring(0, e.createTime.indexOf(' '));
+						}), data.data.map(function(e, i) {
+							return e.amount;
+						}));
+					});
+				});
+				
+			$li.eq(0).click();
+		}
+		
+		
+		
+
+		function load(daynum){
+			$.post('../operator/tongji/json',{daynum:daynum},function(data){
+				
+			});
+		}
+		
+		$(function(){
+			require.config({
+				paths:{
+					echarts: 'js/dist'
+				}
+			});
+			
+
+			
+			
+    });
+		
+		
+	function renderCharts(idx, dates, data) {
+		require(
+	            [
+	                'echarts',
+	                'echarts/chart/line' // 使用柱状图就加载bar模块，按需加载
+	            ],
+	        
+	        //近一周的收益图
+	        function(ec){
+	        	if (idx == 0) {
+		        	var rq = function(n){
+					    var now = new Date;
+					    now.setDate(now.getDate() - n);
+					    return (now.getMonth()+1) + "/" + now.getDate();
+					}
+		        	
+		        	var myChart = ec.init(document.getElementById('chartWeek')),
+		        		tiltes = [
+		        			'近一周收益情况(单位：元)',
+		        			'近一月收益情况(单位：元)',
+		        			'近三月收益情况(单位：元)',
+		        			'近六月收益情况(单位：元)'
+		        		];
+		        	var option = {
+					    title : {
+					        text: '近一周收益情况(单位：元)',
+					        x: 'left',
+					        textStyle : {//标题样式
+		                        fontSize : 12,  //字体大小
+		                        fontFamily : 'Arial',//字体系列 
+		                        fontWeight : 100  //粗细，可选为：'normal' | 'bold' | 'bolder' | 'lighter' | 100 | 200 |...
+		                    },
+					    },
+					    tooltip : {
+					        trigger: 'axis',
+					        formatter:"{a} <br/>{b} : {c} 元"
+					    },
+					    legend: {
+					        data:['当日收益'],
+					        x: 'right'
+					    },
+					      grid : {//直角坐标系内绘图网格
+			                x : 50,
+			                y : 50,
+			                x2 : 50,
+			                y2 : 40
+			           },
+					    calculable : true,
+					    xAxis : [
+					        {
+					            type : 'category',
+					            boundaryGap : false,
+					            data : dates
+					        }
+					    ],
+					    yAxis : [
+					        {
+					            type : 'value',
+					            axisLabel : {
+					                formatter: '{value} 元'
+					            }
+					        }
+					    ],
+					    series : [
+					        {
+					            name:'当日收益',
+					            type:'line',
+					            radius : '120%',
+	//          				center: ['50%', '50%'],
+					            smooth : true,
+					            data : data,
+					            
+					            
+					            markLine : {
+					                data : [
+					                    {type : 'average', name: '平均值'}
+					                ]
+					            }
+					        }
+					    ]
+					};
+				myChart.setOption(option);	
+        	}
+        	else if (idx == 1) {
+			
+				//近一个月收益图
+				var width = $("#chartWeek").width();
+				var height = $("chartWeek").height();
+				$("#chartMonth").css("width", width).css("height", height);
+	        	var ChartM = ec.init(document.getElementById('chartMonth')); 
+				var option = {
+					    title : {
+					        text: '近一月收益情况(单位：元)',
+					        x: 'left',
+					        textStyle : {//标题样式
+		                        fontSize : 12,  //字体大小
+		                        fontFamily : 'Arial',//字体系列 
+		                        fontWeight : 100  //粗细，可选为：'normal' | 'bold' | 'bolder' | 'lighter' | 100 | 200 |...
+		                    },
+					    },
+					    tooltip : {
+					        trigger: 'axis',
+					        formatter:"{a} <br/>{b} : {c} 元"
+					    },
+					    legend: {
+					        data:['当日收益'],
+					        x: 'right'
+					    },
+					      grid : {//直角坐标系内绘图网格
+			                x : 50,
+			                y : 50,
+			                x2 : 50,
+			                y2 : 40
+			           },
+					    calculable : true,
+					    xAxis : [
+					        {
+					            type : 'category',
+					            boundaryGap : false,
+					            data : dates
+					        }
+					    ],
+					    yAxis : [
+					        {
+					            type : 'value',
+					            axisLabel : {
+					                formatter: '{value} 元'
+					            }
+					        }
+					    ],
+					    series : [
+					        {
+					            name:'当日收益',
+					            type:'line',
+					            radius : '120%',
+					            symbol : 'none',
+	//          				center: ['50%', '50%'],
+					            smooth : true,
+					            data:data,
+	
+					            markLine : {
+					                data : [
+					                    {type : 'average', name: '平均值'}
+					                ]
+					            }
+					        }
+					    ]
+					};
+				ChartM.setOption(option);
+        	}
+        	else if (idx == 2) {
+				//近三月的收益
+				
+				var width = $("#chartWeek").width();
+				var height = $("#chartWeek").height();
+				$("#chartMonthT").css("width", width).css("height", height);
+	        	var ChartM = ec.init(document.getElementById('chartMonthT')); 
+				var option = {
+					    title : {
+					        text: '近三月收益情况(单位：元)',
+					        x: 'left',
+					        textStyle : {//标题样式
+		                        fontSize : 12,  //字体大小
+		                        fontFamily : 'Arial',//字体系列 
+		                        fontWeight : 100  //粗细，可选为：'normal' | 'bold' | 'bolder' | 'lighter' | 100 | 200 |...
+		                    },
+					    },
+					    tooltip : {
+					        trigger: 'axis',
+					        formatter:"{a} <br/>{b} : {c} 元"
+					    },
+					    legend: {
+					        data:['当日收益'],
+					        x: 'right'
+					    },
+					      grid : {//直角坐标系内绘图网格
+			                x : 50,
+			                y : 50,
+			                x2 : 50,
+			                y2 : 40
+			           },
+					    calculable : true,
+					    xAxis : [
+					        {
+					            type : 'category',
+					            boundaryGap : false,
+					            data : dates
+					        }
+					    ],
+					    yAxis : [
+					        {
+					            type : 'value',
+					            axisLabel : {
+					                formatter: '{value} 元'
+					            }
+					        }
+					    ],
+					    series : [
+					        {
+					            name:'当日收益',
+					            type:'line',
+					            radius : '120%',
+					            symbol : 'none',
+	//          				center: ['50%', '50%'],
+					            smooth : true,
+					            data:data,
+	
+					            markLine : {
+					                data : [
+					                    {type : 'average', name: '平均值'}
+					                ]
+					            }
+					        }
+					    ]
+					};
+				ChartM.setOption(option);
+        	}
+        	else if (idx == 3) {
+			
+				//近六月的收益
+				
+				var width = $("#chartMonthT").width();
+				var height = $("#chartMonthT").height();
+				$("#chartMonthS").css("width", width).css("height", height);
+	        	var ChartM = ec.init(document.getElementById('chartMonthS')); 
+				var option = {
+					    title : {
+					        text: '近六月收益情况(单位：元)',
+					        x: 'left',
+					        textStyle : {//标题样式
+		                        fontSize : 12,  //字体大小
+		                        fontFamily : 'Arial',//字体系列 
+		                        fontWeight : 100  //粗细，可选为：'normal' | 'bold' | 'bolder' | 'lighter' | 100 | 200 |...
+		                    },
+					    },
+					    tooltip : {
+					        trigger: 'axis',
+					        formatter:"{a} <br/>{b} : {c} 元"
+					    },
+					    legend: {
+					        data:['当日收益'],
+					        x: 'right'
+					    },
+					      grid : {//直角坐标系内绘图网格
+			                x : 50,
+			                y : 50,
+			                x2 : 50,
+			                y2 : 40
+			           },
+					    calculable : true,
+					    xAxis : [
+					        {
+					            type : 'category',
+					            boundaryGap : false,
+					            data : dates
+					        }
+					    ],
+					    yAxis : [
+					        {
+					            type : 'value',
+					            axisLabel : {
+					                formatter: '{value} 元'
+					            }
+					        }
+					    ],
+					    series : [
+					        {
+					            name:'当日收益',
+					            type:'line',
+					            radius : '120%',
+	//          				center: ['50%', '50%'],
+					            symbol : 'none',
+					            smooth : true,
+					            data:data,
+	
+					            markLine : {
+					                data : [
+					                    {type : 'average', name: '平均值'}
+					                ]
+					            }
+					        }
+					    ]
+					};
+					ChartM.setOption(option);
+        		}
+				
+	        }
+	   );
+	}
+		
+		
+
+
+		
+	</script>
+</html>

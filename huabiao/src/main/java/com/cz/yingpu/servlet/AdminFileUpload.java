@@ -32,11 +32,10 @@ public class AdminFileUpload extends HttpServlet {
 
 	//前端自定义文件目录
 	public static final String filepathdir = "filepathdir";
-	
 	//保存文件的文件夹名称
 	public static final String uploadDirName="upload";
 	//public static final String realpath="/webdata/app/images/";
-	public static final String realpath="D:\\work\\apache-tomcat-8.5.30\\webapps\\";
+	public static final String realpath="D:\\git\\.metadata\\.me_tcat7\\webapps\\";
 	public static final String realfilepath= realpath+uploadDirName;
 	//http地址
 	//public static final String httppath="http://39.106.27.146:22222/images/";

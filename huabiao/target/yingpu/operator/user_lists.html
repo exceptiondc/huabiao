@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name = "format-detection" content = "telephone=no">
+		<title>营普金服查询系统</title>
+		<link rel="stylesheet" href="weui/weui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/user_list.css"/>
+		<!--<link rel="stylesheet" type="text/css" href="../../../../css/reset.css"/>-->
+		<!--<link rel="stylesheet" type="text/css" href="css/query_system.css"/>-->
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			
+			
+		</style>
+	</head>
+	<body ontouchstart>
+		<div class="header">
+			<a href="javascript:void(0)" id="backLink">
+				<span class="go-back"></span>
+			</a>
+			<h4>用户列表</h4>
+		</div>
+		<div class="tab">
+			<ul class="weui_cell menu" id="menu">
+				<li class="active" type="1">直接邀请人<span class="dm" style="display: block;" ></span></li>
+				<li type="2">间接邀请人<span class="dm"></span></li>
+				<li type="3">已投资用户<span class="dm"></span></li>
+				<li type="4">未实名用户<span class="dm"></span></li>
+			</ul>
+		</div>
+		<div class="weui_cells " style="margin-top: 0;" id="info">
+			
+<!-- 			
+			<div class="weui_cell list" >
+				<div class="weui_cell_hd pic" style="position: relative;margin-right: 10px;">
+					<img src="img/photo.png"/>
+				</div>
+				<div class="weui_cell_bd">
+					<div class="yongjin">
+						<span class="phone">15229074105</span>
+						<span class="money">佣金：<i>3.2</i>元</span>
+					</div>
+					<table border="0" cellspacing="" cellpadding="">
+						<tr><td>投资金额：100000元</td></tr>
+						<tr><td>期限：1个月</td></tr>
+						<tr><td>日期：2017-12-1 13:32:20</td></tr>
+					</table>
+				</div>
+				
+			</div>
+		 -->
+				
+		
+		</div>
+	</body>
+	<script src="../layer-v3.0.3/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../pc/js/utils.js"></script>
+	<script type="text/javascript">
+		window.onload=function(){
+			$("#backLink").click(function(event) {
+			    event.preventDefault();
+			    history.back(1);
+			});
+			
+			
+			curType = '';
+			var $li = $('#menu li');
+				var $item = $('#content .item');
+							
+				$li.click(function(){
+					pageIndex = 1;
+					var $this = $(this);
+					var $t = $this.index();
+					$li.removeClass();
+					$li.find(".dm").hide();
+					$this.addClass('active');
+					$this.find(".dm").show();
+					$item.css('display','none');
+					$item.eq($t).css('display','block');
+
+					loadList(curType = $this.attr('type'));
+				});
+				loadList(1);
+		}
+		
+		
+
+
+			function loadList(type){
+				layer.load(2);
+				$.post('../operator/findUserRecommend/json',{type:type, pageIndex : pageIndex++},function(data){
+					layer.closeAll();
+					var dat=data;
+
+				/*	pageIndex = pageIndex
+					pageCount = data.page.pageCount;
+					pageSize=data.page.pageSize;*/
+					data=data.data;
+					var html='';
+				if(data==undefined||data.length<=0){
+					$('#info').empty();
+					$('#info').append('<h3 aligin="center" style="text-align: center;">暂无记录</h3>');
+					/*generatePaginationNav(pageIndex, dat.page.pageCount, '#page-nav-btn');*/
+					return false;
+				}
+					$.each(data,function(i,o){
+						html+='<div class="weui_cell list" >';
+						html+='	<div class="weui_cell_hd pic" style="position: relative;margin-right: 10px;">';
+						html+='<img src="'+(o.header == undefined ? '0' : o.header)+'"/>';
+						html+='</div>';
+						html+='<div class="weui_cell_bd">';
+						html+='<div class="yongjin">';
+						html+='	<span class="phone">'+o.phone+'</span>';
+					/*	html+='<span class="money">佣金：<i>3.2</i>元</span';*/
+						html+='</div><table border="0" cellspacing="" cellpadding="">';
+						html+='	<tr><td>投资金额：'+(o.nowInvestAmount==undefined ? '0' :o.nowInvestAmount)+'元</td></tr>';
+						/*html+='<tr><td>期限：1个月</td></tr>';*/
+						html+='<tr><td>日期：'+o.dateline+'</td></tr>';
+						html+='</table></div></div>';
+			
+					});
+					
+					
+					
+				$('#info').empty();
+				$('#info').append(html);	
+			//	generatePaginationNav(pageIndex, dat.page.pageCount, '#page-nav-btn');					
+									
+								
+ 
+				});
+			}
+	</script>
+</html>

@@ -1,0 +1,152 @@
+.main-container{
+	width: 100%;
+	overflow: hidden;
+}
+
+.banner{
+	width: 100%;
+	height: 450px;
+}
+.banner.about{
+	background: url(../img/about-banner.jpg) no-repeat center;
+}
+
+.main-container .content{
+	margin: 110px auto;
+}
+.content h3{
+	text-align: center;
+	font-size: 26px;
+	color: #181818;
+	font-weight: 400;
+}
+.content .line{
+	width: 32px;
+	height: 4px;
+	margin: 50px auto;
+	background: rgb(255,192,1);
+}
+.content p.des{
+	/*width: 1136px;
+	overflow: hidden;
+	margin: 0 auto 60px;
+	font-size: 16px;
+	color: rgb(137,137,137);
+	line-height: 32px;
+	text-align: center;	*/
+}
+.content .about-pic{
+	width: 946px;
+	margin: 60px auto 110px; 
+}
+.content .about-pic .pic{
+	width: 454px;
+    height: 251px;
+    overflow: hidden;	
+}
+/*.content .case-pic .large:hover{
+	width: 396px;
+	height: 571px;	
+	border: 1px solid #000;
+}*/
+.content .about-pic .pic img{
+	width: 100%;
+	height: 100%;
+	/*box-sizing: content-box;*/
+}
+
+.contactUs{
+	width: 100%;	
+}
+.contactUs li{
+	width: 33.3%;
+	text-align: center;
+	float: left;
+}
+.contactUs li img{
+	margin-bottom: 50px;
+}
+.contactUs li p{
+	color: rgb(35, 40, 47);
+    font-size: 16px;
+}
+.map{
+	width: 1190px;
+	height: 388px;
+	margin-top: 100px;
+}
+
+.com-intro{
+	width: 100%;
+	overflow: hidden;
+}
+.com-intro ul li{
+	float: left;
+    width: 276px;
+    height: 512px;
+    padding: 180px 61px 90px;
+    text-align: center;
+}
+.com-intro ul li.profile{
+	background: url(../img/about-2.1.png) no-repeat center;
+}
+.com-intro ul li.philosophy{
+	background: url(../img/about-2.2.png) no-repeat center;
+}
+.com-intro ul li.value{
+	background: url(../img/about-2.3.png) no-repeat center;
+}
+.com-intro ul li p.tit-en{
+	font-size: 30px;
+	color: #ffe303;	
+}
+.com-intro ul li p{
+	color: #dedede;
+}
+.com-intro ul li p.tit-cn{
+	font-size: 18px;
+	height: 64px;
+	line-height: 64px;
+	color: #dedede;
+}
+
+.com-intro ul li.philosophy p{
+	color: #3b3b3b;
+}
+
+.com-intro ul li p.des{
+	width: 276px;
+	overflow: hidden;
+    line-height: 24px;
+    font-size: 14px;
+    text-align: justify;
+    margin-top: 11px;
+}
+
+.com-intro ul li a.case{
+	display: block;
+    /* padding: 10px 20px; */
+    width: 162px;
+    height: 46px;
+    background: #2d2d2d;
+    line-height: 46px;
+    margin: 158px auto;
+    color: #ffe303;
+    font-size: 18px;
+}
+
+.com-team{
+	width: 100%;
+	height: 600px;
+	background: #f7f7f7;
+	margin: 60px auto;
+	padding-top: 2px;
+}
+
+.swiper-container{
+	height: 418px;
+    margin-top: 86px;
+}
+.swiper-container .swiper-slide{
+	text-align: center;
+}

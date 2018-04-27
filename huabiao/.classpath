@@ -35,8 +35,7 @@
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/alipay-sdk-java20170411150054.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/aliyun-java-sdk-core-3.3.1.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/aliyun-java-sdk-dysmsapi-1.0.0.jar"/>
-	<classpathentry kind="con" path="melibrary.com.genuitec.eclipse.j2eedt.core.MYECLIPSE_JAVAEE_6_CONTAINER"/>
 	<classpathentry kind="con" path="com.genuitec.runtime.library/com.genuitec.generic_6.0"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8.0_171"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
 	<classpathentry kind="output" path="src/main/webapp/WEB-INF/classes"/>
 </classpath>

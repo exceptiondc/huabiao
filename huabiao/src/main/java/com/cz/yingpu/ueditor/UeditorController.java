@@ -76,8 +76,8 @@ public class UeditorController extends BaseController {
        	
        	//主配置,使用类直接处理,没有使用配置config.json文件,请根据实际要求处理
 //    	UeditorConfig config=new UeditorConfig(path+fileuploadpath);
-    	UeditorConfig config=new UeditorConfig("http://114.215.130.18:22222/yingpu/"+fileuploadpath );
-
+    //	UeditorConfig config=new UeditorConfig("http://114.215.130.18:22222/yingpu/"+fileuploadpath );
+       	UeditorConfig config=new UeditorConfig("http://192.168.0.187:8080/"+fileuploadpath );
     	Object obj=null;
     	
     	if("config".equals(action)){
@@ -106,25 +106,16 @@ public class UeditorController extends BaseController {
     	}else{
     		return getResultMap(false);
     	}
-    	
-    	
-    	
     	String callbackName = request.getParameter("callback");
-    	
     	if(StringUtils.isBlank(callbackName)){
     		return obj;
     	}
-    	
     	callbackName=URLEncoder.encode(callbackName,"UTF-8");
-    	
     	if(!validCallbackName(callbackName)){
     		return obj;
     	}
-    	
-    	
         return  callbackName+"("+JsonUtils.writeValueAsString(obj)+");";
     }
-    
     /**
      * 上传图片和文件
      * @param request
@@ -158,7 +149,9 @@ public class UeditorController extends BaseController {
         String fileName = FileUtils.reSetFileName(suffix);
         System.out.println("======"+GlobalStatic.rootDir+fileuploadpath+fileName+"=====");
     	//保存到文件
-		String tempDir="/webdata/app/yingpu/"+fileuploadpath+fileName;
+		//String tempDir="/webdata/app/yingpu/"+fileuploadpath+fileName;
+		
+		String tempDir="D:\\git\\.metadata\\.me_tcat7\\webapps\\"+fileuploadpath+fileName;
        // upload(file, GlobalStatic.rootDir+fileuploadpath+fileName);
 		upload(file, tempDir);
         

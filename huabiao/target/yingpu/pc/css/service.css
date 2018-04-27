@@ -1,0 +1,52 @@
+
+
+.banner.service{
+	background: url(../img/service-banner.jpg) no-repeat center;
+}
+
+.content{
+	width: 100%;
+	margin: 110px auto;
+	
+}
+.content ul li{
+	margin-bottom: 90px;
+}
+.content ul li .pic{
+	width: 532px;
+	height: 324px;
+	overflow: hidden;
+}
+.content ul li .pic img{
+	width: 100%;
+	height: 100%;
+}
+.content ul li .text{
+	width: 628px;
+	margin-left: 40px;
+	color: #818181;
+	font-size: 16px;
+}
+.content ul li .text h3{
+	line-height: 36px;
+	font-size: 26px;
+	color: #000;
+	font-weight: normal;
+	margin-top: 48px;
+}
+.content ul li .text span{
+	color: #a1a1a1;
+	font-size: 26px;
+	line-height: 36px;
+}
+.content ul li .text p{
+	margin-top: 40px;
+    line-height: 28px;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    /* white-space: nowrap; */
+    text-overflow: ellipsis;
+    overflow: hidden;
+}

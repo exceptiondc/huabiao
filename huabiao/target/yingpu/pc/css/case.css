@@ -1,0 +1,177 @@
+.main-container{
+	width: 100%;
+	overflow: hidden;
+}
+
+.banner{
+	width: 100%;
+	height: 450px;
+}
+.banner.case{
+	background: url(../img/case-banner.jpg) no-repeat center;
+}
+
+.content{
+	margin: 84px auto;
+}
+.content h3{
+	text-align: center;
+	font-size: 26px;
+	color: #181818;
+	font-weight: 400;
+}
+.content .line{
+	width: 32px;
+	height: 4px;
+	margin: 60px auto;
+	background: rgb(255,192,1);
+}
+.content p.des{
+	width: 1136px;
+	overflow: hidden;
+	margin: 0 auto 60px;
+	font-size: 16px;
+	color: rgb(137,137,137);
+	line-height: 32px;
+	text-align: center;	
+}
+.content .case-pic{
+	width: 99%;
+	height: 573px;
+}
+.content .case-pic img{
+	cursor: pointer;
+}
+.content .case-pic .large{
+	width: 398px;
+    height: 573px;
+    margin-left: 4px;
+    overflow: hidden;	
+}
+/*.content .case-pic .large:hover{
+	width: 396px;
+	height: 571px;	
+	border: 1px solid #000;
+}*/
+.content .case-pic .large img{
+	width: 100%;
+	height: 100%;
+	/*box-sizing: content-box;*/
+}
+.content .case-pic img:hover{
+	
+}
+.content .case-pic  ul{
+	width: 778px;
+}
+.content .case-pic .small  ul li{
+	display: inline-block;
+	width: 369px;
+	height: 279px;
+	margin-right: 16px;
+	margin-bottom: 16px;
+	 overflow: hidden;	
+}
+/*.content .case-pic .small ul li:hover{
+	width: 367px;
+	height: 277px;
+	border: 1px solid #000;
+}*/
+.content .case-pic .small  ul li img{
+	width: 100%;
+	height: 100%;
+}
+.content .case-pic img.transition3{
+	transition: all 1s;
+}
+.content .case-pic .large:hover img,.content .case-pic .small  ul li:hover img{
+	transform: scale(1.1);
+}
+
+
+/**/
+.case-team{
+	margin: 160px auto;
+}
+.case-team .title{
+	width: 446px;
+	margin-top: 0px;
+}
+.case-team .title p{
+	line-height: 36px;
+	font-size: 16px;
+	color: rgb(142,142,142);
+}
+.case-team .title h3{
+	text-align: left;
+	line-height: 34px;
+}
+.case-team .text{
+	width: 704px;
+	margin-left: 30px;
+	overflow: hidden;
+}
+.case-team .text p{
+	font-size: 16px;
+	line-height: 34px;
+	color: rgb(142,142,142);
+}
+
+/*case-banner*/
+.case-banner{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: rgba(0,0,0,1);
+}
+.platform-intro .style{
+	margin-top: 100px;
+}
+
+.poster-main {
+  width: 1000px;
+  height: 500px;
+  position: fixed;
+ top: 50%;
+ left: 50%;
+ margin-top: -250px;
+ margin-left: -600px;
+}
+.poster-main a, .poster-main img { display: block; width: 100%;height: 100%;}
+.poster-main .poster-list {
+  width: 1000px;
+  height: 480px;
+}
+.poster-main .poster-list .poster-item {
+  width: 200px;
+  height: 480px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border: 10px solid #fff;
+}
+.poster-main .poster-btn {
+  position: absolute;
+  top: 0;
+  z-index: 10;
+  cursor: pointer;
+}
+.poster-main .poster-prev-btn {
+  left: -120px;
+  background: url(../img/images/btn-left_04.png) no-repeat left center;
+}
+.poster-main .poster-next-btn {
+ 	right: -120px;
+    background: url(../img/images/btn-right_02.png) no-repeat right center;
+}
+
+.poster-main .close{
+	width: 32px;
+	height: 32px;
+	position: absolute;
+	top: -100px;
+	right: -100px;
+	background: url(../img/btn_close.png) no-repeat center;
+}

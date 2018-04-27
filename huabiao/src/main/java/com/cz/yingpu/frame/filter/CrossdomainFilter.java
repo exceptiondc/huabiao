@@ -26,7 +26,6 @@ public class CrossdomainFilter implements Filter{
 		 response1.setHeader("Access-Control-Allow-Origin", "*");
 		 chain.doFilter(request, response);
 	}
-
 	@Override
 	public void destroy() {
 		// TODO Auto-generated method stub

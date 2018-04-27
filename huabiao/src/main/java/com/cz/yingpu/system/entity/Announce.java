@@ -197,9 +197,44 @@ public class Announce  extends BaseEntity {
 	}
 	
 	
+	private String salary;
+	private String experience;
+	private String education;
+	private String zjr;
 
+	 @WhereSQL(sql="salary=:salary")
+	public String getSalary() {
+		return salary;
+	}
 
-	
+	public void setSalary(String salary) {
+		this.salary = salary;
+	}
+	@WhereSQL(sql="experience=:experience")
+	public String getExperience() {
+		return experience;
+	}
+
+	public void setExperience(String experience) {
+		this.experience = experience;
+	}
+	@WhereSQL(sql="education=:education")
+	public String getEducation() {
+		return education;
+	}
+
+	public void setEducation(String education) {
+		this.education = education;
+	}
+	@WhereSQL(sql="zjr=:zjr")
+	public String getZjr() {
+		return zjr;
+	}
+
+	public void setZjr(String zjr) {
+		this.zjr = zjr;
+	}
+
 	@Override
 	public String toString() {
 		return new StringBuffer()
@@ -211,14 +246,12 @@ public class Announce  extends BaseEntity {
 			.append("时间[").append(getCreateTime()).append("],")
 			.toString();
 	}
-	
 	@Override
 	public int hashCode() {
 		return new HashCodeBuilder()
 			.append(getId())
 			.toHashCode();
 	}
-	
 	@Override
 	public boolean equals(Object obj) {
 		if(obj instanceof Announce == false) return false;

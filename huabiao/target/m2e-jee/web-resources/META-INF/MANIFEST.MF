@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Implementation-Title: yingpu
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.cz
+Build-Jdk: 1.7.0_45
+Built-By: Administrator
+Build-Version: 0.0.1-SNAPSHOT-${maven.build.timestamp}
+Created-By: Maven Integration for Eclipse
+Specification-Title: yingpu
+Implementation-URL: http://git.oschina.net/chunanyong/yingpu
+Specification-Version: 0.0.1-SNAPSHOT
+

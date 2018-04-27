@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title>简单路径</title>
+    <style>
+    html,
+    body,
+    #container {
+        width: 100%;
+        height: 100%;
+        margin: 0px;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="container"></div>
+    <script type="text/javascript" src='//webapi.amap.com/maps?v=1.4.2&key=9a9188b05963231144f10ac8975902a8'></script>
+    <!-- UI组件库 1.0 -->
+    <script src="//webapi.amap.com/ui/1.0/main.js?v=1.0.11"></script>
+    <script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>
+    <script type="text/javascript">
+    //创建地图
+    var map = new AMap.Map('container', {
+        zoom: 4
+    }),
+    
+    gCitys = ['上海', '苏州', '南京', '合肥', '武汉', '宜昌', '重庆', '成都'];
+    gCityLocations = {
+        '上海' : {"N":31.230416,"L":121.473701,"lng":121.473701,"lat":31.230416},
+        '苏州' : {"N":31.298886,"L":120.58531499999998,"lng":120.585315,"lat":31.298886},
+        '南京' : {"N":32.060255,"L":118.796877,"lng":118.796877,"lat":32.060255},
+        '合肥' : {"N":31.820586,"L":117.227239,"lng":117.227239,"lat":31.820586},
+        '武汉' : {"N":30.593098,"L":114.30539199999998,"lng":114.305392,"lat":30.593098},
+        '宜昌' : {"N":30.691967,"L":111.286471,"lng":111.286471,"lat":30.691967},
+        '重庆' : {"N":29.563009,"L":106.551556,"lng":106.551556,"lat":29.563009},
+        '成都' : {"N":30.572269,"L":104.06654100000003,"lng":104.066541,"lat":30.572269}
+    },
+    gDistance = [];
+    
+    gLocations = [
+		[
+		    [121.473701, 31.230416],
+		    [120.882302,31.374973]
+		],
+	    
+		[
+		    [120.585315,31.298886],
+		    [119.617845,31.969866],
+		    [119.455796,32.218837],
+		    [119.038316,32.156077]
+		],
+	    
+		[
+		    [118.796877,32.060255],
+		    [118.653794,32.156077],
+		    [118.486253,32.053708],
+		    [118.414842,32.063019],
+		    [117.448045,31.841627]
+		],
+	    
+		[
+		    [117.227239,31.820586],
+		    [116.426316,31.687504],
+		    [116.030809,31.626719],
+		    [115.45952,31.279954],
+		    [114.338914,30.908346]
+		],
+	    
+		[
+		    [114.305392,30.593098],
+		    [113.47698,30.411773]
+	    ],
+	
+	    [
+		    [111.286471,30.691967],
+		    [110.118947,30.637127],
+		    [109.470754,30.215567],
+		    [109.242787,30.179959],
+		    [108.679738,30.246417],
+		    [107.883229,29.987454]
+		],
+		
+		[
+		    [106.551556,29.563009],
+		    [105.893473,29.373465],
+		    [105.291972,29.458399],
+		    [104.851145,29.809336],
+		    [104.48997,30.371361]
+		],
+	    
+		[
+		    [104.066541,30.572269]
+		]
+    ];
+    
+    
+    function addMarker(i, d) {
+        var marker = new AMap.Marker({
+            map: map,
+            position: [ d[0],  d[1] ]
+        });
+        var infoWindow = new AMap.InfoWindow({
+            content: d.formattedAddress,
+            offset: {x: 0, y: -30}
+        });
+        marker.on("mouseover", function(e) {
+            infoWindow.open(map, marker.getPosition()); 
+        });	
+    }
+    
+    
+ 	// 计算距离
+	var computeDistances = function() {
+		for (var i = 0; i < gLocations.length - 1; i++) {
+			var locations = gLocations[i];
+			var lnglat, distance = i != 0 ? gDistance[i - 1] : 0;
+			for (var j = 0; j < locations.length; j++) {
+				var location = locations[j];
+				lnglat = new AMap.LngLat(location[0], location[1]);
+				if (j + 1 <= locations.length - 1) {
+					distance += lnglat.distance(locations[j + 1]);
+				}
+			}
+
+			distance += lnglat.distance(gLocations[i + 1][0]);
+			gDistance[i] = distance;
+		}
+	};    
+	
+	// 获取城市路线
+	var getPath = function() {
+        var paths = [];
+        for (var key in gLocations) {
+        	var locations = gLocations[key];
+        	for (var j in locations) {
+        		var location = locations[j];
+	        	paths.push([location[0], location[1]]);
+        	}
+        }
+		
+        return paths;
+	};
+	
+	// 比例尺
+	map.plugin(["AMap.Scale"],function(){
+	    var scale = new AMap.Scale({position: 'RB'});
+	    map.addControl(scale);
+	});
+	
+	/* map.plugin(["AMap.MapType"],function(){
+	    //地图类型切换
+	    var type= new AMap.MapType({
+	    	defaultType:0 //使用2D地图
+	    });
+	    map.addControl(type);
+	}); */
+	
+	
+	
+	/* map.plugin(["AMap.ControlBar"],function(){
+	    var controlBar = new AMap.ControlBar({
+	    	showZoomBar: true,
+	    	showControlButton : true
+	    });
+	    map.addControl(controlBar)
+	}); */
+	
+	var infoWindow;
+	function onReachCity(nav, idx, city) {
+		infoWindow = new AMap.InfoWindow({
+	        isCustom: false,
+	        content: '欢迎来到' + city
+	    });
+		
+		var pos = gCityLocations[city];
+	    infoWindow.open(map, new AMap.LngLat(pos.lng, pos.lat));
+	}
+
+
+    AMapUI.load(['ui/misc/PathSimplifier', 'lib/$'], function(PathSimplifier, $) {
+        if (!PathSimplifier.supportCanvas) {
+            alert('当前环境不支持 Canvas！');
+            return;
+        }
+
+        var pathSimplifierIns = new PathSimplifier({
+        	
+            zIndex: 100,
+			
+            map: map, //所属的地图实例
+
+            getPath: function(pathData, pathIndex) {
+                return pathData.path;
+            },
+            
+            getHoverTitle: function(pathData, pathIndex, pointIndex) {
+                if (pointIndex >= 0) {
+                    return pathData.name + '，点：' + pointIndex + '/' + pathData.path.length;
+                }
+
+                return pathData.name + '，点数量' + pathData.path.length;
+            },
+            
+            renderOptions: {
+            	pathTolerance : 0,
+            	keyPointTolerance : -1,
+                renderAllPointsIfNumberBelow: 1000 			//绘制路线节点，如不需要可设置为-1
+            }
+        });
+
+        window.pathSimplifierIns = pathSimplifierIns;
+
+        
+		// 设置数据
+        pathSimplifierIns.setData([{
+            name: '',
+            path: getPath()
+        }]);
+
+		//对第一条线路（即索引 0）创建一个巡航器
+        var navg1 = pathSimplifierIns.createPathNavigator(0, {
+            loop: false, 		//循环播放
+            speed: 100000,		//巡航速度，单位千米/小时
+            pathNavigatorStyle : {
+                width: 32,
+                height: 32,
+                content: PathSimplifier.Render.Canvas.getImageContent('http://192.168.1.254:8080/jaxwebsite/pc/hj.jpg', onload, onerror),
+            }
+        });
+       
+		computeDistances();
+		navg1.start();
+		window.navg1 = navg1;
+		navg1.moveByDistance()
+		
+		var pointIndex = 0;
+		navg1.on('move', function(e) {
+			var distance = navg1.getMovedDistance();
+			if (distance >= gDistance[pointIndex]) {
+ 				navg1.pause();
+ 				setTimeout(function() {
+ 					infoWindow.close();
+ 					navg1.resume();
+ 				}, 1000);
+				pointIndex++;
+				onReachCity && onReachCity(navg1, pointIndex, gCitys[pointIndex]);
+			}
+	    });
+    });
+    </script>
+</body>
+
+</html>

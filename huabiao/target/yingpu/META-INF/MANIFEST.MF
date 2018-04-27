@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: yingpu
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: X
+Specification-Title: yingpu
+Implementation-Vendor-Id: com.cz
+Created-By: IntelliJ IDEA
+Build-Jdk: 1.8.0_131
+Specification-Version: 0.0.1-SNAPSHOT
+Build-Version: 0.0.1-SNAPSHOT-2018-01-04T03:19:56Z
+

@@ -110,8 +110,8 @@ public class AnnounceController  extends BaseController {
 		// ==构造分页请求
 		Page page = newPage(request);
 //		page.setPageSize(8);
-		page.setOrder("`weight`DESC,`postTime`DESC");
-		page.setSort("`postTime`DESC");
+	/*	page.setOrder("`weight`DESC,`postTime`DESC");
+		page.setSort("`postTime`DESC");*/
 		// ==执行分页查询
 		List<Announce> datas=announceService.findListDataByFinder(null,page,Announce.class,announce);
 			returnObject.setQueryBean(announce);

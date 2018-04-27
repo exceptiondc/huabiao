@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name = "format-detection" content = "telephone=no">
+		<title>营普金服查询系统</title>
+		<link rel="stylesheet" href="weui/weui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/withdraw_records.css"/>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../pc/js/utils.js"></script>
+		<style type="text/css">
+			
+		</style>
+	</head>
+	<body ontouchstart>
+		<div class="header">
+			<a href="javascript:void(0)" id="backLink">
+				<span class="go-back"></span>
+			</a>
+			<h4>提现记录</h4>
+		</div>
+		<div class="weui_cells" id="record">
+			<!--通过-->
+
+			<!--<div class="weui_cell pass" >
+				<div class="weui_cell_hd pic" style="position: relative;margin-right: 10px;">
+					<img src="img/icon-pass.png"/>
+				</div>
+				<div class="weui_cell_bd list">
+					<div class="yongjin commission">
+						<span class="item">通过</span>
+						<span class="money">佣金：<i>3.2</i>元</span>
+					</div>
+					<div class="des">
+						<span class="time">2017-12-1 13:32:20</span>
+						<span class="state">已转账</span>
+					</div>
+				</div>
+			</div>-->
+
+			
+				
+				
+		</div>
+		
+		
+		
+		
+		
+		
+	</body>
+	<!--<script src="./zepto.min.js"></script>
+    <script src="./example.js"></script>-->
+    <script src="../layer-v3.0.3/layer/layer.js"></script>
+    <script type="text/x-tpl" id="tpl">
+			<div class="weui_cell $statusCode" >
+				<div class="weui_cell_hd pic" style="position: relative;margin-right: 10px;">
+					<img src="img/icon-$statusCode.png"/>
+					
+				</div>
+				<div class="weui_cell_bd list">
+					<div class="yongjin">
+						<span class="item">$statusDesc</span>
+						<span class="money"><i>$commission</i>元</span>
+					</div>
+					<div class="des">
+						<span class="time">$createTime</span>
+						<span class="state" onclick="showReason($id)">$statusExpression</span>
+					</div>
+				</div>
+			</div>
+	</script>
+    
+	<script type="text/javascript">
+		var user = JSON.parse(sessionStorage.user || '{}'),
+			gData = {};
+		$(function(){
+			$("#backLink").click(function(event) {
+			    event.preventDefault();
+			    history.back(1);
+			});
+			
+			loadList();
+		});
+		
+		
+		function showReason(id) {
+			console.log(id);
+			if (gData[id].status == 2) {
+				layer.open({ title: '驳回原因', content :  gData[id].rejectreason });
+			}
+		}
+		
+		onLoadMore = loadList;
+		function loadList(type){
+				layer.load(2);
+				$.post('../operator/withdraw/list/json', { userid : user.id, pageIndex : pageIndex++ },function(data){
+					loadComplete(data.page.hasNext);
+					layer.closeAll();
+					var d = data,
+						tpl = $('#tpl').html();
+
+					$.each(d.data,function(i,o) {
+						o.status--;
+						gData[o.id] = o;;
+						$('#record').append(tpl.formatStr({
+							id : o.id,
+							statusCode : ['wait', 'pass', 'reject'][o.status],
+							statusDesc : ['待审', '通过', '驳回'][o.status],
+							statusExpression : ['请求审核中', '已转账', '查看原因'][o.status],
+							commission : o.amount,
+							createTime : o.createTime
+						}));
+					});
+					
+					$('#record').hide().fadeIn('slow');
+
+				/*	pageIndex = pageIndex
+					pageCount = data.page.pageCount;
+					pageSize=data.page.pageSize;
+					data=data.data;
+					var html='';
+				if(data==undefined||data.length<=0){
+					$('#record').empty();
+					$('#record').append('<h3 aligin="center" style="text-align: center;">暂无记录</h3>');
+					generatePaginationNav(pageIndex, dat.page.pageCount, '#page-nav-btn');
+					return false;
+				}
+				$.each(data,function(i,o){
+					html+='<div class="weui_cell'+ 状态的class+">';
+					html+='	<div class="weui_cell_hd pic" style="position: relative;margin-right: 10px;">';
+					html+='<img src="'+状态的icon+'"/>';
+					html+='</div>';
+					html+='<div class="weui_cell_bd list">';
+					html+='<div class="yongjin">';
+					html+='	<span class="item">'+状态+'</span>';
+					html+='	<span class="phone">'+o.phone+'</span>';
+					html+='<span class="money">佣金：<i>3.2</i>元</span';
+					html+='</div><div class="des">';
+					html+='	<span class="time">'+o.dateline+'</span>';
+					html+='<span class="state">'+状态的描述+'</span>';
+					html+='</div></div></div>';
+				});
+				$('#record').empty();
+				$('#record').append(html);	
+			//	generatePaginationNav(pageIndex, dat.page.pageCount, '#page-nav-btn');					
+			*/
+				});
+				
+				
+			}
+		
+		
+	</script>
+</html>

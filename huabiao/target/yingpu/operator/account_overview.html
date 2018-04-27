@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>营普金服查询系统</title>
+		<link rel="stylesheet" href="weui/weui.min.css"/>
+		<!--<link rel="stylesheet" type="text/css" href="../../../../css/reset.css"/>-->
+		<!--<link rel="stylesheet" type="text/css" href="css/query_system.css"/>-->
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			html{
+				font-size: 62.5%;
+			}
+			body{
+				background: #f5f5f9;
+				position: relative;	
+			}
+			.header{
+				width: 100%;
+				/*height: 190px;*/
+				background: #5ea0fb;
+				text-align: center;
+				padding: 1px 0;
+			}
+			.header h4{
+				font-size: 1.7rem;
+				font-weight: normal;
+				color: #fff;
+				height: 44px;
+				line-height: 44px;
+			}
+			.header .money{
+				margin:4.0rem auto 4.8rem;
+			}
+			.header .money p:nth-child(1){
+				font-size: 1.5rem;
+				color: #fff;
+			}
+			.header .money p:nth-child(1) .icon-t{
+				display: inline-block;
+				width: 26px;
+				height: 29px;
+				background: url(img/icon-money.png) no-repeat center;
+				background-size: 52%;
+				vertical-align: -9px;
+				/*margin-right: 5px;*/
+			}
+			.header .money p:nth-child(2){
+				font-size: 3.5rem;
+				color: #fff;
+				line-height: 35px;
+				/*font-weight: 600;*/
+			}
+			.list{
+				margin-top: 0;
+			}
+			.list a{
+				height: 3rem;
+				font-size: 1.5rem;
+				/*color: #fff;*/
+			}
+			.list a.total{
+				background: #7eb3fc;
+				color: #fff;
+			}
+			.list a.total:active{
+				color: #333;
+			}
+			.go-look{
+				border: 1px solid #fff;
+				padding: 2px 4px;
+				/*color: #fff;*/
+			} 
+			
+			.quit{
+				position: absolute;
+				bottom: 20px;
+				width: 90%;
+				margin: 0 auto;
+				left: 50%;
+				margin-left: -45%;
+			}
+			.quit a{
+				background: #FF3B30;
+			}
+			.quit a:active{
+				background: #FF3B30;
+			}
+		</style>
+	</head>
+	<body ontouchstart>
+		<div class="header">
+			<h4>账户总览</h4>
+			<div class="money">
+				<p><span class="icon-t"></span id="today-money-maked">今日赚取(元)</p>
+				<p>0.00</p>
+			</div>
+		</div>
+		<div class="weui_cells weui_cells_access list">
+			<a class="weui_cell total" href="profit_charts.html">
+			    <div class="weui_cell_hd">
+			        <img src="img/icon-total.png" alt="icon" style="width:20px;margin-right:5px;display:block">
+			    </div>
+			    <div class="weui_cell_bd weui_cell_primary">
+			        <p>总赚取金额：<span id="all-money-maked">0.00</span>元</p>
+			    </div>
+			    <div class="go-look">
+			        去查看
+			    </div>
+			</a>
+			<a class="weui_cell" href="user_lists.html">
+			    <div class="weui_cell_hd">
+			        <img src="img/icon-peoson.png" alt="icon" style="width:20px;margin-right:5px;display:block">
+			    </div>
+			    <div class="weui_cell_bd weui_cell_primary">
+			        <p>邀请总人数：<span id="invite-people-number">0</span>人</p>
+			    </div>
+			    <div class="weui_cell_ft">
+			       
+			    </div>
+			</a>
+			<a class="weui_cell" href="withdraw_deposit.html">
+			    <div class="weui_cell_hd">
+			        <img src="img/icon-m-2.png" alt="icon" style="width:20px;margin-right:5px;display:block">
+			    </div>
+			    <div class="weui_cell_bd weui_cell_primary">
+			        <p>可提现金额：<span id="available-withdraw-amount">0.00</span>元</p>
+			    </div>
+			    <div class="weui_cell_ft">
+			       
+			    </div>
+			</a>
+			<a class="weui_cell" href="commission_records.html">
+			    <div class="weui_cell_hd">
+			        <img src="img/yongjin.png" alt="icon" style="width:20px;margin-right:5px;display:block">
+			    </div>
+			    <div class="weui_cell_bd weui_cell_primary">
+			        <p>佣金记录</p>
+			    </div>
+			    <div class="weui_cell_ft">
+			       
+			    </div>
+			</a>
+			<a class="weui_cell" href="commission_rate.html" id="configuration" style="display: none;">
+			    <div class="weui_cell_hd">
+			        <img src="img/config.png" alt="icon" style="width:20px;margin-right:5px;display:block">
+			    </div>
+			    <div class="weui_cell_bd weui_cell_primary">
+			        <p>佣金配置</p>
+			    </div>
+			    <div class="weui_cell_ft">
+			       
+			    </div>
+			</a>
+			<a class="weui_cell" href="recharge.html" id="chuli" style="display:none;">
+			    <div class="weui_cell_hd">
+			        <img src="img/chuli.png" alt="icon" style="width:20px;margin-right:5px;display:block">
+			    </div>
+			    <div class="weui_cell_bd weui_cell_primary">
+			        <p>提现处理</p>
+			    </div>
+			    <div class="weui_cell_ft">
+			       
+			    </div>
+			</a>
+		</div>
+		<div class="weui_btn_area quit" style="">
+			<a href="login.html" class="weui_btn"  style="font-size: 1.5rem;height: 44px;line-height: 44px;">退出登录</a>
+		</div>
+	</body>
+	<!--<script src="./zepto.min.js"></script>
+    <script src="./example.js"></script>-->
+	<script type="text/javascript">
+		$("body").height($(window).height());
+
+		var user = JSON.parse(sessionStorage.user || '{}');
+		$(function() {
+			$('#all-money-maked').html((user.totalcommission || 0).toFixed(2));
+			$('#available-withdraw-amount').html((user.commission || 0).toFixed(2));
+		});
+
+
+		$.post('user/data/count/json', { userid : user.id }, function(d) {
+			if (d.status == 'success') {
+				$('#today-money-maked').html(d.data[0] || '0.00');
+				$('#invite-people-number').html(d.data[1] || '0');
+			}
+		});
+		if(user.phone=='15009261483'){
+			$('#chuli').show();
+			$('#configuration').show();
+		}
+		
+	</script>
+</html>
