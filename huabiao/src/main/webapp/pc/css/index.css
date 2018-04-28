@@ -355,3 +355,11 @@
 #swiper-container2 .swiper-wrapper .swiper-slide {
 	cursor: pointer;
 }
+
+.swiper-button-prev.swiper-button-disabled {
+	background: url('../img/left.png') no-repeat!important;
+}
+
+.swiper-button-next.swiper-button-disabled {
+	background: url('../img/right.png') no-repeat!important;
+}
