@@ -1,5 +1,5 @@
 
-var API = 'http://192.168.0.187:8080/';
+var API = 'http://39.105.70.189/';
 
 var telpHeader = function(){
 	var header = `

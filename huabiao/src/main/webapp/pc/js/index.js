@@ -128,7 +128,15 @@ $(function(){
 
 				$('#swiper-container2 .swiper-wrapper .swiper-slide').click(function(){
              		var newsId = $(this).attr('id');
-             		window.location.href = 'news_details.html?id=' + newsId;
+
+         
+             	//	window.location.href = 'news_details.html?id=' + newsId;
+
+             		if(location.href.indexOf('pc/main')>0){
+						location.href='news_details.html?id=' + newsId;
+						}else{
+						location.href='pc/main/'+'news_details.html?id=' + newsId;
+					}
              	});
         	},
         	error: function (XMLHttpRequest, textStatus, errorThrown) {  

@@ -1,23 +1,10 @@
 package com.cz.yingpu.system.task;
 
-import java.math.BigDecimal;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-
 import javax.annotation.Resource;
 
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import com.cz.yingpu.frame.common.BaseLogger;
-import com.cz.yingpu.frame.util.CalculationUtil;
-import com.cz.yingpu.frame.util.DateUtils;
-import com.cz.yingpu.frame.util.Finder;
-import com.cz.yingpu.system.entity.AppOrders;
-import com.cz.yingpu.system.entity.Hotel;
-import com.cz.yingpu.system.entity.HotelHouse;
-import com.cz.yingpu.system.entity.HotelUser;
 import com.cz.yingpu.system.service.IAppOrdersService;
 
 @Component

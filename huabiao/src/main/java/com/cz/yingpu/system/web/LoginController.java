@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.cz.yingpu.system.service.ISeoService;
 import com.cz.yingpu.system.service.IUserService;
+
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
@@ -26,11 +28,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
 import com.cz.yingpu.frame.controller.BaseController;
 import com.cz.yingpu.frame.shiro.FrameAuthenticationToken;
 import com.cz.yingpu.frame.shiro.ShiroUser;
 import com.cz.yingpu.frame.util.CaptchaUtils;
 import com.cz.yingpu.frame.util.GlobalStatic;
+import com.cz.yingpu.frame.util.ReturnDatas;
+import com.cz.yingpu.system.entity.Seo;
 import com.cz.yingpu.system.entity.User;
 
 @Controller
@@ -38,6 +43,8 @@ public class LoginController extends BaseController  {
 
 	@Resource
 	private IUserService userService;
+	@Resource
+	private ISeoService seoService;
 	/**
 	 * 首页的映射
 	 * @param model
@@ -51,9 +58,12 @@ public class LoginController extends BaseController  {
 		}
 		
 		@RequestMapping(value = "/")
-		public String pcindex() throws Exception {
+		public String pcindex(Model model) throws Exception {
+			 ReturnDatas returnDatas=new ReturnDatas(ReturnDatas.SUCCESS);
+			  Seo seo= 	seoService.findById(1, Seo.class);
+			  returnDatas.setData(seo);
+			  model.addAttribute("data", returnDatas);
 				return "pc/main/index";
-			
 		}
 	
 	/**
