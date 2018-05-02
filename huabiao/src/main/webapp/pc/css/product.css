@@ -152,12 +152,12 @@
 	flex-wrap: wrap;
 }
 
-.group_img ul li img {
+.group_img ul  img {
 	display: block;
 }
 
-.on {
-	transform: rotateY(360deg);
-	transition: 1.5s;
-	transform-style: preserve-3d;
+.swiper-container {
+	margin: 0!important;
+	width: 300px;
+	height: 380px;
 }
