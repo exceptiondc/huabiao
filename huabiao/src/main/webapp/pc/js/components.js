@@ -4,16 +4,16 @@ var API = 'http://192.168.0.187:8080/';
 var telpHeader = function(){
 	var header = `
 			<div class="header_logo">
-				<img src="../img/header_logo.png" width="168px">
+				<img src="/pc/img/header_logo.png" width="168px">
 			</div>
 			<div class="header_nav">
 				<ul>
-					<li><a href="index.html">首页</a></li>
-					<li class="product"><a href="product.html">产品与服务</a></li>
-					<li class="solution_nav"><a href="solution.html">解决方案</a></li>
-					<li class="case_nav"><a href="case.html">成功案例</a></li>
-					<li class="huaNews"><a href="hua_news.html">华事记</a></li>
-					<li class="aboutwe"><a href="aboutwe.html">关于我们</a></li>
+					<li><a href="/">首页</a></li>
+					<li class="product"><a href="javaScript:tiaozhuan('product.html');">产品与服务</a></li>
+					<li class="solution_nav"><a href="javaScript:tiaozhuan('solution.html');">解决方案</a></li>
+					<li class="case_nav"><a href="javaScript:tiaozhuan('case.html');">成功案例</a></li>
+					<li class="huaNews"><a href="javaScript:tiaozhuan('hua_news.html');">华事记</a></li>
+					<li class="aboutwe"><a href="javaScript:tiaozhuan('aboutwe.html');">关于我们</a></li>
 				</ul>
 			</div>`
 	return header;
@@ -31,9 +31,9 @@ var telpFooter = function(){
 								<p>029-<span>81108865</span></p>
 							</div>
 							<div class="code">
-								<a class="code_img" href="#"><img src="../img/code.png"></a>
-								<a class="qq" href="#"><img src="../img/qq.png"></a>
-								<a class="mail" href="#"><img src="../img/mail.png"></a>
+								<a class="code_img" href="#"><img src="/pc/img/code.png"></a>
+								<a class="qq" href="#"><img src="/pc/img/qq.png"></a>
+								<a class="mail" href="#"><img src="/pc/img/mail.png"></a>
 							</div>
 						</div>
 					</div>`
@@ -63,3 +63,11 @@ $(function(){
 	});
 
 });
+
+function tiaozhuan(url){
+	if(location.href.indexOf('pc/main')>0){
+		location.href=url;
+	}else{
+		location.href='pc/main/'+url;
+	}
+}

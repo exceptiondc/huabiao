@@ -34,12 +34,12 @@ public class AdminFileUpload extends HttpServlet {
 	public static final String filepathdir = "filepathdir";
 	//保存文件的文件夹名称
 	public static final String uploadDirName="upload";
-	//public static final String realpath="/webdata/app/images/";
-	public static final String realpath="D:\\git\\.metadata\\.me_tcat7\\webapps\\";
+	public static final String realpath="/webdata/images/";
+//	public static final String realpath="D:\\git\\.metadata\\.me_tcat7\\webapps\\";
 	public static final String realfilepath= realpath+uploadDirName;
 	//http地址
-	//public static final String httppath="http://39.106.27.146:22222/images/";
-	public static final String httppath="http://192.168.0.187:8080/";
+	public static final String httppath="http://39.105.70.189:22222/images/";
+	//public static final String httppath="http://192.168.0.187:8080/";
 	public static final String httpfilepath=httppath+uploadDirName;
 	//callback的url的key
 	public static final String callbackurlName="callbackurl";

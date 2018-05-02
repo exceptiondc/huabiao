@@ -27,5 +27,4 @@ import com.cz.yingpu.system.service.BaseSpringrainServiceImpl;
 @Service("hotelService")
 public class HotelServiceImpl extends BaseSpringrainServiceImpl implements IBaseService {
 
-
 }

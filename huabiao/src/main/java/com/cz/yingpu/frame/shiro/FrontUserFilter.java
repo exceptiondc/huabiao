@@ -15,7 +15,8 @@ public class FrontUserFilter extends UserFilter {
 	
 	public FrontUserFilter(){
 		//跳转到登录界面
-		super.setLoginUrl("/login");
+		System.out.println(">>>>>>>>>>>>>>>");
+		super.setLoginUrl("/main/index");
 	}
 
 }

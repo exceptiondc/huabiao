@@ -6,7 +6,7 @@ $(function(){
 	var imgUrl = "";
 	$('.programme_item ul li').hover(function(){
 		$(this).css({
-			'background': 'url(../img/org_bg.png) no-repeat',
+			'background': 'url(/pc/img/org_bg.png) no-repeat',
 			'box-shadow': '10px 0px 24px rgba(255,168,0,0.4)'
 		});
 		imgUrl = $(this).find('img').attr('src');

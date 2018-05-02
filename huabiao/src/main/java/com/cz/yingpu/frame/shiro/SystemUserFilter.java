@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 public class SystemUserFilter extends UserFilter {
 	public SystemUserFilter(){
 		//跳转到登录界面
+		System.out.println(">>>>>>>>>>>>>>>>>");
 	    super.setLoginUrl("/system/login");
 	}
 

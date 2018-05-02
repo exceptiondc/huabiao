@@ -66,20 +66,15 @@ public class UeditorController extends BaseController {
     	if(StringUtils.isBlank(action)){
     		return getResultMap(false);
     	}
-    	
-    	
     	//项目名
        	String path = request.getContextPath();
-       	
        	//文件的访问路径,不带项目名称,siteId可以是个变量,也可以是固定值,根据实际情况控制
        	String fileuploadpath=UEFILEPATH+"/u/"+siteId+"/ueditor/";
-       	
        	//主配置,使用类直接处理,没有使用配置config.json文件,请根据实际要求处理
 //    	UeditorConfig config=new UeditorConfig(path+fileuploadpath);
-    //	UeditorConfig config=new UeditorConfig("http://114.215.130.18:22222/yingpu/"+fileuploadpath );
-       	UeditorConfig config=new UeditorConfig("http://192.168.0.187:8080/"+fileuploadpath );
+    	UeditorConfig config=new UeditorConfig("http://39.105.70.189:22222/"+fileuploadpath );
+      // 	UeditorConfig config=new UeditorConfig("http://192.168.0.187:8080/"+fileuploadpath );
     	Object obj=null;
-    	
     	if("config".equals(action)){
     		obj=config;
     	}else if(UeditorConfig.ACTION_UPLOAD_IMAGE.equals(action)){
@@ -149,9 +144,9 @@ public class UeditorController extends BaseController {
         String fileName = FileUtils.reSetFileName(suffix);
         System.out.println("======"+GlobalStatic.rootDir+fileuploadpath+fileName+"=====");
     	//保存到文件
-		//String tempDir="/webdata/app/yingpu/"+fileuploadpath+fileName;
+		String tempDir="/webdata/images/"+fileuploadpath+fileName;
 		
-		String tempDir="D:\\git\\.metadata\\.me_tcat7\\webapps\\"+fileuploadpath+fileName;
+		//String tempDir="D:\\git\\.metadata\\.me_tcat7\\webapps\\"+fileuploadpath+fileName;
        // upload(file, GlobalStatic.rootDir+fileuploadpath+fileName);
 		upload(file, tempDir);
         

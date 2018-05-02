@@ -29,7 +29,6 @@ public class UserCardTask extends BaseLogger {
     private IUserCardService userCardService;
     @Resource
     private JPushService jPushService;
-
     /**
      *优惠券过期
      */

@@ -44,13 +44,17 @@ public class LoginController extends BaseController  {
 	 * @return
 	 * @throws Exception
 	 */
-		@RequestMapping(value = "/")
+		@RequestMapping(value = "/huabiao")
 		public String index() throws Exception {
 				return super.redirect+"/index";
 			
 		}
 		
-	
+		@RequestMapping(value = "/")
+		public String pcindex() throws Exception {
+				return "pc/main/index";
+			
+		}
 	
 	/**
 	 * 首页的映射
@@ -61,7 +65,6 @@ public class LoginController extends BaseController  {
 		@RequestMapping(value = "/index")
 		public String index(Model model) throws Exception {
 				return "/index";
-			
 		}
 		/**
 		 * 渲染登录/login的界面展示,如果已经登录,跳转到首页,如果没有登录,就渲染login.html
