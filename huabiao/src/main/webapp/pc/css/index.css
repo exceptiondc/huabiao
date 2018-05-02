@@ -257,6 +257,7 @@
 	position: absolute;
 	bottom: 0;
 	left: 45%;
+	z-index: 10;
 }
 
 .case_more a {

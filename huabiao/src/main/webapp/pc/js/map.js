@@ -1,6 +1,5 @@
 $(function(){
-
-	//创建和初始化地图函数：
+   //创建和初始化地图函数：
     function initMap(){
         createMap();//创建地图
         setMapEvent();//设置地图事件
@@ -11,8 +10,8 @@ $(function(){
     //创建地图函数：
     function createMap(){
         var map = new BMap.Map("dituContent");//在百度地图容器中创建一个地图
-        var point = new BMap.Point(108.87887,34.198174);//定义一个中心点坐标
-        map.centerAndZoom(point,15);//设定地图的中心点和坐标并将地图显示在地图容器中
+        var point = new BMap.Point(108.878223,34.196719);//定义一个中心点坐标
+        map.centerAndZoom(point,18);//设定地图的中心点和坐标并将地图显示在地图容器中
         window.map = map;//将map变量存储在全局
     }
     
@@ -29,8 +28,8 @@ $(function(){
                         }
     
     //标注点数组
-    var markerArr = [{title:"陕西华表网络技术有限公司",content:"地址：西安市高新技术产业开发区锦业一路56号研祥城市广场B座307室",point:"108.878111|34.196524",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
-		 ];
+    var markerArr = [{title:"陕西华表网络技术有限公司",content:"地址：西安市高新技术产业开发区锦业一路56号研祥城市广场B座307室",point:"108.878695|34.196644",isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}
+         ];
     //创建marker
     function addMarker(){
         for(var i=0;i<markerArr.length;i++){
@@ -38,39 +37,39 @@ $(function(){
             var p0 = json.point.split("|")[0];
             var p1 = json.point.split("|")[1];
             var point = new BMap.Point(p0,p1);
-			var iconImg = createIcon(json.icon);
+            var iconImg = createIcon(json.icon);
             var marker = new BMap.Marker(point,{icon:iconImg});
-			var iw = createInfoWindow(i);
-			var label = new BMap.Label(json.title,{"offset":new BMap.Size(json.icon.lb-json.icon.x+10,-20)});
-			marker.setLabel(label);
+            var iw = createInfoWindow(i);
+            var label = new BMap.Label(json.title,{"offset":new BMap.Size(json.icon.lb-json.icon.x+10,-20)});
+            marker.setLabel(label);
             map.addOverlay(marker);
             label.setStyle({
                         borderColor:"#808080",
                         color:"#333",
                         cursor:"pointer"
             });
-			
-			(function(){
-				var index = i;
-				var _iw = createInfoWindow(i);
-				var _marker = marker;
-				_marker.addEventListener("click",function(){
-				    this.openInfoWindow(_iw);
-			    });
-			    _iw.addEventListener("open",function(){
-				    _marker.getLabel().hide();
-			    })
-			    _iw.addEventListener("close",function(){
-				    _marker.getLabel().show();
-			    })
-				label.addEventListener("click",function(){
-				    _marker.openInfoWindow(_iw);
-			    })
-				if(!!json.isOpen){
-					label.hide();
-					_marker.openInfoWindow(_iw);
-				}
-			})()
+            
+            (function(){
+                var index = i;
+                var _iw = createInfoWindow(i);
+                var _marker = marker;
+                _marker.addEventListener("click",function(){
+                    this.openInfoWindow(_iw);
+                });
+                _iw.addEventListener("open",function(){
+                    _marker.getLabel().hide();
+                })
+                _iw.addEventListener("close",function(){
+                    _marker.getLabel().show();
+                })
+                label.addEventListener("click",function(){
+                    _marker.openInfoWindow(_iw);
+                })
+                if(!!json.isOpen){
+                    label.hide();
+                    _marker.openInfoWindow(_iw);
+                }
+            })()
         }
     }
     //创建InfoWindow
