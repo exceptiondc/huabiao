@@ -108,6 +108,10 @@
 	margin-top: 30px;
 }
 
+.we_code img {
+    margin-right: 28px;	
+}
+
 .list_title ul li {
 	cursor: pointer;
 }
