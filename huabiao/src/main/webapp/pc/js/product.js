@@ -33,7 +33,6 @@ $(function(){
 	data.map(e => {
 		$('.group_img ul').append(imgList(e));
 		
-
 		var mySwiper = new Swiper ('#swiper-container' + e.id, {
 		    	loop: true,
 		    	effect : 'flip',
@@ -43,6 +42,7 @@ $(function(){
 		    	autoplay : 10,
 				autoplayDisableOnInteraction : true,
 		  	})
+
 	  	$('#swiper-container' + e.id).hover(function(){
 	    	mySwiper.autoplay.start();
 	    	setTimeout(function(){
@@ -52,8 +52,16 @@ $(function(){
 	    }, function(){
 	    	mySwiper.autoplay.stop();
 	    })
-	})
-	 
+	});
+
+
+	var lazyLoad = function(){
+        $("img.lazy").lazyload({
+            effect: "fadeIn"
+        })
+    };
+
+ 	lazyLoad();
 });
 
 var data = [{'img': '../img/product_01.png', 'id': '1'},
@@ -67,7 +75,7 @@ var data = [{'img': '../img/product_01.png', 'id': '1'},
 var imgList = function (data){
 	var tpl = `<div class="swiper-container" id="swiper-container${ data.id }">
 				    	<div class="swiper-wrapper">
-					        <div class="swiper-slide" data-swiper-autoplay="500"><img src="${ data.img }" alt=""></div>
+					        <div class="swiper-slide" data-swiper-autoplay="500"><img class="lazy" data-original="${data.img}"></div>
 				    	</div>
 					</div>`
 		return tpl;

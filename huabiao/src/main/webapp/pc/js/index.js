@@ -61,7 +61,7 @@ $(function(){
         		var data = result.data;
         		data.map( e => {
         			$('#swiper-container .swiper-wrapper').append(banner(e));
-        			$('#swiper-container .swiper-wrapper > div:first-child').append('<div class="consultation"><a href="#">前往咨询</a></div>');
+        			/*$('#swiper-container .swiper-wrapper > div:first-child').append('<div class="consultation"><a href="#">前往咨询</a></div>');*/
         		});
 
         		var mySwiper = new Swiper('#swiper-container',{

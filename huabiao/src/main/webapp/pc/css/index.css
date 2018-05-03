@@ -4,6 +4,14 @@
 	width: 100%;
 }
 
+.index_banner {
+	height: 765px;
+}
+
+.index_banner .swiper-container {
+	height: 765px;
+}
+
 .index_banner .swiper-container .swiper-pagination {
 	width: auto!important;
 	display: flex;

@@ -33,6 +33,8 @@ $(function(){
           		var solutionId = $(this).attr('id');
           		window.location.href = 'case_details.html?id=' + solutionId;
           	});
+
+          	lazyLoad();
         	},
         	error: function (XMLHttpRequest, textStatus, errorThrown) {  
     			alert('网络连接异常，请重试！'); 
@@ -41,12 +43,19 @@ $(function(){
 	}
 
 	caseData();
+
+	var lazyLoad = function(){
+        $("img.lazy").lazyload({
+            effect: "fadeIn"
+        })
+    };
+
 });
 
 var caseList = function (data){
 	var caseTpl = `<li id="${ data.id }">
 					<dl>
-						<dt><img src="${ data.icon }" width="580px"></dt>
+						<dt><img class="lazy" data-original="${ data.icon }" width="580px"></dt>
 						<dd>
 							<h4>${ data.title }</h4>
 							<p>${ data.descr }</p>

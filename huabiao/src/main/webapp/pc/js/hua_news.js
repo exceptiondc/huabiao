@@ -24,7 +24,7 @@ $(function(){
                 	$.each(data, function(i, item) {
                     	datalist += `<li id="${ item.id }">
 										<dl>
-											<dt><img src="${item.icon}" width="190px" height="170px"></dt>
+											<dt><img class="lazy" data-original="${item.icon}" width="190px" height="170px"></dt>
 											<dd>
 												<h4>${item.title}</h4>
 												<p>${item.content}</p>
@@ -47,7 +47,9 @@ $(function(){
                 	$('#datalist1 li').click(function(){
                 		var newsId = $(this).attr('id');
                 		window.location.href = 'news_details.html?id=' + newsId;
-                	});  
+                	});
+
+                  lazyLoad();  
                }             
            },  
            error: function (XMLHttpRequest, textStatus, errorThrown) {  
@@ -59,5 +61,12 @@ $(function(){
     PageClick = function(index){
         $('.now').text(index.getCurrent());   
         loadList(index.getCurrent()); //点击分页加载列表数据  
-   }  
+   }
+
+   var lazyLoad = function(){
+        $("img.lazy").lazyload({
+            effect: "fadeIn"
+        })
+    };
+  
 });
