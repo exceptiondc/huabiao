@@ -39,6 +39,9 @@ $(function(){
 		    	effect : 'flip',
 		    	autoplay : false,
 		    	allowTouchMove: false,
+		    	speed: 1000,
+		    	autoplay : 10,
+				autoplayDisableOnInteraction : true,
 		  	})
 	  	$('#swiper-container' + e.id).hover(function(){
 	    	mySwiper.autoplay.start();
@@ -54,12 +57,12 @@ $(function(){
 });
 
 var data = [{'img': '../img/product_01.png', 'id': '1'},
-			{'img': '../img/product_02.png', 'id': '2'},
-			{'img': '../img/product_03.png', 'id': '3'}, 
-			{'img': '../img/product_04.png', 'id': '4'}, 
-			{'img': '../img/product_05.png', 'id': '5'}, 
-			{'img': '../img/product_06.png', 'id': '6'}, 
-			{'img': '../img/product_07.png', 'id': '7'}];
+				{'img': '../img/product_02.png', 'id': '2'},
+				{'img': '../img/product_03.png', 'id': '3'}, 
+				{'img': '../img/product_04.png', 'id': '4'}, 
+				{'img': '../img/product_05.png', 'id': '5'}, 
+				{'img': '../img/product_06.png', 'id': '6'}, 
+				{'img': '../img/product_07.png', 'id': '7'}];
 
 var imgList = function (data){
 	var tpl = `<div class="swiper-container" id="swiper-container${ data.id }">
