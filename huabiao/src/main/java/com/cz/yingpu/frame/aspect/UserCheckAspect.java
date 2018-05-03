@@ -1,4 +1,4 @@
-package com.cz.yingpu.frame.aspect;
+/*package com.cz.yingpu.frame.aspect;
 
 import java.util.Map;
 
@@ -23,10 +23,10 @@ import com.cz.yingpu.frame.util.ReturnDatas;
 import com.cz.yingpu.system.entity.AppUser;
 import com.cz.yingpu.system.service.IAppUserService;
 
-/**
+*//**
  * 根据token检查用户有效性
  *
- */
+ *//*
 @Component
 @Aspect
 public class UserCheckAspect {
@@ -102,3 +102,4 @@ public class UserCheckAspect {
 	}
 	
 }
+*/

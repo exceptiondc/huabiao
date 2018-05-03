@@ -24,12 +24,10 @@ import com.cz.yingpu.frame.util.Finder;
 import com.cz.yingpu.frame.util.GetEwm;
 import com.cz.yingpu.frame.util.GlobalStatic;
 import com.cz.yingpu.frame.util.Page;
-import com.cz.yingpu.frame.util.SMSUtil;
 import com.cz.yingpu.frame.util.SystemConfigConstants;
 import com.cz.yingpu.frame.util.TokenGenerateUtil;
 import com.cz.yingpu.frame.util.fuyou.ConfigReader;
 import com.cz.yingpu.frame.util.pay.WxPayUtil;
-import com.cz.yingpu.system.entity.AccessToken;
 import com.cz.yingpu.system.entity.AppUser;
 import com.cz.yingpu.system.entity.Sms;
 import com.cz.yingpu.system.entity.Token;
@@ -50,11 +48,8 @@ import com.cz.yingpu.system.fuyoudata.QueryUserInfs_v2RspDetailData;
 import com.cz.yingpu.system.service.BaseSpringrainServiceImpl;
 import com.cz.yingpu.system.service.FuiouService;
 import com.cz.yingpu.system.service.IAppUserService;
-import com.cz.yingpu.system.service.ICardService;
 import com.cz.yingpu.system.service.ISmsService;
 import com.cz.yingpu.system.service.ISysSysparamService;
-import com.cz.yingpu.system.service.IUserCardService;
-import com.cz.yingpu.system.service.JPushService;
 
 
 /**
@@ -71,12 +66,8 @@ public class AppUserServiceImpl extends BaseSpringrainServiceImpl implements IAp
 	private ISmsService smsService;
 	@Resource
 	private ISysSysparamService sysSysparamService;
-	@Resource
-	private ICardService cardService;
-	@Resource
-	private IUserCardService userCardService;
-	@Resource
-	private JPushService jPushService;
+	
+	
 	
 /*	@Resource
 	private IOrderService orderService;
@@ -276,13 +267,6 @@ public class AppUserServiceImpl extends BaseSpringrainServiceImpl implements IAp
 			}
 
 			finder.append(field + " = :" + field).setParam(field, accountBindIDs);
-			AppUser au = userCardService.queryForObject(finder, AppUser.class);
-			if (au == null) {
-				throw new Exception("该账户不存在！");
-			}
-
-			user.setId(au.getId());
-			updateVaildValue(user);
 		}
 		else {
 			user.setBalance(0.00);

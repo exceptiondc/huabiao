@@ -1,21 +1,11 @@
 package com.cz.yingpu.system.task;
 
-import com.cz.yingpu.frame.common.BaseLogger;
-import com.cz.yingpu.frame.util.DateUtils;
-import com.cz.yingpu.frame.util.Finder;
-import com.cz.yingpu.system.entity.UserCard;
-import com.cz.yingpu.system.service.IAppUserService;
-import com.cz.yingpu.system.service.IUserCardService;
-import com.cz.yingpu.system.service.JPushService;
-
-import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.stereotype.Component;
-
 import javax.annotation.Resource;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import org.springframework.stereotype.Component;
+
+import com.cz.yingpu.frame.common.BaseLogger;
+import com.cz.yingpu.system.service.IAppUserService;
 
 /**
  * Created by Administrator on 2017/6/30 0030.
@@ -25,10 +15,10 @@ public class UserCardTask extends BaseLogger {
 
     @Resource
     private IAppUserService appUserService;
-    @Resource
+  /*  @Resource
     private IUserCardService userCardService;
     @Resource
-    private JPushService jPushService;
+    private JPushService jPushService;*/
     /**
      *优惠券过期
      */
