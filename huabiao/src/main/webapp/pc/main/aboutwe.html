@@ -6,7 +6,10 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
 	<link rel="stylesheet" type="text/css" href="../css/aboutwe.css">
 	<link rel="stylesheet" type="text/css" href="../css/components.css">
+	<link rel="stylesheet" type="text/css" href="../css/pagination.css">
 	<script type="text/javascript" src="../js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="../jq/jquery-lazyload/jquery.lazyload.js"></script>
+	<script src="../js/jquery.pagination.js"></script>
 	<script type="text/javascript" src="../js/map.js"></script>
 	<script type="text/javascript" src="../js/components.js"></script>
 	<script type="text/javascript" src="../js/aboutwe.js"></script>
@@ -31,16 +34,42 @@
 					<div class="list_title">
 						<ul>
 							<li class="on">公司简介</li>
-							<li>企业文化</li>
+							<li>华事记</li>
 							<li>招聘需求</li>
 							<li>联系我们</li>
 						</ul>
 					</div>
 					<div class="list_content">
 						<div class="gs_details">
-							
+							<div class="intros"></div>
+							<div class="culture">
+								<div class="cul_content">
+									<div class="culImgLeft">
+										<div class="cul_title">
+											<h3>企业文化</h3>
+											<p>CORPORATE   CULTURE >></p>
+										</div>
+										<img src="../img/culImgLeft.png" width="350px" height="350px">
+									</div>
+									<div class="culImgRight">
+										<div><img src="../img/tuanjie.png"></div>
+										<div><img src="../img/jinqu.png"><img src="../img/zhongcheng.png"><img src="../img/huoyi.png"></div>
+										<div><img src="../img/chuangxin.png"></div>
+									</div>
+								</div>
+							</div>
 						</div>
-						<div>企业文化</div>
+
+						<!--华事记-->
+						<div class="news_content">
+							<div class="news_list ">
+								<ul id="datalist1"></ul>
+							</div>
+							<div class="eg">
+								<div class="M-box m-style"></div>  
+			             	<!-- <div class="tips">当前是第<span class="now">1</span>页,总共<span class="total"></span>页,总共<span class="count"></span>条数据</div> -->
+							</div>
+						</div>
 
 						<!--招聘需求-->
 						<div class="recruit">
