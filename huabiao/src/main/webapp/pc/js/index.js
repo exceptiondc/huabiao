@@ -3,7 +3,11 @@ $(function(){
 	$('.header_nav ul li').eq(0).addClass('active');
 
 	//我们的产品
+	var currUrl = "";
 	$('.product_list ul > li').hover(function(){
+		currUrl = $(this).find('img').attr('src');
+		var changeImg = $(this).find('img').attr('changeImg');
+		$(this).find('img').attr('src',changeImg);
 		$(this).stop().animate({
 			marginTop: '-20px',		
 		}, 600).css({
@@ -18,6 +22,7 @@ $(function(){
 		$(this).find('ol li p b').hide();
 		$(this).find('ol li span').show().css('margin-top', '22px');
 	},function(){
+		$(this).find('img').attr('src', currUrl);
 		$(this).stop().animate({
 			marginTop: '0',		
 		}, 600).css({
@@ -32,7 +37,7 @@ $(function(){
 		$(this).find('ol li p b').show();
 		$(this).find('ol li span').hide().css('margin-top', '0');
 	});
-	
+
 
 	//解决方案
 	var imgUrl = "";
@@ -50,36 +55,75 @@ $(function(){
 	},function(){
 		$(this).find('img').attr('src', imgUrl);
 		$(this).css({
-			'background': '#f3f3f3',
+			'background': '#fff',
 			'box-shadow': 'none'
 		});
 		$(this).find('p').css('color', '#333');
 		$(this).find('span').css('display', 'none');
 	});
 
-	//精选案例
-	var currUrl = "";
-	$('.case_list').hover(function(){
-		currUrl = $(this).find('img').attr('src');
-		var changeImg = $(this).find('img').attr('changeImg');
-		$(this).find('img').attr('src',changeImg).css({'width': '120px', 'heihgt': '110px'});
-		$(this).parent().css({
-			'height': 'auto',
-			'transform': 'scale(1.04)',
-	    	'transition': 'all .3s ease-out 0s'
-		});
-		$(this).find('span').css({'display': 'block', 'margin-bottom': '26px'});
-		$(this).css({'height': '310px', 'box-shadow':'10px 0px 24px rgba(0,0,0,0.06)'})
-	},function(){
-		$(this).find('img').attr('src', currUrl);
-		$(this).parent().css({
-			'transform': 'none'
-		});
-		$(this).find('span').css('display', 'none');
-		$(this).css({'height': 'auto', 'box-shadow':'none'})
-	});
 
-	
+	//精选案例
+	var caseData = function (){
+		$.ajax({  
+        	type:"post",  
+        	url: API + "huabiao/system/announce/list/json",  
+        	dataType: "json",  
+     		data: { 
+     			type: 'cases',
+     			pageIndex: '1',
+     			pageSize: '3',
+     			order: 'id',
+     			sort: 'asc',
+     			jx: 'jx'
+     		}, 
+        	success:function(result) {
+        		console.log("精选案例:", result);
+        		var data = result.data;
+        		data.map( e => {
+        			$('#swiper-container1 .swiper-wrapper').append(caseLists(e));
+        		});
+
+        		var mySwiper1 = new Swiper('#swiper-container1',{
+				 	slidesPerView : 3,
+					spaceBetween : 20,
+					loop: true,
+					navigation: {
+			    	nextEl: '.swiper-button-next',
+			    	prevEl: '.swiper-button-prev',
+				  },
+				});
+
+        		$('.case_list').hover(function(){
+					$(this).css({'height': '180px','box-shadow':'10px 0px 24px rgba(0,0,0,0.06)'});
+					$(this).parent().css({'transform': 'scale(1.04)','transition': 'all .3s ease-out 0s',})
+					$(this).find('.iconImg').css('background', '#FF9C00');
+					$(this).find('.time').show().css( 'margin-bottom', '26px');
+				},function(){
+					$(this).parent().css('transform', 'none');
+					$(this).find('.time').hide();
+					$(this).css({ 'height': '160px', 'box-shadow': 'none'});
+					$(this).find('.iconImg').css('background', '#999');
+				});
+
+				$('#swiper-container1 .swiper-wrapper .case_list').click(function(){
+          		var solutionId = $(this).attr('id');
+          		location.href='case_details.html?id=' + solutionId;
+          		if(location.href.indexOf('pc/main') > 0){
+							location.href='case_details.html?id=' + solutionId;
+						}else{
+							location.href='pc/main/'+'case_details.html?id=' + solutionId;
+						}
+          	});
+        	},
+        	error: function (XMLHttpRequest, textStatus, errorThrown) {  
+    			alert('网络连接异常，请重试！'); 
+        	}
+   	})
+	}
+
+	caseData();
+
 
 	//轮播图
 	var bannerImg = function (){
@@ -87,9 +131,8 @@ $(function(){
         	type:"post",  
         	url: API + "huabiao/system/lunbopic/list/json?skipType=1&order=id&sort=asc",  
         	dataType: "json",  
-     		/*data: { 'pageNum': pno,'pageSize': pageSize},*/  
         	success:function(result) {
-        		console.log(result);
+        		console.log("轮播:", result);
         		var data = result.data;
         		data.map( e => {
         			$('#swiper-container .swiper-wrapper').append(banner(e));
@@ -161,14 +204,11 @@ $(function(){
 				$('#swiper-container2 .swiper-wrapper .swiper-slide').click(function(){
              		var newsId = $(this).attr('id');
 
-         
-             	//	window.location.href = 'news_details.html?id=' + newsId;
-
-             		if(location.href.indexOf('pc/main')>0){
-						location.href='news_details.html?id=' + newsId;
+             		if(location.href.indexOf('pc/main') > 0){
+							location.href='news_details.html?id=' + newsId;
 						}else{
-						location.href='pc/main/'+'news_details.html?id=' + newsId;
-					}
+							location.href='pc/main/'+'news_details.html?id=' + newsId;
+						}
              	});
         	},
         	error: function (XMLHttpRequest, textStatus, errorThrown) {  
@@ -186,6 +226,7 @@ var banner = function (data){
 	return bannerTpl;
 }
 
+//新闻模板
 var case_list = function (data){
 	var caseTpl = `<div class="swiper-slide" id="${ data.id }">
 							<div class="news_list">
@@ -199,5 +240,19 @@ var case_list = function (data){
 								</dl>
 							</div>
 						</div>`;
+	return caseTpl;
+}
+
+//精选案例
+var caseLists = function (data){
+	var caseTpl = `<div class="swiper-slide">
+							<div class="retrieval case_list" id="${ data.id }">
+								<span class="iconImg"><img src="${ data.pic }" width="122px" heigh="112px"></span>
+								<h3>${ data.title }</h3>
+								<p>${ data.descr }</p>
+								<span class="time">${ data.postTime.substr(0, 10)}</span>
+							</div>
+						</div>`
+
 	return caseTpl;
 }
