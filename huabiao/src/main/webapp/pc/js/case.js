@@ -55,7 +55,7 @@ $(function(){
 var caseList = function (data){
 	var caseTpl = `<li id="${ data.id }">
 					<dl>
-						<dt><img class="lazy" data-original="${ data.icon }" width="580px"></dt>
+						<dt><img class="lazy" data-original="${ data.icon }" width="580px" height="190px"></dt>
 						<dd>
 							<h4>${ data.title }</h4>
 							<p>${ data.descr }</p>
