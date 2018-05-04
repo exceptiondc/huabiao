@@ -12,7 +12,6 @@ var telpHeader = function(){
 					<li class="product"><a href="javaScript:tiaozhuan('product.html');">产品与服务</a></li>
 					<li class="solution_nav"><a href="javaScript:tiaozhuan('solution.html');">解决方案</a></li>
 					<li class="case_nav"><a href="javaScript:tiaozhuan('case.html');">成功案例</a></li>
-					<li class="huaNews"><a href="javaScript:tiaozhuan('hua_news.html');">华事记</a></li>
 					<li class="aboutwe"><a href="javaScript:tiaozhuan('aboutwe.html');">关于我们</a></li>
 				</ul>
 			</div>`
