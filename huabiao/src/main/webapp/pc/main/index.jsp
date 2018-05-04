@@ -7,15 +7,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="renderer" content="webkit">
-	<link rel="stylesheet" type="text/css" href="../css/index.css">
-	<link rel="stylesheet" type="text/css" href="../css/swiper.min.css">
-	<link rel="stylesheet" type="text/css" href="../css/components.css">
-	<script type="text/javascript" src="../js/jquery-1.11.3.min.js"></script>
-	<script type="text/javascript" src="../js/swiper.min.js"></script>
-	<script type="text/javascript" src="../js/components.js"></script>
-	<script type="text/javascript" src="../js/index.js"></script>
-	<title>首页</title>
+	<link rel="stylesheet" type="text/css" href="pc/css/index.css">
+	<link rel="stylesheet" type="text/css" href="pc/css/swiper.min.css">
+	<link rel="stylesheet" type="text/css" href="pc/css/components.css">
+	<script type="text/javascript" src="pc/js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="pc/js/swiper.min.js"></script>
+	<script type="text/javascript" src="pc/js/components.js"></script>
+	<script type="text/javascript" src="pc/js/index.js"></script>
+	<title>${data.data.title}</title>
+	<meta name="keywords" content="${data.data.keywords}"/>
+
+	<meta name="description" content="${data.data.description}" />
 </head>
 <body>
 	<div class="wrap">
@@ -39,7 +41,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<ul>
 						<li>
 							<div class="list_name">
-								<img src="../img/3wks.png" width="56px" height="56px">
+								<img src="pc/img/3wks.png" width="56px" height="56px">
 								<h4>三维可视化</h4>
 								<p>立体角度看世界</p>
 							</div>
@@ -56,7 +58,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</li>
 						<li>
 							<div class="list_name">
-								<img src="../img/dsj.png" width="56px" height="56px">
+								<img src="pc/img/dsj.png" width="56px" height="56px">
 								<h4>物联网应用</h4>
 								<p>从消费级到工业级物联网，满足您所有场景需求</p>
 							</div>
@@ -84,7 +86,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</li>
 						<li>
 							<div class="list_name">
-								<img src="../img/cq.png" width="56px" height="56px">
+								<img src="pc/img/cq.png" width="56px" height="56px">
 								<h4>智慧物联平台</h4>
 								<p></p>
 							</div>
@@ -101,15 +103,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</li>
 							</ol>
 						</li>
-							</ol>
-						</li>
 					</ul>
 				</div>
 			</div>
 			<div class="programme">
 				<div class="programme_contont">
 					<div class="title">
-						<h3>解决方案</h3>
+						<h3>方案和产品</h3>
 						<p>我们致力于打造物联一体的智慧化城市</p>
 						<span class="border_org"></span>
 					</div>
@@ -117,63 +117,63 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<ul>
 							<li>
 								<a href="javascript:void(0);">
-									<img changeImg="../img/community_01.png" src="../img/community.png" width="80px" height="80px">
+									<img changeImg="pc/img/community_01.png" src="pc/img/community.png" width="80px" height="80px">
 									<p>智慧社区</p>
 									<span></span>
 								</a>
 							</li>
 							<li>
 								<a href="javascript:void(0);">
-									<img changeImg="../img/agriculture_01.png" src="../img/agriculture.png" width="80px" height="80px">
+									<img changeImg="pc/img/agriculture_01.png" src="pc/img/agriculture.png" width="80px" height="80px">
 									<p>智慧农业</p>
 									<span>远程管理  自动报警</br>酸碱度 微量元素检测  智能方案推荐</span>
 								</a>
 							</li>
 							<li>
 								<a href="javascript:void(0);">
-									<img changeImg="../img/traffic_01.png" src="../img/traffic.png" width="80px" height="80px">
+									<img changeImg="pc/img/traffic_01.png" src="pc/img/traffic.png" width="80px" height="80px">
 									<p>智慧交通</p>
 									<span></span>
 								</a>
 							</li>
 							<li>
 								<a href="javascript:void(0);">
-									<img changeImg="../img/education_01.png" src="../img/education.png" width="80px" height="80px">
+									<img changeImg="pc/img/education_01.png" src="pc/img/education.png" width="80px" height="80px">
 									<p>智慧教育</p>
 									<span></span>
 								</a>
 							</li>
 							<li>
 								<a href="javascript:void(0);">
-									<img changeImg="../img/medicalcare_01.png" src="../img/medicalcare.png" width="80px" height="80px">
+									<img changeImg="pc/img/medicalcare_01.png" src="pc/img/medicalcare.png" width="80px" height="80px">
 									<p>智慧医疗</p>
 									<span></span>
 								</a>
 							</li>
 							<li>
 								<a href="javascript:void(0);">
-									<img changeImg="../img/life_01.png" src="../img/life.png" width="80px" height="80px">
+									<img changeImg="pc/img/life_01.png" src="pc/img/life.png" width="80px" height="80px">
 									<p>智慧生活</p>
 									<span></span>
 								</a>
 							</li>
 							<li>
 								<a href="javascript:void(0);">
-									<img changeImg="../img/data_01.png" src="../img/data.png" width="80px" height="80px">
+									<img changeImg="pc/img/data_01.png" src="pc/img/data.png" width="80px" height="80px">
 									<p>大数据</p>
 									<span></span>
 								</a>
 							</li>
 							<li>
 								<a href="javascript:void(0);">
-									<img changeImg="../img/charge_01.png" src="../img/charge.png" width="80px" height="80px">
+									<img changeImg="pc/img/charge_01.png" src="pc/img/charge.png" width="80px" height="80px">
 									<p>共享充电</p>
 									<span></span>
 								</a>
 							</li>
 						</ul>
 					</div>
-					<div class="programme_more"><a href="solution.html">查看详情></a></div>
+					<div class="programme_more"><a href="javaScript:tiaozhuan('solution.html');">查看详情></a></div>
 				</div>
 			</div>
 			<div class="case">
@@ -189,7 +189,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<div class="swiper-slide">
 									<div class="retrieval case_list">
 										<a href="javascript:void(0);">
-											<img changeImg="../img/retrieval_01.png" src="../img/retrieval.png" width="120px" height="110px">
+											<img changeImg="pc/img/retrieval_01.png" src="pc/img/retrieval.png" width="120px" height="110px">
 											<h3>华表网络专利检索平台</h3>
 											<p>专利检索平台是华表网络旗下的一个知识产权检索系统，它涵盖了高级检索，批量检索等一系列的检索功能，简约的表现方式更好的为用户...</p>
 											<span>2018-04-11</span>
@@ -199,7 +199,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<div class="swiper-slide">
 									<div class="bicycle case_list">
 										<a href="javascript:void(0);">
-											<img changeImg="../img/bicycle_01.png" src="../img/bicycle.png" width="120px" height="110px">
+											<img changeImg="pc/img/bicycle_01.png" src="pc/img/bicycle.png" width="120px" height="110px">
 											<h3>电瓶车共享充电平台项目</h3>
 											<p>由华表网络和某某科技公司联合智造的电动车共享充电宝现已于今日成功投放到西安本地市场，本次投放的数量大约为10000个，参与......</p>
 											<span>2018-04-11</span>
@@ -209,7 +209,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<div class="swiper-slide">
 									<div class="town case_list">
 										<a href="javascript:void(0);">
-											<img changeImg="../img/town_01.png" src="../img/town.png" width="120px" height="110px">
+											<img changeImg="pc/img/town_01.png" src="pc/img/town.png" width="120px" height="110px">
 											<h3>智慧小镇一体化建设</h3>
 											<p>由华表网络和某某科技公司联合智造的电动车共享充电宝现已于今日成功投放到西安本地市场，本次投放的数量大约为10000个，参与......</p>
 											<span>2018-04-11</span>
@@ -219,7 +219,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<div class="swiper-slide">
 									<div class="town case_list">
 										<a href="javascript:void(0);">
-											<img changeImg="../img/town_01.png" src="../img/town.png" width="120px" height="110px">
+											<img changeImg="pc/img/town_01.png" src="pc/img/town.png" width="120px" height="110px">
 											<h3>智慧小镇一体化建设</h3>
 											<p>由华表网络和某某科技公司联合智造的电动车共享充电宝现已于今日成功投放到西安本地市场，本次投放的数量大约为10000个，参与......</p>
 											<span>2018-04-11</span>
@@ -228,7 +228,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</div>
 							</div>
 							<div class="swiper-button-prev"></div>
-							<div class="case_more"><a href="case.html">查看更多></a></div>
+							<div class="case_more"><a href=" javaScript:tiaozhuan('case.html');">查看更多></a></div>
     						<div class="swiper-button-next"></div>
 						</div>
 					</div>
@@ -247,7 +247,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								
 							</div>
 							<div class="swiper-button-prev"></div>
-							<div class="case_more"><a href="hua_news.html">查看更多></a></div>
+							<div class="case_more"><a href="javaScript:tiaozhuan('hua_news.html');">查看更多></a></div>
 			    						<div class="swiper-button-next"></div>
 						</div>
 					</div>

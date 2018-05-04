@@ -17,10 +17,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cz.yingpu.frame.controller.BaseController;
+import com.cz.yingpu.frame.util.Finder;
 import com.cz.yingpu.frame.util.GlobalStatic;
 import com.cz.yingpu.frame.util.MessageUtils;
 import com.cz.yingpu.frame.util.Page;
 import com.cz.yingpu.frame.util.ReturnDatas;
+import com.cz.yingpu.frame.util.StringUtil;
 import com.cz.yingpu.system.entity.Announce;
 import com.cz.yingpu.system.service.IAnnounceService;
 
@@ -112,14 +114,17 @@ public class AnnounceController  extends BaseController {
 //		page.setPageSize(8);
 	/*	page.setOrder("`weight`DESC,`postTime`DESC");
 		page.setSort("`postTime`DESC");*/
-		// ==执行分页查询
-		List<Announce> datas=announceService.findListDataByFinder(null,page,Announce.class,announce);
-			returnObject.setQueryBean(announce);
+		String sql="select * from t_announce  where 1=1";
+		if(StringUtil.isValid(request.getParameter("jx"))){
+			sql="select * from t_announce where pic is not null";
+		}
+		//==执行分页查询
+		List<Announce> datas=announceService.findListDataByFinder(new Finder(sql),page,Announce.class,announce);
+		returnObject.setQueryBean(announce);
 		returnObject.setPage(page);
 		returnObject.setData(datas);
 		return returnObject;
 	}
-	
 	@RequestMapping("/list/export")
 	public void listexport(HttpServletRequest request,HttpServletResponse response, Model model,Announce announce) throws Exception{
 		// ==构造分页请求
