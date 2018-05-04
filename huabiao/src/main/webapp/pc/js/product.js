@@ -1,6 +1,10 @@
 $(function(){
+	var currUrl = "";
 	$('.product').addClass('active');
 	$('.product_list ul > li').hover(function(){
+		currUrl = $(this).find('img').attr('src');
+		var changeImg = $(this).find('img').attr('changeImg');
+		$(this).find('img').attr('src',changeImg);
 		$(this).stop().animate({
 			marginTop: '-20px',		
 		}, 600).css({
@@ -15,6 +19,7 @@ $(function(){
 		$(this).find('ol li p b').hide();
 		$(this).find('ol li span').show().css('margin-top', '22px');
 	},function(){
+		$(this).find('img').attr('src', currUrl);
 		$(this).stop().animate({
 			marginTop: '0',		
 		}, 600).css({
