@@ -7,6 +7,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<link rel="icon" href="pc/img/tittle3.ico" type="image/x-icon">
 	<link rel="stylesheet" type="text/css" href="pc/css/index.css">
 	<link rel="stylesheet" type="text/css" href="pc/css/swiper.min.css">
 	<link rel="stylesheet" type="text/css" href="pc/css/components.css">
@@ -41,11 +42,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<ul>
 						<li>
 							<div class="list_name">
-<<<<<<< HEAD
-								<img src="pc/img/3wks.png" width="56px" height="56px">
-=======
 								<img changeImg="pc/img/3wks.png" src="pc/img/3D_default.png" width="58px" height="58px">
->>>>>>> 37362e9e5112f44e5243ea6eb7eaa355958d7bed
 								<h4>三维可视化</h4>
 								<p>立体角度看世界</p>
 							</div>
