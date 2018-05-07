@@ -306,6 +306,7 @@
 	position: absolute;
 	top: 10px;
 	z-index: 99;
+	border-radius: 4px;
 }
 
 #swiper-container1 .swiper-slide .case_list .time {
