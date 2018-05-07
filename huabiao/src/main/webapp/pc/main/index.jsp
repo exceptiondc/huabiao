@@ -41,7 +41,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<ul>
 						<li>
 							<div class="list_name">
+<<<<<<< HEAD
 								<img src="pc/img/3wks.png" width="56px" height="56px">
+=======
+								<img changeImg="pc/img/3wks.png" src="pc/img/3D_default.png" width="58px" height="58px">
+>>>>>>> 37362e9e5112f44e5243ea6eb7eaa355958d7bed
 								<h4>三维可视化</h4>
 								<p>立体角度看世界</p>
 							</div>
@@ -58,48 +62,60 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</li>
 						<li>
 							<div class="list_name">
+<<<<<<< HEAD
 								<img src="pc/img/dsj.png" width="56px" height="56px">
+=======
+								<img changeImg="pc/img/wulianwang_selected.png" src="pc/img/wlw.png" width="58px" height="58px">
+>>>>>>> 37362e9e5112f44e5243ea6eb7eaa355958d7bed
 								<h4>物联网应用</h4>
-								<p>从消费级到工业级物联网，满足您所有场景需求</p>
+								<p>精益求精智联万物</p>
 							</div>
 							<ol>
 								<li>
-								   <p><b>-</b> 智慧公共充电  <b>-</b></p>
-								   <span></span>
+								   <p><b>-</b> 消费级物联  <b>-</b></p>
+								   <span>智慧充电/智慧安防/智慧烟感/智慧燃气/车联网/智慧养老健康</span>
 								</li>
 								<li>
-									<p><b>-</b> 智慧社区安防 <b>-</b></p>
-								</li>
-								<li>
-									<p><b>-</b> 智慧养老健康 <b>-</b></p>
-								</li>
-								<li>
-									<p><b>-</b> 智慧消防 智慧烟感 <b>-</b></p>
-								</li>
-								<li>
-									<p><b>-</b> 智慧水务 智慧燃气 <b>-</b></p>
-								</li>
-								<li>
-									<p><b>-</b> 车联网 <b>-</b></p>
+									<p><b>-</b> 工业级物联 <b>-</b></p>
+									<span>智联设备/智慧仓储/智慧工业/智慧智造/智慧工厂/智慧农业</span>
 								</li>
 							</ol>
 						</li>
 						<li>
 							<div class="list_name">
-								<img src="pc/img/cq.png" width="56px" height="56px">
-								<h4>智慧物联平台</h4>
-								<p></p>
+								<img changeImg="pc/img/dashuju_selected.png" src="pc/img/dsj.png" width="58px" height="58px">
+								<h4>可视化大数据</h4>
+								<p>数据驱动价值增长</p>
 							</div>
 							<ol>
 								<li>
-								   <p><b>-</b> 物联网应用全景平台 <b>-</b></p>
-								   <span></span>
+								   <p><b>-</b> 物联网大数据分析 <b>-</b></p>
+								   <span>物联网接入平台/大数据实时监控处理/大数据挖掘分析/数据安全岛</span>
 								</li>
 								<li>
-									<p><b>-</b> 智能可视大数据 <b>-</b></p>
+									<p><b>-</b> 智能可视化 <b>-</b></p>
+									<span>VR全息社区/三维数字漫游展示/智能地理信息/智能资产能源管理/智能管网/智能社区</span>
+								</li>
+							</ol>
+						</li>
+						<li>
+							<div class="list_name">
+<<<<<<< HEAD
+								<img src="pc/img/cq.png" width="56px" height="56px">
+=======
+								<img changeImg="pc/img/zhihuiwulian_selected.png" src="pc/img/zhihuiwulian_default.png" width="58px" height="58px">
+>>>>>>> 37362e9e5112f44e5243ea6eb7eaa355958d7bed
+								<h4>智慧物联平台</h4>
+								<p>联接创造无限可能</p>
+							</div>
+							<ol>
+								<li>
+								   <p><b>-</b> 智美家园 <b>-</b></p>
+								   <span>智慧社区/物联应用全景平台/家园智观大数据/VR全息社区</span>
 								</li>
 								<li>
-									<p><b>-</b> VR全息社区 <b>-</b></p>
+									<p><b>-</b> 共享充电 <b>-</b></p>
+									<span>智能充电设备/智慧管理平台/智慧大数据平台/智慧移动终端</span>
 								</li>
 							</ol>
 						</li>

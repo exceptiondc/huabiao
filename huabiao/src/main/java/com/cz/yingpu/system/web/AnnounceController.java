@@ -164,7 +164,6 @@ public class AnnounceController  extends BaseController {
 		returnObject.setStatus(ReturnDatas.ERROR);
 		}
 		return returnObject;
-		
 	}
 	
 	
