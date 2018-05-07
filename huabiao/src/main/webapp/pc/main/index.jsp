@@ -100,11 +100,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</li>
 						<li>
 							<div class="list_name">
-<<<<<<< HEAD
-								<img src="pc/img/cq.png" width="56px" height="56px">
-=======
 								<img changeImg="pc/img/zhihuiwulian_selected.png" src="pc/img/zhihuiwulian_default.png" width="58px" height="58px">
->>>>>>> 37362e9e5112f44e5243ea6eb7eaa355958d7bed
 								<h4>智慧物联平台</h4>
 								<p>联接创造无限可能</p>
 							</div>

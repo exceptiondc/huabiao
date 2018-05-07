@@ -4,7 +4,7 @@ var API = 'http://39.105.70.189/';
 var telpHeader = function(){
 	var header = `
 			<div class="header_logo">
-				<img src="/pc/img/header_logo.png" width="168px">
+				<img src="/pc/img/tittle1.png" width="280px">
 			</div>
 			<div class="header_nav">
 				<ul>
