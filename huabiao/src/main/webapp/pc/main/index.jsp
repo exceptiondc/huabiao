@@ -221,19 +221,5 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 		<div class="footer"></div>
 	</div>
-
-	<script language="javascript"> 
-
-		var mySwiper1 = new Swiper('#swiper-container1',{
-		 	slidesPerView : 3,
-			spaceBetween : 20,
-			navigation: {
-		    nextEl: '.swiper-button-next',
-		    prevEl: '.swiper-button-prev',
-		  },
-		});
-
-		
-	</script>
 </body>
 </html>
