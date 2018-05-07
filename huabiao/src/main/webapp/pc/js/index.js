@@ -222,7 +222,7 @@ $(function(){
 });
 
 var banner = function (data){
-	var bannerTpl = `<div class="swiper-slide"><img src="${data.image}" width="100%"></div>`;
+	var bannerTpl = `<div class="swiper-slide"><img src="${data.image}" width="100%" style="display: block;"></div>`;
 	return bannerTpl;
 }
 

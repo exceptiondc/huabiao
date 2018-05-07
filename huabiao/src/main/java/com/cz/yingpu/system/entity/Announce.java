@@ -44,6 +44,20 @@ public class Announce  extends BaseEntity {
 	 * 图标
 	 */
 	private java.lang.String icon;
+	
+	private java.lang.String pic;
+	
+	@WhereSQL(sql="pic=:pic")
+	public java.lang.String getPic() {
+		return pic;
+	}
+
+	public void setPic(java.lang.String pic) {
+		this.pic = pic;
+	}
+
+
+
 	/**
 	 * 标题
 	 */

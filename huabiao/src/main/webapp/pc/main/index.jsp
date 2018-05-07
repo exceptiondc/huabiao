@@ -41,7 +41,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<ul>
 						<li>
 							<div class="list_name">
+<<<<<<< HEAD
+								<img src="pc/img/3wks.png" width="56px" height="56px">
+=======
 								<img changeImg="pc/img/3wks.png" src="pc/img/3D_default.png" width="58px" height="58px">
+>>>>>>> 37362e9e5112f44e5243ea6eb7eaa355958d7bed
 								<h4>三维可视化</h4>
 								<p>立体角度看世界</p>
 							</div>
@@ -58,7 +62,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</li>
 						<li>
 							<div class="list_name">
+<<<<<<< HEAD
+								<img src="pc/img/dsj.png" width="56px" height="56px">
+=======
 								<img changeImg="pc/img/wulianwang_selected.png" src="pc/img/wlw.png" width="58px" height="58px">
+>>>>>>> 37362e9e5112f44e5243ea6eb7eaa355958d7bed
 								<h4>物联网应用</h4>
 								<p>精益求精智联万物</p>
 							</div>
@@ -92,7 +100,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</li>
 						<li>
 							<div class="list_name">
+<<<<<<< HEAD
+								<img src="pc/img/cq.png" width="56px" height="56px">
+=======
 								<img changeImg="pc/img/zhihuiwulian_selected.png" src="pc/img/zhihuiwulian_default.png" width="58px" height="58px">
+>>>>>>> 37362e9e5112f44e5243ea6eb7eaa355958d7bed
 								<h4>智慧物联平台</h4>
 								<p>联接创造无限可能</p>
 							</div>

@@ -44,6 +44,9 @@
         	if(currentType=='zpqs'){
                 $('#zhaopin').show();
             }
+            if(currentType=='cases'){
+                $('#jx').show();
+            }
         function getURLByType(url, type) {
         	return '${ctx}' + url.replace('{TYPE}', type);
         }
@@ -102,32 +105,36 @@
             });
             
             
-            if (currentType != 'announce') {
+           /* if (currentType != 'announce') {
             	$('#icon-div').hide();
             	$('#pic-div').show();
             }
             else {
             	$('#icon-div').show();
             	$('#pic-div').hide();
-            }
+            }*/
         });
 
-        function headOnc(){
+        function headOnc(n){
+
             div = $(event.target || event.srcElement).parents('div.form-group');
-            $('#filed').click();
+
+
+            if(n==1)
+            $('#filed1').click();
+            else
+                 $('#filed2').click();
         }
 
 
  
      
-        $(document).on("change", "#filed", function() {
+        $(document).on("change", "#filed2", function() {
             //...
-
-	       
            $.ajaxFileUpload({
                url : '${ctx}/adminFileUpload',
                secureuri : false,
-               fileElementId : 'filed',
+               fileElementId : 'filed2',
                dataType : 'text',
                data : {},
                success : function(data, status) {
@@ -148,7 +155,32 @@
 
 
         });
+           $(document).on("change", "#filed1", function() {
+            //...
+           $.ajaxFileUpload({
+               url : '${ctx}/adminFileUpload',
+               secureuri : false,
+               fileElementId : 'filed1',
+               dataType : 'text',
+               data : {},
+               success : function(data, status) {
+                   if (data.indexOf('出错') != -1) {
+                       layer.alert(data);
+                       return;
+                   }
+                   jQuery("#iconImg").attr('src',data);
+                   jQuery("#iconImg").attr('value',data);
+                   jQuery("#icon").val(data);
+               },
+               error : function(data, status, e) {
+                   console.log(data);
+                   alert('上传出错');
+               }
+           })
+           return true;
 
+
+        });
 
         function showdata(result) {
         	$('#createDate').val('');
@@ -163,12 +195,21 @@
 
             $("#btn_update").show();
             $("#btn_reload").show();
+            if(result.data.pic&&result.data.pic!=''){
+                $('#jingxuan').prop('checked','checked');
+                 $('#icon-div').show();
+            }else{
+                  $('#jingxuan').prop('checked',false);
+                 $('#icon-div').hide();
+            }
+
             for (var s in result.data) {
                 set_val(s, result.data[s]);
             }
             
             console && console.log(result.data);
-            $(".iconI").attr('src',result.data.icon || "") ;
+            $(".iconI").attr('src',result.data.pic || "") ;
+            $('#iconImg').attr('src',result.data.icon || "");
             ue.setContent(result.data.content) ;
         }
         function deleteRole(){
@@ -197,7 +238,13 @@
         	$('#updateForm').attr('action', $('#updateForm').attr('action').replace('TYPE', currentType));
         });
 
-
+        $('#jingxuan').change(function(){
+            if($('#jingxuan').is(':checked')){
+                    $('#icon-div').show();
+            }else{
+                $('#icon-div').hide();
+            }
+        });
         //-->
     </script>
 
@@ -307,30 +354,37 @@
                                     <input class="form-control"  type="text" id="weight" name="weight" />
                                 </div>
                             </div>
-                                   <input type="file" id="filed" name="filed" style="display:none">
-                            <div class="form-group col-xs-9" id="icon-div">
+                              <div class="form-group col-xs-9" id="jx" style="display: none;">
+                                <label class="col-sm-4 control-label" for="title">是否精选：</label>
+                                <div class="col-sm-8">
+                                    <input class="form-control"  type="checkbox" id="jingxuan" name="" />
+                                </div>
+                            </div>
+                            <input type="file" id="filed1" name="filed1" style="display:none">
+                            <input type="file" id="filed2" name="filed2" style="display:none">
+                         
+                             <div  class="form-group col-xs-9" id="icon-div" style="display: none;">
                                 <label class="col-sm-4 control-label" for="title">图标：</label>
                                 <div class="col-sm-8">
                                     <div class="site-demo-upload" style="border-radius: 0; width: auto;">
-                                         <img  name="iconI" onclick="headOnc();" class="iconI"  src="" style="width:auto; min-width: 200px;border-radius: 0;">
-                                         <br/>
-                                        <input name="icon" class="col-xs-12 col-sm-6 icon"  style="display:none"  type="text" />(外链的话可以填)
+                                        <img  name="iconI" onclick="headOnc(2);" class="iconI"  src="" style="width:auto; min-width: 200px;border-radius: 0;">
+                                        <br/>
+                                        <input name="pic" class="col-xs-12 col-sm-6 icon"  id="pic" style="display:block;"  type="text" />(外链的话可以填)
                                     </div>
 
                                 </div>
                             </div>
-                             <div id="pic-div" class="form-group col-xs-9">
-                                <label class="col-sm-4 control-label" for="title">配图：</label>
+                               <div class="form-group col-xs-9" >
+                                <label class="col-sm-4 control-label" for="title"> 配图：</label>
                                 <div class="col-sm-8">
                                     <div class="site-demo-upload" style="border-radius: 0; width: auto;">
-                                        <img  name="iconI" onclick="headOnc();" class="iconI"  src="" style="width:auto; min-width: 200px;border-radius: 0;">
-                                        <br/>
-                                        <input name="pic" class="col-xs-12 col-sm-6 icon"  style="display:block;"  type="text" />(外链的话可以填)
+                                         <img  name="" onclick="headOnc(1);" class=""  id="iconImg" src="" style="width:auto; min-width: 200px;border-radius: 0;">
+                                         <br/>
+                                        <input name="icon" class="col-xs-12 col-sm-6 icona"  id="icon"  type="text" />(外链的话可以填)
                                     </div>
 
                                 </div>
                             </div>
-
                             <div id="zhaopin" style="display: none;">
                                  <div class="form-group col-xs-9">
                                 <label class="col-sm-4 control-label" for="descr">薪资待遇：</label>

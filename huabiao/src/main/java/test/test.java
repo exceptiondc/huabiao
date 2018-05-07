@@ -9,6 +9,8 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.apache.commons.httpclient.HttpClient;
+
 import jxl.Cell;
 
 import com.cz.yingpu.frame.util.ExcelUtils;
@@ -115,7 +117,6 @@ public class test {
 //				idSet.add(code);
 //				System.out.println(String.format(sql, code, province, "0"));
 //			}
-			
 			System.out.println(String.format(sql, c1.trim(), c2.trim(), c3.trim()));
 		}
 		
@@ -125,37 +126,22 @@ public class test {
 
 	public static void main(String args[]) throws Exception {
 		
-//		testCallback();
-		
-		System.out.println(new String().getClass().isArray());
-				
-		System.out.println(new String[0].getClass().getComponentType().getName());
-		
-		Calendar dateStart = Calendar.getInstance();
-		Calendar dateEnd = Calendar.getInstance();
-		Calendar dateNow = Calendar.getInstance();
-		
-		dateStart.set(2016, 12, 11, 00, 00, 00);
-		
-		dateEnd.set(2016, 11, 15, 23, 59, 59);
-		
-		System.out.println(dateEnd.getTime());
-		System.out.println(dateNow.getTime());
-		System.out.println(dateNow.compareTo(dateEnd));
-		
-//		login();
+	//	https://wechat-ant.chargerlink.com/ant/api/user/antLoginWithPwd
+		HttpHelper helper = new HttpHelper();
+		Map<String, String> params = new HashMap<String, String>();
 
-//		ApplicationContext context = new ClassPathXmlApplicationContext( "applicationContext.xml");// 加载 spring 配置文件
-//		Token token = (Token) context.getBean("1");
-//		System.out.print(SecurityUtils.sign("https://wap.yingpuwealth.com/yingpu/app/appuser/appWebRegResp/json|||412724199012110091||||0006510F0106121|20170420182255|18538095675|https://wap.yingpuwealth.com/yingpu/system/fuiouResp/appWebResp/json|||0.44"));
-
-		/*ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
-		AppUserServiceImpl ips = (AppUserServiceImpl) ac.getBean("personService");
-		System.out.println(ips.getRand());*/
-//		String userCard = "2017-07-10 00:22:03";
-//		System.out.println(new Date().after(DateUtils.parseDate(userCard)));
-		
+		HttpRespons res;
+		try {
+			res = helper.sendPost(
+					"https://wechat-ant.chargerlink.com/ant/api/user/antLoginWithPwd",
+					params);
+			System.out.println(res.content);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
 	}
+	
+	
 }
 
