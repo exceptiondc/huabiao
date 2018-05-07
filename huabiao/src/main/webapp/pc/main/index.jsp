@@ -190,46 +190,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="case_item">
 						<div class="swiper-container swiper-container-horizontal" id="swiper-container1">
 							<div class="swiper-wrapper">
-								<div class="swiper-slide">
-									<div class="retrieval case_list">
-										<a href="javascript:void(0);">
-											<img changeImg="pc/img/retrieval_01.png" src="pc/img/retrieval.png" width="120px" height="110px">
-											<h3>华表网络专利检索平台</h3>
-											<p>专利检索平台是华表网络旗下的一个知识产权检索系统，它涵盖了高级检索，批量检索等一系列的检索功能，简约的表现方式更好的为用户...</p>
-											<span>2018-04-11</span>
-										</a>
-									</div>
-								</div>
-								<div class="swiper-slide">
-									<div class="bicycle case_list">
-										<a href="javascript:void(0);">
-											<img changeImg="pc/img/bicycle_01.png" src="pc/img/bicycle.png" width="120px" height="110px">
-											<h3>电瓶车共享充电平台项目</h3>
-											<p>由华表网络和某某科技公司联合智造的电动车共享充电宝现已于今日成功投放到西安本地市场，本次投放的数量大约为10000个，参与......</p>
-											<span>2018-04-11</span>
-										</a>
-									</div>
-								</div>
-								<div class="swiper-slide">
-									<div class="town case_list">
-										<a href="javascript:void(0);">
-											<img changeImg="pc/img/town_01.png" src="pc/img/town.png" width="120px" height="110px">
-											<h3>智慧小镇一体化建设</h3>
-											<p>由华表网络和某某科技公司联合智造的电动车共享充电宝现已于今日成功投放到西安本地市场，本次投放的数量大约为10000个，参与......</p>
-											<span>2018-04-11</span>
-										</a>
-									</div>
-								</div>
-								<div class="swiper-slide">
-									<div class="town case_list">
-										<a href="javascript:void(0);">
-											<img changeImg="pc/img/town_01.png" src="pc/img/town.png" width="120px" height="110px">
-											<h3>智慧小镇一体化建设</h3>
-											<p>由华表网络和某某科技公司联合智造的电动车共享充电宝现已于今日成功投放到西安本地市场，本次投放的数量大约为10000个，参与......</p>
-											<span>2018-04-11</span>
-										</a>
-									</div>
-								</div>
+								
 							</div>
 							<div class="swiper-button-prev"></div>
 							<div class="case_more"><a href=" javaScript:tiaozhuan('case.html');">查看更多></a></div>
