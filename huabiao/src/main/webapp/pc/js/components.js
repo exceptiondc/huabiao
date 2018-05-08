@@ -1,5 +1,5 @@
 
-var API = 'http://39.105.70.189/';
+var API = 'https://www.huabiaonet.com/';
 
 var telpHeader = function(){
 	var header = `
