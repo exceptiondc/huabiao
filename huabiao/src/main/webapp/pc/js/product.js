@@ -60,14 +60,14 @@ $(function(){
 	});
 
 
-	var lazyLoad = function(){
+	/*var lazyLoad = function(){
         $("img.lazy").lazyload({
             effect: "fadeIn",  
             threshold: 200,
         })
     };
 
- 	lazyLoad();
+ 	lazyLoad();*/
 });
 
 var data = [{'img': '../img/product_01.png', 'id': '1'},
@@ -81,7 +81,7 @@ var data = [{'img': '../img/product_01.png', 'id': '1'},
 var imgList = function (data){
 	var tpl = `<div class="swiper-container" id="swiper-container${ data.id }">
 				    	<div class="swiper-wrapper">
-					        <div class="swiper-slide" data-swiper-autoplay="500"><img class="lazy" data-original="${data.img}"></div>
+					        <div class="swiper-slide" src="500"><img class="lazy" data-original="${data.img}"></div>
 				    	</div>
 					</div>`
 		return tpl;

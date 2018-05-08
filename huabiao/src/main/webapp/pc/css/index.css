@@ -83,10 +83,14 @@
 
 .product_list ul {
 	display: flex;
-	position: relative;
+	
 }
 
-.product_list ul > li {
+.product_list ul > div {
+	width: 300px;
+}
+
+.product_list ul > div > li {
 	width: 253px;
 	height: 346px;
 	display: flex;
@@ -94,11 +98,15 @@
 	align-items: center;
 	border: 1px solid #f3f3f3;
 	border-top: 3px solid #f3f3f3;
-	padding: 60px 16px 30px 30px;
+	padding: 60px 20px 30px 25px;
 	background: #fff;
 }
 
-.product_list ul > li:not(:last-child) {
+.product_list ul > div > li:hover {
+	position: absolute;
+}
+
+.product_list ul > div > li:not(:last-child) {
 	border-right: none;
 }
 

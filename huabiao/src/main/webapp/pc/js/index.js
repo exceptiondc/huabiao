@@ -4,18 +4,21 @@ $(function(){
 
 	//我们的产品
 	var currUrl = "";
-	$('.product_list ul > li').hover(function(){
+	$('.product_list ul > div > li').hover(function(){
 		currUrl = $(this).find('img').attr('src');
 		var changeImg = $(this).find('img').attr('changeImg');
 		$(this).find('img').attr('src',changeImg);
 		$(this).stop().animate({
-			marginTop: '-20px',		
+			marginTop: '-20px',
+			height: 'auto'	
 		}, 600).css({
 			'width': '333px',
-			'height': 'auto',
 			'border': '1px solid #FF9C00',
 			'border-top': '3px solid #FF9C00',
+			'position': 'absolute',
+			'z-index': 99
 		});
+		$(this).parent().css('position', 'relative');
 		$(this).find('ol li').css('text-align', 'left');
 		$(this).find('ol li p').css({'margin-top': '30px', 'color': '#333'});
 		$(this).find('ol li p:eq(0)').css('margin-top', '0');
@@ -31,6 +34,7 @@ $(function(){
 			'border': '1px solid #f3f3f3',
 			'border-top': '3px solid #f3f3f3',
 			'margin-top': '0',
+			'position': 'static'
 		});
 		$(this).find('ol li').css('text-align', 'center');
 		$(this).find('ol li p').css({'margin-top': '0', 'line-height': '30px', 'color': '#999'});
@@ -140,9 +144,12 @@ $(function(){
         		});
 
         		var mySwiper = new Swiper('#swiper-container',{
-					speed:1000,
+					speed: 300,
 					loop : true,
-				 	autoplay:true,
+				 	autoplay: {
+				    	delay: 5000,//5秒切换一次
+				  	},
+				 	effect: 'fade',
 					pagination: {
 				    	el: '.swiper-pagination',
 				    	type: 'custom',
@@ -231,6 +238,7 @@ var case_list = function (data){
 	var caseTpl = `<div class="swiper-slide" id="${ data.id }">
 							<div class="news_list">
 								<dl>
+								
 									<dt><img src="${ data.icon }" width="190px" height="170px"></dt>
 									<dd>
 										<h4>${ data.title }</h4>

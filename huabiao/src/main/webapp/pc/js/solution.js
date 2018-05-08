@@ -32,7 +32,7 @@ $(function(){
           		window.location.href = 'solution_details.html?id=' + solutionId;
           	});
 
-            lazyLoad();
+            /*lazyLoad();*/
         	},
         	error: function (XMLHttpRequest, textStatus, errorThrown) {  
     			alert('网络连接异常，请重试！'); 
@@ -42,19 +42,19 @@ $(function(){
 
    solutionData();
 
-   var lazyLoad = function(){
+   /*var lazyLoad = function(){
         $("img.lazy").lazyload({
             effect: "fadeIn",
-            threshold: 200,
+            threshold: 1000,
         })
-    };
+    };*/
 
 });
 
 var solutionList = function (data){
 	var listTpl = `<li id="${ data.id }">
       							<a href="javascript:void(0);">  
-      								<img class="lazy" data-original="${data.icon}" width="360px" height="390px">
+      								<img class="lazy" src="${data.icon}" width="360px" height="390px">
       								<span class="list_name">${data.title}</span>
       								<div class="mode">
       									<img src="../img/fangan_eyes.png" width="32px" height="22px">
