@@ -45,7 +45,8 @@ $(function(){
 var case_content = function(data){
 	var postTime = data.postTime.substr(0, 10);
 	var contentTpl = `<img src="${ data.icon }" width="820px" height="280px">
-							<div class="case_text"><p>${ data.content }</p></div>`
+							<div class="case_text"><p>${ data.content }</p>
+							</div>`
 
 		return contentTpl;
 }

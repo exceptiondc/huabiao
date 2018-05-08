@@ -84,7 +84,11 @@
 	position: relative;
 }
 
-.product_list ul > li {
+.product_list ul > div {
+	width: 300px;
+}
+
+.product_list ul >div > li {
 	width: 253px;
 	height: 346px;
 	display: flex;
@@ -96,7 +100,7 @@
 	background: #fff;
 }
 
-.product_list ul > li:not(:last-child) {
+.product_list ul >div > li:not(:last-child) {
 	border-right: none;
 }
 

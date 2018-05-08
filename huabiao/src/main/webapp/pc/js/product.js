@@ -1,18 +1,20 @@
 $(function(){
 	var currUrl = "";
-	$('.product').addClass('active');
-	$('.product_list ul > li').hover(function(){
+	$('.product_list ul > div > li').hover(function(){
 		currUrl = $(this).find('img').attr('src');
 		var changeImg = $(this).find('img').attr('changeImg');
 		$(this).find('img').attr('src',changeImg);
 		$(this).stop().animate({
-			marginTop: '-20px',		
+			marginTop: '-20px',
+			height: 'auto'	
 		}, 600).css({
 			'width': '333px',
-			'height': 'auto',
 			'border': '1px solid #FF9C00',
 			'border-top': '3px solid #FF9C00',
+			'position': 'absolute',
+			'z-index': 99
 		});
+		$(this).parent().css('position', 'relative');
 		$(this).find('ol li').css('text-align', 'left');
 		$(this).find('ol li p').css({'margin-top': '30px', 'color': '#333'});
 		$(this).find('ol li p:eq(0)').css('margin-top', '0');
@@ -28,6 +30,7 @@ $(function(){
 			'border': '1px solid #f3f3f3',
 			'border-top': '3px solid #f3f3f3',
 			'margin-top': '0',
+			'position': 'static'
 		});
 		$(this).find('ol li').css('text-align', 'center');
 		$(this).find('ol li p').css({'margin-top': '0', 'line-height': '30px', 'color': '#999'});
@@ -81,7 +84,7 @@ var data = [{'img': '../img/product_01.png', 'id': '1'},
 var imgList = function (data){
 	var tpl = `<div class="swiper-container" id="swiper-container${ data.id }">
 				    	<div class="swiper-wrapper">
-					        <div class="swiper-slide" src="500"><img class="lazy" data-original="${data.img}"></div>
+					        <div class="swiper-slide" src="500"><img class="lazy" src="${data.img}"></div>
 				    	</div>
 					</div>`
 		return tpl;
