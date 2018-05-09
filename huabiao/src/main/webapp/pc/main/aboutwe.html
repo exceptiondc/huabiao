@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html lang="en">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta charset="UTF-8">
 	<title>关于我们</title>
@@ -14,14 +14,66 @@
 	<script type="text/javascript" src="../js/map.js"></script>
 	<script type="text/javascript" src="../js/components.js"></script>
 	<script type="text/javascript" src="../js/aboutwe.js"></script>
-	<!--引用百度地图API-->
+	
 	<style type="text/css">
 	    html,body{margin:0;padding:0;}
-	    .iw_poi_title {color:#CC5522;font-size:14px;font-weight:bold;overflow:hidden;padding-right:13px;white-space:nowrap}
-	    .iw_poi_content {font:12px arial,sans-serif;overflow:visible;padding-top:4px;white-space:-moz-pre-wrap;word-wrap:break-word}
-	    .anchorBL { display: none; }
+	    .amap-icon { width: 30px!important; height: 30px!important; }
+	    .amap-icon img { width: 34px!important; top: 0px!important; left: -7px!important; }
+	    .amap-marker-label { border: 1px solid #808080; }
+	    .amap-logo, .amap-copyright { display: none!important; }
+	    .info {
+            border: solid 1px silver;
+        }
+        div.info-top {
+            position: relative;
+            background: none repeat scroll 0 0 #F9F9F9;
+            border-bottom: 1px solid #CCC;
+            border-radius: 5px 5px 0 0;
+        }
+        div.info-top div {
+            display: inline-block;
+            color: #333333;
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 31px;
+            padding: 0 10px;
+        }
+        div.info-top img {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            transition-duration: 0.25s;
+        }
+        div.info-top img:hover {
+            box-shadow: 0px 0px 5px #000;
+        }
+        div.info-middle {
+            font-size: 12px;
+            padding: 6px;
+            line-height: 20px;
+        }
+        div.info-bottom {
+            height: 0px;
+            width: 100%;
+            clear: both;
+            text-align: center;
+        }
+        div.info-bottom img {
+            position: relative;
+            z-index: 104;
+        }
+        span {
+            margin-left: 5px;
+            font-size: 11px;
+        }
+        .info-middle img {
+            float: left;
+            margin-right: 6px;
+        }
 	</style>
-	<script type="text/javascript" src="https://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
+	 <!--引用高德地图API-->
+    <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.6&key=330cf9410b5b405b9d158fc1b1d0389a"></script> 
+    <script src="https://webapi.amap.com/ui/1.0/main.js"></script>
 </head>
 <body>
 	<div class="wrap">
@@ -81,8 +133,8 @@
 
 						<!--联系我们-->
 						<div class="contact">
-							<!--百度地图容器-->
-  							<div style="width:980px;height:220px;border:#ccc solid 1px;" id="dituContent"></div>
+							<!--地图容器-->
+    						<div style="width:980px;height:220px;border:#ccc solid 1px;font-size:12px" id="container"></div>
 							<div class="we_info">
 								<div class="we_title">
 									<h3>陕西华表网络技术有限公司</h3>
@@ -114,7 +166,7 @@
 									</ul>
 								</div>
 								<div class="we_code">
-									<img src="../img/we_code.png" width="132px" height="171px">
+									<img src="../img/we_code.png" width="132px" height="132px">
 								</div>
 							</div>
 						</div>

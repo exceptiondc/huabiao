@@ -249,18 +249,28 @@
 }
 
 .news_list dl .news_time {
-	width: 88px;
-	height: 24px;
+	width: 110px;
+	height: auto;
 	font-size: 12px;
-	color: #fff;
+	color: #333;
 	display: flex;
 	padding-top: 2px;
-	padding-left: 14px;
+	margin-left: 26px;
 	/* position: absolute;
 	top: 10px;
 	left: 496px;
 	background: url('../img/time.png') no-repeat; */
 	background-size: 88px 24px;
+	flex-direction: column;
+}
+
+.news_list dl .news_time span {
+	width: 112px!important;
+	height: 42px;
+	font-size: 40px;
+	color: #FFA800;
+	display: flex;
+	margin-bottom: 20px;
 }
 
 .news_list dl dt img {
@@ -269,18 +279,28 @@
 }
 
 .news_list dl dd {
+	width: 550px;
 	margin: 0 30px;
 }
 
 .news_list dl dd h4 {
+	width: 550px;
 	font-size: 16px;
 	color: #333;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
 }
 
 .news_list dl dd p {
+	width: 550px;
 	font-size: 14px;
 	color: #999;
 	margin-top: 22px;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	overflow: hidden;
 }
 
 .news_list ul {
@@ -294,8 +314,11 @@
 }
 
 .news_list ul li:hover {
-	box-shadow:8px 0px 20px rgba(0,0,0,0.06);
+	/* box-shadow:8px 0px 20px rgba(0,0,0,0.06); */
+	  box-shadow: 0 0 8px 0 rgba(0,0,0,.15); 
+ 	/* box-shadow:6px 0px 18px rgba(115,115,115,0.15); */
 	background: #fff;
+ 	transition: all .3s ease-in-out;
 } 
 
 .swiper-pagination-bullets{

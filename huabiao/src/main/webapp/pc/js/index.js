@@ -16,7 +16,7 @@ $(function(){
 			'border': '1px solid #FF9C00',
 			'border-top': '3px solid #FF9C00',
 			'position': 'absolute',
-			'z-index': 99
+			'z-index': 99,
 		});
 		$(this).parent().css('position', 'relative');
 		$(this).find('ol li').css('text-align', 'left');
@@ -48,7 +48,8 @@ $(function(){
 	$('.programme_item ul li').hover(function(){
 		$(this).css({
 			'background': 'url(/pc/img/org_bg.png) no-repeat',
-			'box-shadow': '10px 0px 24px rgba(255,168,0,0.4)'
+			'box-shadow': '10px 0px 24px rgba(255,168,0,0.4)',
+		 	'transition': 'all .3s ease-in-out'		
 		});
 		imgUrl = $(this).find('img').attr('src');
 		var changeImg = $(this).find('img').attr('changeImg');
@@ -99,7 +100,7 @@ $(function(){
 				});
 
         		$('.case_list').hover(function(){
-					$(this).css({'height': '180px','box-shadow':'10px 0px 24px rgba(0,0,0,0.06)'});
+					$(this).css({'height': '180px','box-shadow':'10px 0px 24px rgba(0,0,0,0.06)', 'transition': 'all .3s ease-in-out' });
 					$(this).parent().css({'transform': 'scale(1.04)','transition': 'all .3s ease-out 0s',})
 					$(this).find('.iconImg').css('background', '#FF9C00');
 					$(this).find('.time').show().css( 'margin-bottom', '26px');
@@ -121,7 +122,7 @@ $(function(){
           	});
         	},
         	error: function (XMLHttpRequest, textStatus, errorThrown) {  
-    			alert('网络连接异常，请重试！'); 
+    			console.log('网络连接异常，请重试！'); 
         	}
    	})
 	}
@@ -169,7 +170,7 @@ $(function(){
 				});
         	},
         	error: function (XMLHttpRequest, textStatus, errorThrown) {  
-    			alert('网络连接异常，请重试！')  
+    			console.log('网络连接异常，请重试！')  
         	}
       })    	
 	}
@@ -219,7 +220,7 @@ $(function(){
              	});
         	},
         	error: function (XMLHttpRequest, textStatus, errorThrown) {  
-             			alert('网络连接异常，请重试！')  
+         			console.log('网络连接异常，请重试！')  
         	}
       });
 	}

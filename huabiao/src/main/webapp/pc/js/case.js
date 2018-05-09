@@ -37,7 +37,7 @@ $(function(){
           	lazyLoad();
         	},
         	error: function (XMLHttpRequest, textStatus, errorThrown) {  
-    			alert('网络连接异常，请重试！'); 
+    			console.log('网络连接异常，请重试！'); 
         	}
    	})
 	}

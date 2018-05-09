@@ -1,4 +1,6 @@
 $(function(){
+
+	$('.product').addClass('active');
 	var currUrl = "";
 	$('.product_list ul > div > li').hover(function(){
 		currUrl = $(this).find('img').attr('src');

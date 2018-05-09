@@ -22,7 +22,7 @@ $(function(){
          	}
          },
          error:function (XMLHttpRequest, textStatus, errorThrown) {  
-    				alert('网络连接异常，请重试！')  
+    				console.log('网络连接异常，请重试！')  
         	}
       });
 	}
@@ -54,7 +54,7 @@ $(function(){
          	}
          },
          error:function (XMLHttpRequest, textStatus, errorThrown) {  
-    				alert('网络连接异常，请重试！')  
+    				console.log('网络连接异常，请重试！')  
         	}
       });
 	}
@@ -90,7 +90,7 @@ $(function(){
 													<h4>${item.title}</h4>
 													<p>${item.content}</p>
 												</dd>
-												<span class="news_time">${item.postTime.substr(0, 10)}</span>
+												<p class="news_time"><span>${item.postTime.substr(5, 5)}</span>${item.postTime.substr(0, 4)}</p>
 											</dl>
 										</li>`
 
@@ -114,7 +114,7 @@ $(function(){
 	               }             
 	           },  
 	           error: function (XMLHttpRequest, textStatus, errorThrown) {  
-	             			alert('网络连接异常，请重试！')  
+	             			console.log('网络连接异常，请重试！')  
 	        	}  
 	 		});  
 	 	}  

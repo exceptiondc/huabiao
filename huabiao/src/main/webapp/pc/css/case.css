@@ -82,8 +82,13 @@
 }
 
 .case_list ul li dl dd p {
+	width: 540px;
 	font-size: 14px;
 	color: #999;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	overflow: hidden;
 }
 
 .case_list ul li dl dd .more {

@@ -1,88 +1,200 @@
+
 $(function(){
-   //创建和初始化地图函数：
+   /* //创建和初始化地图函数：
     function initMap(){
-        createMap();//创建地图
-        setMapEvent();//设置地图事件
-        addMapControl();//向地图添加控件
-        addMarker();//向地图中添加marker
+      createMap();//创建地图
+      setMapEvent();//设置地图事件
+      addMapControl();//向地图添加控件
+      addMapOverlay();//向地图添加覆盖物
     }
-    
-    //创建地图函数：
-    function createMap(){
-        var map = new BMap.Map("dituContent");//在百度地图容器中创建一个地图
-        var point = new BMap.Point(108.878223,34.196719);//定义一个中心点坐标
-        map.centerAndZoom(point,18);//设定地图的中心点和坐标并将地图显示在地图容器中
-        window.map = map;//将map变量存储在全局
+    function createMap(){ 
+      map = new BMap.Map("map"); 
+      map.centerAndZoom(new BMap.Point(108.878556,34.196487),18);
     }
-    
-    //地图事件设置函数：
     function setMapEvent(){
-        map.enableDragging();//启用地图拖拽事件，默认启用(可不写)
-        map.enableScrollWheelZoom();//启用地图滚轮放大缩小
-        map.enableDoubleClickZoom();//启用鼠标双击放大，默认启用(可不写)
-        map.enableKeyboard();//启用键盘上下左右键移动地图
+      map.enableScrollWheelZoom();
+      map.enableKeyboard();
+      map.enableDragging();
+      map.enableDoubleClickZoom()
     }
-    
-    //地图控件添加函数：
+    function addClickHandler(target,window){
+      target.addEventListener("click",function(){
+        target.openInfoWindow(window);
+      });
+    }
+    function addMapOverlay(){
+      var markers = [
+        {content:"西安市高新技术产业开发区锦业一路56号研祥城市广场B座307室",title:"陕西华表网络技术有限公司",imageOffset: {width:-69,height:-21},position:{lat:34.196592,lng:108.878466}}
+      ];
+      for(var index = 0; index < markers.length; index++ ){
+        var point = new BMap.Point(markers[index].position.lng,markers[index].position.lat);
+        var marker = new BMap.Marker(point,{icon:new BMap.Icon("https://api.map.baidu.com/lbsapi/createmap/images/icon.png",new BMap.Size(20,25),{
+          imageOffset: new BMap.Size(markers[index].imageOffset.width,markers[index].imageOffset.height)
+        })});
+        var label = new BMap.Label(markers[index].title,{offset: new BMap.Size(25,5)});
+        var opts = {
+          width: 200,
+          title: markers[index].title,
+          enableMessage: false
+        };
+        var infoWindow = new BMap.InfoWindow(markers[index].content,opts);
+        marker.setLabel(label);
+        addClickHandler(marker,infoWindow);
+        map.addOverlay(marker);
+      };
+    }
+    //向地图添加控件
     function addMapControl(){
-                        }
-    
-    //标注点数组
-    var markerArr = [{title:"陕西华表网络技术有限公司",content:"地址：西安市高新技术产业开发区锦业一路56号研祥城市广场B座307室",point:"108.878695|34.196644",isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}
-         ];
-    //创建marker
-    function addMarker(){
-        for(var i=0;i<markerArr.length;i++){
-            var json = markerArr[i];
-            var p0 = json.point.split("|")[0];
-            var p1 = json.point.split("|")[1];
-            var point = new BMap.Point(p0,p1);
-            var iconImg = createIcon(json.icon);
-            var marker = new BMap.Marker(point,{icon:iconImg});
-            var iw = createInfoWindow(i);
-            var label = new BMap.Label(json.title,{"offset":new BMap.Size(json.icon.lb-json.icon.x+10,-20)});
-            marker.setLabel(label);
-            map.addOverlay(marker);
-            label.setStyle({
-                        borderColor:"#808080",
-                        color:"#333",
-                        cursor:"pointer"
-            });
-            
-            (function(){
-                var index = i;
-                var _iw = createInfoWindow(i);
-                var _marker = marker;
-                _marker.addEventListener("click",function(){
-                    this.openInfoWindow(_iw);
-                });
-                _iw.addEventListener("open",function(){
-                    _marker.getLabel().hide();
-                })
-                _iw.addEventListener("close",function(){
-                    _marker.getLabel().show();
-                })
-                label.addEventListener("click",function(){
-                    _marker.openInfoWindow(_iw);
-                })
-                if(!!json.isOpen){
-                    label.hide();
-                    _marker.openInfoWindow(_iw);
-                }
-            })()
-        }
+      var navControl = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:BMAP_NAVIGATION_CONTROL_LARGE});
+      map.addControl(navControl);
     }
-    //创建InfoWindow
-    function createInfoWindow(i){
-        var json = markerArr[i];
-        var iw = new BMap.InfoWindow("<b class='iw_poi_title' title='" + json.title + "'>" + json.title + "</b><div class='iw_poi_content'>"+json.content+"</div>");
-        return iw;
+    var map;
+      initMap();*/
+
+   function init(){
+        var map = new AMap.Map('container', {
+        resizeEnable: true,
+        zoom:18,
+        center: [108.871841, 34.190701]
+      });
+
+        addMarker();
+      //添加marker标记
+       function addMarker() {
+           map.clearMap();
+           var marker = new AMap.Marker({
+               map: map,
+               position: [108.871841, 34.190701],
+               icon: new AMap.Icon({            
+                  image: "../img/Marker.png"
+               })
+           });
+           //鼠标点击marker弹出自定义的信息窗体
+           AMap.event.addListener(marker, 'click', function() {
+               infoWindow.open(map, marker.getPosition());
+           });
+       }
+
+       //实例化信息窗体
+      var title='陕西华表网络技术有限公司',
+          content=[];
+      content.push("地址：西安市高新技术产业开发区锦业一路56号研祥城市广场B座307室");
+      content.push("电话：029-81108865");
+      var infoWindow = new AMap.InfoWindow({
+          isCustom: true,  //使用自定义窗体
+          content: createInfoWindow(title,content.join("<br>")),
+          offset: new AMap.Pixel(16, -50)//-113, -140
+      });
+      infoWindow.open(map, [108.871841, 34.190701]);
+
+       //构建自定义信息窗体
+    function createInfoWindow(title, content) {
+        var info = document.createElement("div");
+        info.className = "info";
+
+        //可以通过下面的方式修改自定义窗体的宽高
+        //info.style.width = "400px";
+        // 定义顶部标题
+        var top = document.createElement("div");
+        var titleD = document.createElement("div");
+        var closeX = document.createElement("img");
+        top.className = "info-top";
+        titleD.innerHTML = title;
+        closeX.src = "https://webapi.amap.com/images/close2.gif";
+        closeX.onclick = closeInfoWindow;
+
+        top.appendChild(titleD);
+        top.appendChild(closeX);
+        info.appendChild(top);
+
+        // 定义中部内容
+        var middle = document.createElement("div");
+        middle.className = "info-middle";
+        middle.style.backgroundColor = 'white';
+        middle.innerHTML = content;
+        info.appendChild(middle);
+
+        // 定义底部内容
+        var bottom = document.createElement("div");
+        bottom.className = "info-bottom";
+        bottom.style.position = 'relative';
+        bottom.style.top = '0px';
+        bottom.style.margin = '0 auto';
+        var sharp = document.createElement("img");
+        sharp.src = "https://webapi.amap.com/images/sharp.png";
+        bottom.appendChild(sharp);
+        info.appendChild(bottom);
+        return info;
     }
-    //创建一个Icon
-    function createIcon(json){
-        var icon = new BMap.Icon("http://api.map.baidu.com/lbsapi/creatmap/images/us_mk_icon.png", new BMap.Size(json.w,json.h),{imageOffset: new BMap.Size(-json.l,-json.t),infoWindowOffset:new BMap.Size(json.lb+5,1),offset:new BMap.Size(json.x,json.h)})
-        return icon;
+
+    //关闭信息窗体
+    function closeInfoWindow() {
+        map.clearInfoWindow();
     }
-    
-    initMap();//创建和初始化地图
+
+
+      /*//添加点标记，并使用自己的icon
+        var marker = new AMap.Marker({
+         map: map,
+         position: [108.871841, 34.190701],
+           icon: new AMap.Icon({            
+               image: "https://webapi.amap.com/theme/v1.3/images/newpc/way_btn2.png"
+            })             
+       });
+
+      marker.setMap(map);
+      // 设置鼠标划过点标记显示的文字提示
+      marker.setTitle('地址：西安市高新技术产业开发区锦业一路56号研祥城市广场B座307室');
+
+      // 设置label标签
+      marker.setLabel({
+         //label默认蓝框白底左上角显示，样式className为：amap-marker-label
+         offset: new AMap.Pixel(20, 20),//修改label相对于maker的位置
+         content: "陕西华表网络技术有限公司"
+      });
+*/
+      
+      }
+
+    init();
+
+
+
+   /*function openInfo() {
+    //实例化信息窗体
+   var title='陕西华表网络技术有限公司',
+       content=[];
+   content.push("地址：西安市高新技术产业开发区锦业一路56号研祥城市广场B座307室");
+   content.push("电话：029-81108865");
+   var infoWindow = new AMap.InfoWindow({
+       isCustom: true,  //使用自定义窗体
+       content: createInfoWindow(title,content.join("<br>")),
+       offset: new AMap.Pixel(16, -50)//-113, -140
+   });
+   infoWindow.open(map, [108.871841, 34.190701]);
+}
+
+openInfo()*/
+
+    //引入SimpleMarker，loadUI的路径参数为模块名中 'ui/' 之后的部分
+   AMapUI.loadUI(['overlay/SimpleMarker'], function(SimpleMarker) {
+       //启动页面
+       initPage(SimpleMarker);
+   });
+
+   function initPage(SimpleMarker) {
+
+       //创建SimpleMarker实例
+       new SimpleMarker({
+           //前景文字
+           iconLabel: '',
+           //图标主题
+           iconTheme: 'fresh',
+           //背景图标样式
+           iconStyle: 'darkyellow',
+           position: [108.871841, 34.190701]
+       });
+   }
 });
+    
+

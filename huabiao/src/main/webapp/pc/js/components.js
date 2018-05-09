@@ -30,7 +30,7 @@ var telpFooter = function(){
 								<p>029-<span>81108865</span></p>
 							</div>
 							<div class="code">
-								<a class="code_img" href="#"><img src="/pc/img/code.png"></a>
+								<a class="code_img" href="#"><img src="/pc/img/we_code.png" width="62px" height="62px"></a>
 								<a class="qq" href="#"><img src="/pc/img/qq.png"></a>
 								<a class="mail" href="#"><img src="/pc/img/mail.png"></a>
 							</div>
