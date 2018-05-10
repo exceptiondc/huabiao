@@ -43,7 +43,7 @@ $(function(){
 	});
 
 
-	//解决方案
+	//方案
 	var imgUrl = "";
 	$('.programme_item ul li').hover(function(){
 		$(this).css({
