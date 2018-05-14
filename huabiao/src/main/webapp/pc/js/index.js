@@ -103,10 +103,10 @@ $(function(){
 					$(this).css({'height': '180px','box-shadow':'10px 0px 24px rgba(0,0,0,0.06)', 'transition': 'all .3s ease-in-out' });
 					$(this).parent().css({'transform': 'scale(1.04)','transition': 'all .3s ease-out 0s',})
 					$(this).find('.iconImg').css('background', '#FF9C00');
-					$(this).find('.time').show().css( 'margin-bottom', '26px');
+					$(this).find('.time').fadeIn(500).css( 'margin-bottom', '26px');
 				},function(){
 					$(this).parent().css('transform', 'none');
-					$(this).find('.time').hide();
+					$(this).find('.time').fadeOut(500);
 					$(this).css({ 'height': '160px', 'box-shadow': 'none'});
 					$(this).find('.iconImg').css('background', '#999');
 				});

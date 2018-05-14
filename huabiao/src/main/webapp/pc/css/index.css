@@ -5,11 +5,11 @@
 }
 
 .index_banner {
-	height: 765px;
+	height: auto;
 }
 
 .index_banner .swiper-container {
-	height: 765px;
+	height: auto;
 }
 
 .index_banner .swiper-container .swiper-pagination {
@@ -235,7 +235,7 @@
 .programme_item ul li a span {
 	font-size: 12px;
 	color: #FFF0C9;
-	line-height: 16px;
+	line-height: 20px;
 	text-align: center;
 	margin-top: 20px;
 	display: none;
