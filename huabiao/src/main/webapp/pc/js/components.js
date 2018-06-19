@@ -29,7 +29,7 @@ var telpHeader = function(){
 			        	</Breadcrumb-item>
 				    </Breadcrumb>
 			    </div>
-			    <div style="width: 200px;"></div>
+			    <div style="width: 180px;"></div>
 		    </div>
 			`
 	return header;
@@ -125,10 +125,10 @@ $(function(){
 		$("html,body").animate({scrollTop:0}, 500);
 	});
 
-	$('.ivu-breadcrumb >span').hover(function(){
-		$(this).find('ul').stop().slideDown();
+	$('.ivu-breadcrumb > span').hover(function(){
+		$(this).find('ul').show();
 	},function(){
-		$(this).find('ul').stop().slideUp();
+		$(this).find('ul').hide();
 	});
 
 	$('.header_nav ul li').click(function(){
