@@ -1,6 +1,6 @@
 $(function(){
-	$('.ivu-breadcrumb > span:eq(4) > a').addClass('active');
-	
+	$('.ivu-breadcrumb > span:eq(4) > a').addClass('on');
+
 	//招聘
 	var getRecruit = function(){
 		$.ajax({  

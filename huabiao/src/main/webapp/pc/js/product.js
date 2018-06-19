@@ -1,6 +1,6 @@
 $(function(){
 
-	$('.ivu-breadcrumb > span:eq(1) a').addClass('active');
+	$('.ivu-breadcrumb > span:eq(1) a').addClass('on');
 	// var currUrl = "";
 	// $('.product_list ul > div > li').hover(function(){
 	// 	currUrl = $(this).find('img').attr('src');

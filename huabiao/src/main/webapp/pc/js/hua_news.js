@@ -1,5 +1,5 @@
  $(function(){
- 	$('.huaNews').addClass('active');
+ 	$('.ivu-breadcrumb > span:eq(4) > a').addClass('on');
 
 //  	var totalPage = 1;//总共多少页  
 //  	var totalRecords = 1;//总共多少条  

@@ -111,7 +111,7 @@ body, html {
 	padding-bottom: 10px;
 }
 
-.active {
+.on {
 	border-bottom: 3px solid #FFA800;
 	padding-bottom: 10px;
 }
@@ -250,7 +250,7 @@ body, html {
 	line-height: 30px;
 }
 
-.select li:hover a {
+.select li:hover > a {
 	color: #FFA800!important;
 }
 

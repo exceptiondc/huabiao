@@ -1,7 +1,7 @@
 $(function(){
 
 
-	$('.ivu-breadcrumb > span:eq(0) a').addClass('active');
+	$('.ivu-breadcrumb > span:eq(0) a').addClass('on');
 
 	//我们的产品
 	// var currUrl = "";

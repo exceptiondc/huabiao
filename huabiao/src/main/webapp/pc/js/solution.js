@@ -1,5 +1,5 @@
 $(function(){
-	$('.ivu-breadcrumb > span:eq(2) a').addClass('active');
+	$('.ivu-breadcrumb > span:eq(2) > a').addClass('on');
 
 	var solutionData = function (){
 		$.ajax({  
