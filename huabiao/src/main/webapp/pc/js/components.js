@@ -11,19 +11,16 @@ var telpHeader = function(){
 					<Breadcrumb>
 						<Breadcrumb-item to="/">首页</Breadcrumb-item>
 				        <Breadcrumb-item to="javaScript:tiaozhuan('product.html');">产品与服务</Breadcrumb-item>
-				        <Breadcrumb-item to="javaScript:tiaozhuan('solution.html');" style="position: relative;">
-				        	解决方案
-				        	<ul class="select">
-				        		<li><a href="">智慧家庭</a></li>
-				        		<li><a href="">智慧物业</a></li>
-				        		<li><a href="">智慧社区</a></li>
-				        		<li><a href="">智慧城市</a></li>
+				        <Breadcrumb-item style="position: relative; color: #fff; font-size: 16px;">
+				        	<a>解决方案</a>
+				        	<ul class="select fangan_list">
+				        		
 			        		</ul>
 			        	</Breadcrumb-item>
 				        <Breadcrumb-item to="javaScript:tiaozhuan('case.html');">成功案例</Breadcrumb-item>
-				        <Breadcrumb-item to="javaScript:tiaozhuan('');" style="position: relative;">
-				        	关于我们
-				        	<ul class="select">
+				        <Breadcrumb-item style="position: relative; color: #fff; font-size: 16px;">
+				        	<a>关于我们</a>
+				        	<ul class="select our_list">
 				        		<li><a href="synopsis.html" target=_blank>公司简介</a></li>
 				        		<li><a href="contactus.html" target=_blank>联系我们</a></li>
 				        		<li><a href="recruit.html" target=_blank>招聘需求</a></li>
@@ -72,18 +69,55 @@ $(function(){
 	new Vue({
 		el: ".header"
 	})
-	// $(window).scroll(function (){
-	// 	var divAll = $('.main').children();
-	// 	var scrollTop = $(window).scrollTop();
+	$(window).scroll(function (){
+		var divAll = $('.main').children();
+		var scrollTop = $(window).scrollTop();
 
-	// 	divAll.map(function(i,e){
-	// 		if(scrollTop >= $(e).offset().top - 100){
-	// 			$(e).find('.border_org').animate({
-	// 				width: "100%"
-	// 			}, 800);
-	// 		}	
-	// 	});
-	// });
+		divAll.map(function(i,e){
+			if(scrollTop >= $(e).offset().top - 100){
+				$(e).find('.border_org').animate({
+					width: "100%"
+				}, 800);
+			}	
+		});
+	});
+
+	var schemes = function (){
+		$.ajax({  
+        	type:"post",  
+        	url: API + "huabiao/system/announce/list/json",  
+        	dataType: "json",  
+       		data: { 
+       			type:'schemes',
+       			// pageIndex:'1',
+       			// pageSize:'9',
+       			order:'id',
+       			sort:'asc'
+       		}, 
+        	success:function(result) {
+        		console.log(result);
+        		var data = result.data;
+        		data.map( e => {
+        			$('.fangan_list').append(`<li id="${ e.id }" type="${ e.title }"><a href="">${ e.title }</a></li>`);	
+        		});
+
+        		$('.fangan_list li').click(function(){
+          		var solutionId = $(this).attr('id');
+          		var solutionTitle = $(this).attr('type');
+      		   	window.open('solution_details.html?id=' + solutionId + '&title=' + solutionTitle);
+
+          	});
+
+            /*lazyLoad();*/
+        	},
+        	error: function (XMLHttpRequest, textStatus, errorThrown) {  
+    			console.log('网络连接异常，请重试！'); 
+        	}
+      })
+   }
+
+   schemes();
+	
 	
 
 	//返回顶部

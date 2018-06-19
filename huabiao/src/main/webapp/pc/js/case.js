@@ -12,7 +12,7 @@ $(function(){
      			pageIndex:'1',
      			pageSize:'4',
      			order:'id',
-     			sort:'asc'
+     			// sort:'asc'
      		}, 
         	success:function(result) {
         		console.log(result);
@@ -56,7 +56,7 @@ $(function(){
 var caseList = function (data){
 	var caseTpl = `<li id="${ data.id }">
 					<dl>
-						<dt><img class="lazy" data-original="${ data.icon }" width="580px" height="190px"></dt>
+						<dt><img class="lazy" data-original="${ data.picc }" width="580px" height="190px"></dt>
 						<dd>
 							<h4>${ data.title }</h4>
 							<p>${ data.descr }</p>

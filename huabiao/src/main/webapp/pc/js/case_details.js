@@ -13,7 +13,6 @@ $(function(){
             	if (result.statusCode == 200) {
             		var data = result.data;  
           	  		$('.case_content').append(case_content(data));
-                	$('.case_title').append('<h3>' + data.title + '</h3> <p>发布于<span>' + data.postTime + '</span>日</p>')
                }             
            },  
            error: function (XMLHttpRequest, textStatus, errorThrown) {  
@@ -44,9 +43,14 @@ $(function(){
 //方案详情
 var case_content = function(data){
 	var postTime = data.postTime.substr(0, 10);
-	var contentTpl = `<img src="${ data.icon }" width="820px" height="280px">
-							<div class="case_text"><p>${ data.content }</p>
-							</div>`
+	var contentTpl = `<div class="case_title" style="margin-bottom: 40px;">
+						<h3>${ data.title }</h3>
+						<p>发布于<span>${ postTime }</span>日</p>
+					</div>
+				
+					<img src="${ data.icon }" width="100%" height="380px">
+					<div class="case_text">${ data.content }</div>
+					`
 
 		return contentTpl;
 }

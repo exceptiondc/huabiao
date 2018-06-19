@@ -1,5 +1,5 @@
 $(function(){
-	$('.ivu-breadcrumb > span:eq(4) > a').addClass('on');
+	$('.ivu-breadcrumb > span:eq(4) span > a').addClass('on');
 
 	//招聘
 	var getRecruit = function(){

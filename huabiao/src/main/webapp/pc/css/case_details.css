@@ -37,7 +37,7 @@ h3 {
 }
 
 .case_content {
-	width: 820px;
+	width: 100%;
 }
 
 .case_title h3 {
@@ -52,7 +52,7 @@ h3 {
 }
 
 .case_text {
-	width: 820px;
+	width: 100%;
 	margin-top: 42px;	
 }
 
