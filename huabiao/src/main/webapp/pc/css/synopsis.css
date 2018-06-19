@@ -1,0 +1,75 @@
+
+.wrap {
+	width: 100%;
+}
+
+.title {
+	width: 248px;
+	/*border-bottom: 2px solid #999;*/
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.title h3 {
+	font-size: 22px;
+	color: #333;
+	font-weight: normal;
+	margin: 18px 0 10px 0;
+}
+
+.title p {
+	font-size: 14px;
+	color: #999;
+	text-align: center;
+}
+
+.title .border_org {
+	width: 70px;
+	height: 2px;
+	background: #FF9C00;
+	display: block;
+	margin-bottom: -2px;
+}
+
+.content {
+	width: 1200px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 80px;
+	background: #fff;
+}
+
+.gs_text {
+	text-align: center;
+}
+
+.gs_text h3 {
+	font-size: 20px;
+	color: #333;
+	margin: 60px 0 30px 0;
+}
+
+.gs_text p {
+	font-size: 16px;
+	color: #666;
+	text-align: justify;
+	line-height:30px;
+}
+
+.wenhua {
+	width: 830px;
+	height: 830px;
+	margin-top: 80px;
+	background: url('../img/wh_bg.png') no-repeat;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.wenhua > img {
+	margin-top: 57px;
+}

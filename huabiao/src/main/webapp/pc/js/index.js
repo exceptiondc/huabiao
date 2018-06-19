@@ -1,71 +1,82 @@
 $(function(){
 
-	$('.header_nav ul li').eq(0).addClass('active');
+
+	$('.ivu-breadcrumb > span:eq(0) a').addClass('active');
 
 	//我们的产品
-	var currUrl = "";
+	// var currUrl = "";
+	// $('.product_list ul > div > li').hover(function(){
+	// 	currUrl = $(this).find('img').attr('src');
+	// 	var changeImg = $(this).find('img').attr('changeImg');
+	// 	$(this).find('img').attr('src',changeImg);
+	// 	$(this).stop().animate({
+	// 		marginTop: '-20px',
+	// 		height: 'auto'	
+	// 	}, 600).css({
+	// 		'width': '333px',
+	// 		'border': '1px solid #FF9C00',
+	// 		'border-top': '3px solid #FF9C00',
+	// 		'position': 'absolute',
+	// 		'z-index': 99,
+	// 	});
+	// 	$(this).parent().css('position', 'relative');
+	// 	$(this).find('ol li').css('text-align', 'left');
+	// 	$(this).find('ol li p').css({'margin-top': '30px', 'color': '#333'});
+	// 	$(this).find('ol li p:eq(0)').css('margin-top', '0');
+	// 	$(this).find('ol li p b').hide();
+	// 	$(this).find('ol li span').show().css('margin-top', '22px');
+	// },function(){
+	// 	$(this).find('img').attr('src', currUrl);
+	// 	$(this).stop().animate({
+	// 		marginTop: '0',		
+	// 	}, 600).css({
+	// 		'width': '300px',
+	// 		'height': '400px',
+	// 		'border': '1px solid #f3f3f3',
+	// 		'border-top': '3px solid #f3f3f3',
+	// 		'margin-top': '0',
+	// 		'position': 'static'
+	// 	});
+	// 	$(this).find('ol li').css('text-align', 'center');
+	// 	$(this).find('ol li p').css({'margin-top': '0', 'line-height': '30px', 'color': '#999'});
+	// 	$(this).find('ol li p b').show();
+	// 	$(this).find('ol li span').hide().css('margin-top', '0');
+	// });
+	
 	$('.product_list ul > div > li').hover(function(){
-		currUrl = $(this).find('img').attr('src');
-		var changeImg = $(this).find('img').attr('changeImg');
-		$(this).find('img').attr('src',changeImg);
-		$(this).stop().animate({
-			marginTop: '-20px',
-			height: 'auto'	
-		}, 600).css({
-			'width': '333px',
-			'border': '1px solid #FF9C00',
-			'border-top': '3px solid #FF9C00',
-			'position': 'absolute',
-			'z-index': 99,
-		});
 		$(this).parent().css('position', 'relative');
-		$(this).find('ol li').css('text-align', 'left');
-		$(this).find('ol li p').css({'margin-top': '30px', 'color': '#333'});
-		$(this).find('ol li p:eq(0)').css('margin-top', '0');
-		$(this).find('ol li p b').hide();
-		$(this).find('ol li span').show().css('margin-top', '22px');
+		$(this).addClass('curr');
+		$(this).find('span').show();
+		$(this).find(' b').hide();
 	},function(){
-		$(this).find('img').attr('src', currUrl);
-		$(this).stop().animate({
-			marginTop: '0',		
-		}, 600).css({
-			'width': '253px',
-			'height': '346px',
-			'border': '1px solid #f3f3f3',
-			'border-top': '3px solid #f3f3f3',
-			'margin-top': '0',
-			'position': 'static'
-		});
-		$(this).find('ol li').css('text-align', 'center');
-		$(this).find('ol li p').css({'margin-top': '0', 'line-height': '30px', 'color': '#999'});
-		$(this).find('ol li p b').show();
-		$(this).find('ol li span').hide().css('margin-top', '0');
+		$(this).removeClass('curr');
+		$(this).find('span').hide();
+		$(this).find(' b').show();
 	});
-
 
 	//方案
-	var imgUrl = "";
-	$('.programme_item ul li').hover(function(){
-		$(this).css({
-			'background': 'url(/pc/img/org_bg.png) no-repeat',
-			'box-shadow': '10px 0px 24px rgba(255,168,0,0.4)',
-		 	'transition': 'all .3s ease-in-out'		
-		});
-		imgUrl = $(this).find('img').attr('src');
-		var changeImg = $(this).find('img').attr('changeImg');
-		$(this).find('img').attr('src',changeImg);
-		$(this).find('span').css('display', 'block');
-		$(this).find('p').css('color', '#fff');
-		$(this).siblings().find('p').css('color', '#333'); 
-	},function(){
-		$(this).find('img').attr('src', imgUrl);
-		$(this).css({
-			'background': '#fff',
-			'box-shadow': 'none'
-		});
-		$(this).find('p').css('color', '#333');
-		$(this).find('span').css('display', 'none');
-	});
+	// var imgUrl = "";
+	// $('.programme_item ul li').hover(function(){
+	// 	$(this).css({
+	// 		'background': 'url(/pc/img/org_bg.png) no-repeat',
+	// 		'box-shadow': '10px 0px 24px rgba(255,168,0,0.4)',
+	// 	 	'transition': 'all .3s ease-in-out'		
+	// 	});
+	// 	imgUrl = $(this).find('img').attr('src');
+	// 	var changeImg = $(this).find('img').attr('changeImg');
+	// 	$(this).find('img').attr('src',changeImg);
+	// 	$(this).find('span').css('display', 'block');
+	// 	$(this).find('p').css('color', '#fff');
+	// 	$(this).siblings().find('p').css('color', '#333'); 
+	// },function(){
+	// 	$(this).find('img').attr('src', imgUrl);
+	// 	$(this).css({
+	// 		'background': '#fff',
+	// 		'box-shadow': 'none'
+	// 	});
+	// 	$(this).find('p').css('color', '#333');
+	// 	$(this).find('span').css('display', 'none');
+	// });
 
 
 	//精选案例
@@ -76,50 +87,44 @@ $(function(){
         	dataType: "json",  
      		data: { 
      			type: 'cases',
-     			pageIndex: '1',
-     			pageSize: '3',
      			order: 'id',
-     			sort: 'asc',
      			jx: 'jx'
+     			// sort: 'asc',
+     			// pageIndex: '1',
+     			// pageSize: '3',
      		}, 
         	success:function(result) {
-        		console.log("精选案例:", result);
         		var data = result.data;
+        		console.log("精选案例:", data);
         		data.map( e => {
-        			$('#swiper-container1 .swiper-wrapper').append(caseLists(e));
+        			$('.case_con').append(caseLists(e));
         		});
 
-        		var mySwiper1 = new Swiper('#swiper-container1',{
-				 	slidesPerView : 3,
-					spaceBetween : 20,
-					loop: true,
-					navigation: {
-			    	nextEl: '.swiper-button-next',
-			    	prevEl: '.swiper-button-prev',
-				  },
-				});
+    //     		var mySwiper1 = new Swiper('#swiper-container1',{
+				//  	slidesPerView : 3,
+				// 	spaceBetween : 20,
+				// 	loop: true,
+				// 	navigation: {
+			 //    	nextEl: '.swiper-button-next',
+			 //    	prevEl: '.swiper-button-prev',
+				//   },
+				// });
 
         		$('.case_list').hover(function(){
-					$(this).css({'height': '180px','box-shadow':'10px 0px 24px rgba(0,0,0,0.06)', 'transition': 'all .3s ease-in-out' });
-					$(this).parent().css({'transform': 'scale(1.04)','transition': 'all .3s ease-out 0s',})
-					$(this).find('.iconImg').css('background', '#FF9C00');
-					$(this).find('.time').fadeIn(500).css( 'margin-bottom', '26px');
+					$(this).find('p, .mask, .anli_icon').show();
 				},function(){
-					$(this).parent().css('transform', 'none');
-					$(this).find('.time').fadeOut(500);
-					$(this).css({ 'height': '160px', 'box-shadow': 'none'});
-					$(this).find('.iconImg').css('background', '#999');
+					$(this).find('p, .mask, .anli_icon').hide();
 				});
 
-				$('#swiper-container1 .swiper-wrapper .case_list').click(function(){
-          		var solutionId = $(this).attr('id');
-          		location.href='case_details.html?id=' + solutionId;
-          		if(location.href.indexOf('pc/main') > 0){
-							location.href='case_details.html?id=' + solutionId;
-						}else{
-							location.href='pc/main/'+'case_details.html?id=' + solutionId;
-						}
-          	});
+				$('.case_list').click(function(){
+	          		var solutionId = $(this).attr('id');
+	          		location.href='case_details.html?id=' + solutionId;
+	          		if(location.href.indexOf('pc/main') > 0){
+						location.href='case_details.html?id=' + solutionId;
+					}else{
+						location.href='pc/main/'+'case_details.html?id=' + solutionId;
+					}
+          		});
         	},
         	error: function (XMLHttpRequest, textStatus, errorThrown) {  
     			console.log('网络连接异常，请重试！'); 
@@ -155,17 +160,17 @@ $(function(){
 				    	el: '.swiper-pagination',
 				    	type: 'custom',
 				    	clickable: true,
-			    	 	renderCustom: function (swiper, current, total) {
-			            var _html = '';
-			            for (var i = 1; i <= total; i++) {
-			              if (current == i) {
-			                _html += '<li class="swiper-pagination-custom active" key=' + i + '><span></span</li>';
-			              }else{
-			                _html += '<li class="swiper-pagination-custom" key=' + i + '><span></span</li>';
-			              }
-			            }
-			            return _html;//返回所有的页码html
-		        		}
+			    	 	// renderCustom: function (swiper, current, total) {
+			       //      var _html = '';
+			       //      for (var i = 1; i <= total; i++) {
+			       //        if (current == i) {
+			       //          _html += '<li class="swiper-pagination-custom active" key=' + i + '><span></span</li>';
+			       //        }else{
+			       //          _html += '<li class="swiper-pagination-custom" key=' + i + '><span></span</li>';
+			       //        }
+			       //      }
+			       //      return _html;//返回所有的页码html
+		        // 		}
 				  },
 				});
         	},
@@ -254,14 +259,13 @@ var case_list = function (data){
 
 //精选案例
 var caseLists = function (data){
-	var caseTpl = `<div class="swiper-slide">
-							<div class="retrieval case_list" id="${ data.id }">
-								<span class="iconImg"><img src="${ data.pic }" width="122px" heigh="112px"></span>
-								<h3>${ data.title }</h3>
-								<p>${ data.descr }</p>
-								<span class="time">${ data.postTime.substr(0, 10)}</span>
-							</div>
-						</div>`
+	var caseTpl = `<div class="retrieval case_list" id="${ data.id }" style="background: url(${ data.icon }) no-repeat">
+						<div class="iconImg"><img src="${ data.pic }" width="92px" heigh="92px"></div>
+						<h3>${ data.title }</h3>
+						<p>${ data.descr }</p>
+						<div class="anli_icon"><img src="../img/anli_icon.png" width="22" height="22" /></div>
+						<div class="mask"></div>
+					</div>`
 
 	return caseTpl;
 }

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="icon" href="../img/tittle3.ico" type="image/x-icon">
+	<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+	<link rel="stylesheet" type="text/css" href="../css/aboutwe.css">
+	<link rel="stylesheet" type="text/css" href="../css/contactus.css">
+	<link rel="stylesheet" type="text/css" href="../css/components.css">
+	<link rel="stylesheet" type="text/css" href="../css/pagination.css">
+	<link rel="stylesheet" type="text/css" href="../css/iview.css">
+	<script type="text/javascript" src="../js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="../jq/jquery-lazyload/jquery.lazyload.js"></script>
+	<script src="../js/jquery.pagination.js"></script>
+	<script type="text/javascript" src="../js/vue.min.js"></script>
+	<script type="text/javascript" src="../js/iview.js"></script>
+	<script type="text/javascript" src="../js/map.js"></script>
+	<script type="text/javascript" src="../js/components.js"></script>
+	<script type="text/javascript" src="../js/aboutwe.js"></script>
+	<script type="text/javascript" src="../js/contactus.js"></script>
+	<!--引用高德地图API-->
+    <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.6&key=330cf9410b5b405b9d158fc1b1d0389a"></script> 
+    <script src="https://webapi.amap.com/ui/1.0/main.js"></script>
+	<title>联系我们</title>
+	<style type="text/css">
+	    html,body{margin:0;padding:0;}
+	    .amap-icon { width: 30px!important; height: 30px!important; }
+	    .amap-icon img { width: 34px!important; top: 0px!important; left: -7px!important; }
+	    .amap-marker-label { border: 1px solid #808080; }
+	    .amap-logo, .amap-copyright { display: none!important; }
+	    .info {
+            border: solid 1px silver;
+        }
+        div.info-top {
+            position: relative;
+            background: none repeat scroll 0 0 #F9F9F9;
+            border-bottom: 1px solid #CCC;
+            border-radius: 5px 5px 0 0;
+        }
+        div.info-top div {
+            display: inline-block;
+            color: #333333;
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 31px;
+            padding: 0 10px;
+        }
+        div.info-top img {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            transition-duration: 0.25s;
+        }
+        div.info-top img:hover {
+            box-shadow: 0px 0px 5px #000;
+        }
+        div.info-middle {
+            font-size: 12px;
+            padding: 6px;
+            line-height: 20px;
+        }
+        div.info-bottom {
+            height: 0px;
+            width: 100%;
+            clear: both;
+            text-align: center;
+        }
+        div.info-bottom img {
+            position: relative;
+            z-index: 104;
+        }
+        
+        .info-middle img {
+            float: left;
+            margin-right: 6px;
+        }
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="header"></div>
+		<div class="banner">
+			<img src="../img/lx_banner.png" width="100%">
+		</div>
+		<!--联系我们-->
+		<div class="content">
+			<div class="title">
+				<img src="../img/jj_icon.png" width="38" height="38">
+				<h3>联系我们</h3>
+				<p>- CONTACT US -</p>
+				<!-- <span class="border_org"></span> -->
+			</div>
+			<!--地图容器-->
+			<div style="width:1200px;height:280px;border:#ccc solid 1px;font-size:12px" id="container"></div>
+			<div class="we_info">
+				<div class="we_title">
+					<h3>陕西华表网络技术有限公司</h3>
+					<p>SHAANXI HUABIAO NETWORK TECHNOLOGY CO.,LTD. </p>
+				</div>
+				<div class="we_phone">
+					<ul>
+						<li>
+							<a href="javascript:void(0);">
+								<img src="../img/we_phone.png" width="58px" height="58px">
+								<p>联系电话</p>
+								<span>029-81108865</span>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0);">
+								<img src="../img/address.png" width="58px" height="58px">
+								<p>公司地址</p>
+								<span>西安市高新区锦业一路56号研祥城市</span>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0);">
+								<img src="../img/we_mail.png" width="58px" height="58px">
+								<p>联系邮箱</p>
+								<span>mkt@huabiaonet.com</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="we_code">
+					<img src="../img/we_code.png" width="132px" height="132px">
+					<p>-华表网络   用心智造-</p>
+				</div>
+			</div>
+		</div>
+		<div class="footer"></div>
+	</div>
+</body>
+</html>

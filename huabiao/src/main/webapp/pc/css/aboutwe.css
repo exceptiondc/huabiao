@@ -104,12 +104,19 @@
 
 .we_code {
 	display: flex;
-	justify-content: center;
+	flex-direction: column;
+	align-items: center;
 	margin-top: 30px;
 }
 
-.we_code img {
+.we_code img, .we_code p {
     margin-right: 28px;	
+}
+
+.we_code p {
+	font-size: 12px;
+	color: #999;
+	margin-top: 12px;
 }
 
 .list_title ul li {
@@ -233,10 +240,11 @@
 }
 
 .news_list ul li {
-	width: 980px;
+	width: 100%;
 	height: 190px;
 	background: #f3f3f3;
-	display: block;
+	display: flex;
+	align-items: center;
 }
 
 .news_list dl {
@@ -248,23 +256,24 @@
 	
 }
 
-.news_list dl .news_time {
+.news_list .news_time {
 	width: 110px;
 	height: auto;
-	font-size: 12px;
-	color: #333;
+	font-size: 16px;
+	color: #999;
 	display: flex;
 	padding-top: 2px;
-	margin-left: 26px;
+	/*margin-left: 26px;*/
 	/* position: absolute;
 	top: 10px;
 	left: 496px;
 	background: url('../img/time.png') no-repeat; */
 	background-size: 88px 24px;
 	flex-direction: column;
+	margin-right: 80px;
 }
 
-.news_list dl .news_time span {
+.news_list .news_time span {
 	width: 112px!important;
 	height: 42px;
 	font-size: 40px;

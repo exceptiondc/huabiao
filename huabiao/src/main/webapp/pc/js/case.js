@@ -1,6 +1,6 @@
 $(function(){
 
-	$('.case_nav').addClass('active');
+	$('.ivu-breadcrumb > span:eq(3) a').addClass('active');
 	
 	var caseData = function (){
 		$.ajax({  
