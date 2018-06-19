@@ -444,13 +444,18 @@
 }
 
 .case_list p {
+	width: 218px;
+	height: 64px;
 	font-size: 14px;
 	color: #fff;
 	line-height:22px;
 	padding-bottom: 40px;
 	text-align: center;
-	display: none;
 	z-index: 99;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+	overflow: hidden;
 }
 
 .anli_icon {

@@ -70,7 +70,7 @@ $(function(){
 	$('.footer').append(telpFooter());
 
 	new Vue({
-		el: ".wrap"
+		el: ".header"
 	})
 	// $(window).scroll(function (){
 	// 	var divAll = $('.main').children();

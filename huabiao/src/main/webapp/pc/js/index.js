@@ -3,6 +3,7 @@ $(function(){
 
 	$('.ivu-breadcrumb > span:eq(0) a').addClass('on');
 
+
 	//我们的产品
 	// var currUrl = "";
 	// $('.product_list ul > div > li').hover(function(){
@@ -110,6 +111,7 @@ $(function(){
 				//   },
 				// });
 
+				$('.case_list p').hide();
         		$('.case_list').hover(function(){
 					$(this).find('p, .mask, .anli_icon').show();
 				},function(){
@@ -156,22 +158,22 @@ $(function(){
 				    	delay: 5000,//5秒切换一次
 				  	},
 				 	effect: 'fade',
-					pagination: {
-				    	el: '.swiper-pagination',
-				    	type: 'custom',
-				    	clickable: true,
-			    	 	// renderCustom: function (swiper, current, total) {
-			       //      var _html = '';
-			       //      for (var i = 1; i <= total; i++) {
-			       //        if (current == i) {
-			       //          _html += '<li class="swiper-pagination-custom active" key=' + i + '><span></span</li>';
-			       //        }else{
-			       //          _html += '<li class="swiper-pagination-custom" key=' + i + '><span></span</li>';
-			       //        }
-			       //      }
-			       //      return _html;//返回所有的页码html
-		        // 		}
-				  },
+					// pagination: {
+				 //    	el: '.swiper-pagination',
+				 //    	type: 'custom',
+				 //    	clickable: true,
+			  //   	 	renderCustom: function (swiper, current, total) {
+			  //           var _html = '';
+			  //           for (var i = 1; i <= total; i++) {
+			  //             if (current == i) {
+			  //               _html += '<li class="swiper-pagination-custom active" key=' + i + '><span></span</li>';
+			  //             }else{
+			  //               _html += '<li class="swiper-pagination-custom" key=' + i + '><span></span</li>';
+			  //             }
+			  //           }
+			  //           return _html;//返回所有的页码html
+		   //      		}
+				 //  },
 				});
         	},
         	error: function (XMLHttpRequest, textStatus, errorThrown) {  
