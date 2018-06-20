@@ -17,6 +17,7 @@ $(function(){
         	success:function(result) {
         		console.log(result);
         		var data = result.data;
+                console.log('成功案例：', data);
         		data.map( e => {
         			$('.case_list ul').append(caseList(e));
         		});
@@ -56,7 +57,7 @@ $(function(){
 var caseList = function (data){
 	var caseTpl = `<li id="${ data.id }">
 					<dl>
-						<dt><img class="lazy" data-original="${ data.picc }" width="580px" height="190px"></dt>
+						<dt><img class="lazy" data-original="${ data.picc }" src="${ data.picc }"width="580px" height="190px"></dt>
 						<dd>
 							<h4>${ data.title }</h4>
 							<p>${ data.descr }</p>

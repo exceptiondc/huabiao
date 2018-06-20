@@ -40,10 +40,10 @@ var telpFooter1 = function(){
 						<div class="footer_info">
 							<img class="footer_lg" src="/huabiao/pc/img/footer_lg.png" />
 							<ul>
-								<li><a href="">公司简介</a></li>
-								<li><a href="">人才招聘</a></li>
-								<li><a href="">成功案例</a></li>
-								<li><a href="">华事记</a></li>
+								<li><a href="javaScript:tiaozhuan('synopsis.html');">公司简介</a></li>
+								<li><a href="javaScript:tiaozhuan('recruit.html')">人才招聘</a></li>
+								<li><a href="javaScript:tiaozhuan('case.html')">成功案例</a></li>
+								<li><a href="javaScript:tiaozhuan('hua_news.html')">华事记</a></li>
 								<div class="gotop">回到顶部</div>
 							</ul>
 						</div>
@@ -52,9 +52,9 @@ var telpFooter1 = function(){
 							<div class="mail_qy">mkt@huabiaonet.com</div>
 						</div>
 						<div class="code">
-							<a class="qq" href="#"><img src="/huabiao/pc/img/qq.png" title="qq" width="28" height="28"></a>
-							<a class="mail" href="mailto:sample@163.com"><img src="/huabiao/pc/img/message.png" title="mkt@huabiaonet.com" width="28" height="28"></a>
-							<a class="code_img" href="#"><img src="/huabiao/pc/img/erweima.png" width="28" height="28"><p><img src="/huabiao/pc/img/we_code.png" width="112" height="136"/></p><div class="arrow"></div></a>
+							<a class="qq" href="javascript:vido(0);"><img src="/huabiao/pc/img/qq.png" title="qq" width="28" height="28"></a>
+							<a class="mail" href="javascript:vido(0);"><img src="/huabiao/pc/img/message.png" title="mkt@huabiaonet.com" width="28" height="28"></a>
+							<a class="code_img" href="javascript:vido(0);"><img src="/huabiao/pc/img/erweima.png" width="28" height="28"><p><img src="/huabiao/pc/img/we_code.png" width="112" height="136"/></p><div class="arrow"></div></a>
 						</div>
 						<div class="copyright">©陕西华表网络技术有限公司版权所有&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp陕ICP备18004618号-1</div>
 					</div>`
