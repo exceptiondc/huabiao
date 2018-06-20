@@ -5,7 +5,7 @@ var telpHeader = function(){
 	var header = `
 			<div class="headerNav">
 				<div class="header_logo">
-					<img src="../img/logo.png" width="130" height="40">
+					<img src="/huabiao/pc/img/logo.png" width="130" height="40">
 				</div>
 				<div class="header_nav">
 					<Breadcrumb>
@@ -38,7 +38,7 @@ var telpHeader = function(){
 var telpFooter1 = function(){
 	var footer = `<div class="foot">
 						<div class="footer_info">
-							<img class="footer_lg" src="../img/footer_lg.png" />
+							<img class="footer_lg" src="/huabiao/pc/img/footer_lg.png" />
 							<ul>
 								<li><a href="">公司简介</a></li>
 								<li><a href="">人才招聘</a></li>
@@ -48,13 +48,13 @@ var telpFooter1 = function(){
 							</ul>
 						</div>
 						<div class="footer_phone">
-							<div class="phone"><img src="../img/phone_icon.png" width="22"/>029-81108865</div>
+							<div class="phone"><img src="/huabiao/pc/img/phone_icon.png" width="22"/>029-81108865</div>
 							<div class="mail_qy">mkt@huabiaonet.com</div>
 						</div>
 						<div class="code">
-							<a class="qq" href="#"><img src="../img/qq.png" title="qq" width="28" height="28"></a>
-							<a class="mail" href="mailto:sample@163.com"><img src="../img/message.png" title="mkt@huabiaonet.com" width="28" height="28"></a>
-							<a class="code_img" href="#"><img src="../img/erweima.png" width="28" height="28"><p><img src="../img/we_code.png" width="112" height="136"/></p><div class="arrow"></div></a>
+							<a class="qq" href="#"><img src="/huabiao/pc/img/qq.png" title="qq" width="28" height="28"></a>
+							<a class="mail" href="mailto:sample@163.com"><img src="/huabiao/pc/img/message.png" title="mkt@huabiaonet.com" width="28" height="28"></a>
+							<a class="code_img" href="#"><img src="/huabiao/pc/img/erweima.png" width="28" height="28"><p><img src="/huabiao/pc/img/we_code.png" width="112" height="136"/></p><div class="arrow"></div></a>
 						</div>
 						<div class="copyright">©陕西华表网络技术有限公司版权所有&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp陕ICP备18004618号-1</div>
 					</div>`
@@ -69,20 +69,21 @@ $(function(){
 	new Vue({
 		el: ".header"
 	})
+	console.log('url:',window.location.pathname)
 
-	if(window.location.pathname.indexOf('index') > 0){
+	if(window.location.pathname == '/' ){
 		$('.footer_lg').show();
-		$('.footer').css({'height': '430px', 'background': 'url("../img/footer_bg.png") no-repeat'});
+		$('.footer').css({'height': '430px', 'background': 'url("/huabiao/pc/img/footer_bg.png") no-repeat'});
 		$('.footer_info ul li a, .gotop').css('color','#D5D5D5');
 		$('.phone').css('color', '#fff');
-		$('.phone img').attr('src','../img/phone_icon.png');
+		$('.phone img').attr('src','/huabiao/pc/img/phone_icon.png');
 		$('.copyright').css('border-top-color', '#4D4843');
-		$('.code a').css('background-color', '#44474a');
+		$('.code a').css('background-color', '#44474a');		
 	} else {
 		$('.footer_lg').hide();
 		$('.footer').css({'height': '360px', 'background': '#f2f2f2'});
 		$('.footer_info ul li a, .gotop, .phone').css('color','#999');
-		$('.phone img').attr('src','../img/footer2-iphone.png');
+		$('.phone img').attr('src','/huabiao/pc/img/footer2-iphone.png');
 		$('.copyright').css('border-top-color', '#EAEAEA');
 		$('.code a').css('background-color', '#999');
 	}
