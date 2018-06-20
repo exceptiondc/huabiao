@@ -35,10 +35,10 @@ var telpHeader = function(){
 	return header;
 }
 
-var telpFooter = function(){
+var telpFooter1 = function(){
 	var footer = `<div class="foot">
 						<div class="footer_info">
-							<img src="../img/footer_lg.png" />
+							<img class="footer_lg" src="../img/footer_lg.png" />
 							<ul>
 								<li><a href="">公司简介</a></li>
 								<li><a href="">人才招聘</a></li>
@@ -52,9 +52,9 @@ var telpFooter = function(){
 							<div class="mail_qy">mkt@huabiaonet.com</div>
 						</div>
 						<div class="code">
-							<a class="qq" href="#"><img src="../img/qq_icon.png" title="qq" width="28" height="28"></a>
-							<a class="mail" href="mailto:sample@163.com"><img src="../img/mail_icon.png" title="mkt@huabiaonet.com" width="28" height="28"></a>
-							<a class="code_img" href="#"><img src="../img/code_icon.png" width="28" height="28"><p><img src="../img/we_code.png" width="112" height="136"/></p><div class="arrow"></div></a>
+							<a class="qq" href="#"><img src="../img/qq.png" title="qq" width="28" height="28"></a>
+							<a class="mail" href="mailto:sample@163.com"><img src="../img/message.png" title="mkt@huabiaonet.com" width="28" height="28"></a>
+							<a class="code_img" href="#"><img src="../img/erweima.png" width="28" height="28"><p><img src="../img/we_code.png" width="112" height="136"/></p><div class="arrow"></div></a>
 						</div>
 						<div class="copyright">©陕西华表网络技术有限公司版权所有&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp陕ICP备18004618号-1</div>
 					</div>`
@@ -64,11 +64,30 @@ var telpFooter = function(){
 $(function(){
 
 	$('.header').append(telpHeader());
-	$('.footer').append(telpFooter());
-
+	$('.footer').append(telpFooter1());
+	
 	new Vue({
 		el: ".header"
 	})
+
+	if(window.location.pathname.indexOf('index') > 0){
+		$('.footer_lg').show();
+		$('.footer').css({'height': '430px', 'background': 'url("../img/footer_bg.png") no-repeat'});
+		$('.footer_info ul li a, .gotop').css('color','#D5D5D5');
+		$('.phone').css('color', '#fff');
+		$('.phone img').attr('src','../img/phone_icon.png');
+		$('.copyright').css('border-top-color', '#4D4843');
+		$('.code a').css('background-color', '#44474a');
+	} else {
+		$('.footer_lg').hide();
+		$('.footer').css({'height': '360px', 'background': '#f2f2f2'});
+		$('.footer_info ul li a, .gotop, .phone').css('color','#999');
+		$('.phone img').attr('src','../img/footer2-iphone.png');
+		$('.copyright').css('border-top-color', '#EAEAEA');
+		$('.code a').css('background-color', '#999');
+	}
+
+
 	$(window).scroll(function (){
 		var divAll = $('.main').children();
 		var scrollTop = $(window).scrollTop();

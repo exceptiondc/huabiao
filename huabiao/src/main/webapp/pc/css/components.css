@@ -120,15 +120,12 @@ body, html {
 
 .footer {
 	width: 100%;
-	height: 430px;
-	background: url('../img/footer_bg.png') no-repeat;
 }
 
 .foot {
 	width: 100%;
 	height: 100%;
 	margin: 0 auto;
-	padding-top: 40px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -141,6 +138,10 @@ body, html {
 	align-items: center;
 }
 
+.footer_lg {
+	margin-top: 40px;
+}
+
 .footer_info ul {
 	width: 100%;
 	display: flex;
@@ -150,7 +151,6 @@ body, html {
 
 .footer_info ul li a, .gotop {
 	font-size: 14px;
-	color: #D5D5D5;
 	cursor: pointer;
 }
 
@@ -168,7 +168,6 @@ body, html {
 
 .footer_phone .phone {
 	font-size: 26px;
-	color: #fff;
     display: flex;
     align-items: center;
 }
@@ -191,6 +190,26 @@ body, html {
 .code {
 	display: flex;
 	align-items: center;
+}
+
+.code a {
+	width: 28px;
+	height: 28px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	background: #44474a;
+}
+
+.code a:hover {
+	background: #ffa800!important;
+}
+
+.code a > img {
+	display: block;
+	width: 16px;
+	height: 16px;
 }
 
 .code .mail {

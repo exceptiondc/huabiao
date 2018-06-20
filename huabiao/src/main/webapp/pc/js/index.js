@@ -265,7 +265,7 @@ var caseLists = function (data){
 						<div class="iconImg"><img src="${ data.pic }" width="92px" heigh="92px"></div>
 						<h3>${ data.title }</h3>
 						<p>${ data.descr }</p>
-						<div class="anli_icon"><img src="../img/anli_icon.png" width="22" height="22" /></div>
+						<div class="anli_icon"><img src="/huabiao/pc/img/anli_icon.png" width="22" height="22" /></div>
 						<div class="mask"></div>
 					</div>`
 
