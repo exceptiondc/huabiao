@@ -4,46 +4,7 @@ $(function(){
 	$('.ivu-breadcrumb > span:eq(0) a').addClass('on');
 
 
-	//我们的产品
-	// var currUrl = "";
-	// $('.product_list ul > div > li').hover(function(){
-	// 	currUrl = $(this).find('img').attr('src');
-	// 	var changeImg = $(this).find('img').attr('changeImg');
-	// 	$(this).find('img').attr('src',changeImg);
-	// 	$(this).stop().animate({
-	// 		marginTop: '-20px',
-	// 		height: 'auto'	
-	// 	}, 600).css({
-	// 		'width': '333px',
-	// 		'border': '1px solid #FF9C00',
-	// 		'border-top': '3px solid #FF9C00',
-	// 		'position': 'absolute',
-	// 		'z-index': 99,
-	// 	});
-	// 	$(this).parent().css('position', 'relative');
-	// 	$(this).find('ol li').css('text-align', 'left');
-	// 	$(this).find('ol li p').css({'margin-top': '30px', 'color': '#333'});
-	// 	$(this).find('ol li p:eq(0)').css('margin-top', '0');
-	// 	$(this).find('ol li p b').hide();
-	// 	$(this).find('ol li span').show().css('margin-top', '22px');
-	// },function(){
-	// 	$(this).find('img').attr('src', currUrl);
-	// 	$(this).stop().animate({
-	// 		marginTop: '0',		
-	// 	}, 600).css({
-	// 		'width': '300px',
-	// 		'height': '400px',
-	// 		'border': '1px solid #f3f3f3',
-	// 		'border-top': '3px solid #f3f3f3',
-	// 		'margin-top': '0',
-	// 		'position': 'static'
-	// 	});
-	// 	$(this).find('ol li').css('text-align', 'center');
-	// 	$(this).find('ol li p').css({'margin-top': '0', 'line-height': '30px', 'color': '#999'});
-	// 	$(this).find('ol li p b').show();
-	// 	$(this).find('ol li span').hide().css('margin-top', '0');
-	// });
-	
+	//我们的产品	
 	$('.product_list ul > div > li').hover(function(){
 		$(this).parent().css('position', 'relative');
 		$(this).addClass('curr');
@@ -53,32 +14,7 @@ $(function(){
 		$(this).removeClass('curr');
 		$(this).find('span').hide();
 		$(this).find(' b').show();
-	});
-
-	//方案
-	// var imgUrl = "";
-	// $('.programme_item ul li').hover(function(){
-	// 	$(this).css({
-	// 		'background': 'url(/pc/img/org_bg.png) no-repeat',
-	// 		'box-shadow': '10px 0px 24px rgba(255,168,0,0.4)',
-	// 	 	'transition': 'all .3s ease-in-out'		
-	// 	});
-	// 	imgUrl = $(this).find('img').attr('src');
-	// 	var changeImg = $(this).find('img').attr('changeImg');
-	// 	$(this).find('img').attr('src',changeImg);
-	// 	$(this).find('span').css('display', 'block');
-	// 	$(this).find('p').css('color', '#fff');
-	// 	$(this).siblings().find('p').css('color', '#333'); 
-	// },function(){
-	// 	$(this).find('img').attr('src', imgUrl);
-	// 	$(this).css({
-	// 		'background': '#fff',
-	// 		'box-shadow': 'none'
-	// 	});
-	// 	$(this).find('p').css('color', '#333');
-	// 	$(this).find('span').css('display', 'none');
-	// });
-
+	});	
 
 	//精选案例
 	var caseData = function (){
@@ -96,7 +32,6 @@ $(function(){
      		}, 
         	success:function(result) {
         		var data = result.data;
-        		console.log("精选案例:", data);
         		data.map( e => {
         			$('.case_con').append(caseLists(e));
         		});
@@ -144,7 +79,6 @@ $(function(){
         	url: API + "huabiao/system/lunbopic/list/json?skipType=1&order=id&sort=asc",  
         	dataType: "json",  
         	success:function(result) {
-        		console.log("轮播:", result);
         		var data = result.data;
         		data.map( e => {
         			$('#swiper-container .swiper-wrapper').append(banner(e));
@@ -191,7 +125,6 @@ $(function(){
         	url: API + "huabiao/system/announce/list/json?type=news&pageIndex=1",  
         	dataType: "json",
         	success:function(result) {
-        		console.log("首页新闻", result);
         		var data = result.data;
         		data.map( e => {
         			$('#swiper-container2 .swiper-wrapper').append(case_list(e));

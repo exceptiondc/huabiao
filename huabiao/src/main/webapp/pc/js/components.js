@@ -21,10 +21,10 @@ var telpHeader = function(){
 				        <Breadcrumb-item style="position: relative; color: #fff; font-size: 16px;">
 				        	<a>关于我们</a>
 				        	<ul class="select our_list">
-				        		<li><a href="synopsis.html" target=_blank>公司简介</a></li>
-				        		<li><a href="contactus.html" target=_blank>联系我们</a></li>
-				        		<li><a href="recruit.html" target=_blank>招聘需求</a></li>
-				        		<li><a href="hua_news.html" target=_blank>华事记</a></li>
+				        		<li><a href="javaScript:tiaozhuan('synopsis.html')" target=_blank>公司简介</a></li>
+				        		<li><a href="javaScript:tiaozhuan('contactus.html')" target=_blank>联系我们</a></li>
+				        		<li><a href="javaScript:tiaozhuan('recruit.html')" target=_blank>招聘需求</a></li>
+				        		<li><a href="javaScript:tiaozhuan('hua_news.html')" target=_blank>华事记</a></li>
 			        		</ul>
 			        	</Breadcrumb-item>
 				    </Breadcrumb>
@@ -69,7 +69,6 @@ $(function(){
 	new Vue({
 		el: ".header"
 	})
-	console.log('url:',window.location.pathname)
 
 	if(window.location.pathname == '/' ){
 		$('.footer_lg').show();
@@ -115,7 +114,6 @@ $(function(){
        			sort:'asc'
        		}, 
         	success:function(result) {
-        		console.log(result);
         		var data = result.data;
         		data.map( e => {
         			$('.fangan_list').append(`<li id="${ e.id }" type="${ e.title }"><a href="">${ e.title }</a></li>`);	
@@ -124,7 +122,7 @@ $(function(){
         		$('.fangan_list li').click(function(){
           		var solutionId = $(this).attr('id');
           		var solutionTitle = $(this).attr('type');
-      		   	window.open('solution_details.html?id=' + solutionId + '&title=' + solutionTitle);
+      		  tiaozhuan2('solution_details.html?id=' + solutionId + '&title=' + solutionTitle);
 
           	});
 
@@ -169,5 +167,14 @@ function tiaozhuan(url){
 		location.href=url;
 	}else{
 		location.href='pc/main/'+url;
+	}
+}
+
+
+function tiaozhuan2(url){
+	if(location.href.indexOf('pc/main')>0){		
+		window.open(url);
+	}else{		
+		window.open('pc/main/'+url);
 	}
 }

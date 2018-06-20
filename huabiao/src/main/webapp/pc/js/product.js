@@ -1,44 +1,6 @@
 $(function(){
 
 	$('.ivu-breadcrumb > span:eq(1) a').addClass('on');
-	// var currUrl = "";
-	// $('.product_list ul > div > li').hover(function(){
-	// 	currUrl = $(this).find('img').attr('src');
-	// 	var changeImg = $(this).find('img').attr('changeImg');
-	// 	$(this).find('img').attr('src',changeImg);
-	// 	$(this).stop().animate({
-	// 		marginTop: '-20px',
-	// 		height: 'auto'	
-	// 	}, 600).css({
-	// 		'width': '333px',
-	// 		'border': '1px solid #FF9C00',
-	// 		'border-top': '3px solid #FF9C00',
-	// 		'position': 'absolute',
-	// 		'z-index': 99
-	// 	});
-	// 	$(this).parent().css('position', 'relative');
-	// 	$(this).find('ol li').css('text-align', 'left');
-	// 	$(this).find('ol li p').css({'margin-top': '30px', 'color': '#333'});
-	// 	$(this).find('ol li p:eq(0)').css('margin-top', '0');
-	// 	$(this).find('ol li p b').hide();
-	// 	$(this).find('ol li span').show().css('margin-top', '22px');
-	// },function(){
-	// 	$(this).find('img').attr('src', currUrl);
-	// 	$(this).stop().animate({
-	// 		marginTop: '0',		
-	// 	}, 600).css({
-	// 		'width': '253px',
-	// 		'height': '346px',
-	// 		'border': '1px solid #f3f3f3',
-	// 		'border-top': '3px solid #f3f3f3',
-	// 		'margin-top': '0',
-	// 		'position': 'static'
-	// 	});
-	// 	$(this).find('ol li').css('text-align', 'center');
-	// 	$(this).find('ol li p').css({'margin-top': '0', 'line-height': '30px', 'color': '#999'});
-	// 	$(this).find('ol li p b').show();
-	// 	$(this).find('ol li span').hide().css('margin-top', '0');
-	// });
 
 	$('.product_list ul > div > li').hover(function(){
 		$(this).parent().css('position', 'relative');
@@ -75,15 +37,6 @@ $(function(){
 	    })
 	});
 
-
-	/*var lazyLoad = function(){
-        $("img.lazy").lazyload({
-            effect: "fadeIn",  
-            threshold: 200,
-        })
-    };
-
- 	lazyLoad();*/
 });
 
 var data = [{'img': '../img/product_01.png', 'id': '1'},

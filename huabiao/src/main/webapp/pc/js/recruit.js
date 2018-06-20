@@ -4,15 +4,12 @@ $(function(){
 	//招聘
 	var getRecruit = function(){
 		$.ajax({  
-        	type:"post",  
-        	// url: API + "huabiao/system/announce/look/json",  
+        	type:"post",   
         	url: API + "huabiao/system/announce/list/json?type=zpqs",
-        	dataType: "json", 
-        	// data: { 'id': id }, 
+        	dataType: "json",  
         	success:function(result) {  
          	if (result.statusCode == 200) {
          		var data = result.data;
-         		console.log("招聘：",data);
          		data.map(e => {
          			$('.post_content ul').append(post_content(e))
          		})
@@ -24,14 +21,6 @@ $(function(){
       });
 	}
 
-	// var getpostid = function(){
-	// 	var postUrl = location.search;
-	// 	var post_id = postUrl.split('=').pop();
-	// 	getRecruit(post_id);
-	// 	console.log('id:',post_id)
-	// }
-
-	// getpostid();
 	getRecruit();
 });
 

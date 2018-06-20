@@ -14,7 +14,6 @@ $(function(){
        			sort:'asc'
        		}, 
         	success:function(result) {
-        		console.log(result);
         		var data = result.data;
         		data.map( e => {
         			$('.solution_list ul').append(solutionList(e));
@@ -35,7 +34,7 @@ $(function(){
             /*lazyLoad();*/
         	},
         	error: function (XMLHttpRequest, textStatus, errorThrown) {  
-    			console.log('网络连接异常，请重试！'); 
+    			   console.log('网络连接异常，请重试！'); 
         	}
       })
    }

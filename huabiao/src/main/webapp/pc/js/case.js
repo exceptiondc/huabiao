@@ -15,9 +15,7 @@ $(function(){
      			// sort:'asc'
      		}, 
         	success:function(result) {
-        		console.log(result);
         		var data = result.data;
-                console.log('成功案例：', data);
         		data.map( e => {
         			$('.case_list ul').append(caseList(e));
         		});

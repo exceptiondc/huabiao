@@ -6,16 +6,14 @@ $(function(){
         	url: API + "huabiao/system/announce/look/json",  
         	dataType: "json", 
         	data: { 'id': id }, 
-        	success:function(result) {  
-        		console.log(id);
+        	success:function(result) {
          	if (result.statusCode == 200) {
          		var data = result.data;
-         		console.log(data);
          		$('.post_content').append(post_content(data))
          	}
          },
          error:function (XMLHttpRequest, textStatus, errorThrown) {  
-    				console.log('网络连接异常，请重试！')  
+				console.log('网络连接异常，请重试！')  
         	}
       });
 	}
@@ -24,7 +22,6 @@ $(function(){
 		var postUrl = location.search;
 		var post_id = postUrl.split('=').pop();
 		getRecruit(post_id);
-		console.log('id:',post_id)
 	}
 
 	getpostid();

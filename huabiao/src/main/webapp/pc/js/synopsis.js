@@ -8,9 +8,7 @@ $(function(){
             type:"post",  
             url: API + "huabiao/system/announce/list/json?type=intros",  
             dataType: "json",  
-            success:function(result) {  
-            console.log('公司简介:',result);
-
+            success:function(result) {
             if (result.statusCode == 200) {
                 var data = result.data[0];
                 $('.intros').append(introsTpl(data));

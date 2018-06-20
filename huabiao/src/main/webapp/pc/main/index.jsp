@@ -56,7 +56,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<img src="/huabiao/pc/img/swksh.png" width="50" height="50">
 							<div>
 								<p>三维可视化</p>
-								<span>可信赖的解决方案提供商</span>
+								<span>行业可视化全景展示管理</span>
 							</div>
 						</li>
 					</ul>

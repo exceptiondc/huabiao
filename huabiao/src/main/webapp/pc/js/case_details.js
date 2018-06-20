@@ -8,8 +8,6 @@ $(function(){
         	dataType: "json",  
      		data: { 'id': id },  
         	success:function(result) {  
-         		console.log(result);  
-            	console.log(id);  
             	if (result.statusCode == 200) {
             		var data = result.data;  
           	  		$('.case_content').append(case_content(data));

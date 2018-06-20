@@ -10,9 +10,7 @@ $(function(){
         	url: API + "huabiao/system/announce/look/json",  
         	dataType: "json",  
      		data: { 'id': id },  
-        	success:function(result) {  
-         		console.log(result);  
-            	console.log(id);  
+        	success:function(result) { 
             	if (result.statusCode == 200) {
             		var data = result.data;  
           	  		$('.solution_content').append('<div class="solution_text">' + data.content + '</div>');
@@ -26,7 +24,6 @@ $(function(){
 
 	var getDetails = function(){
 		var news_id = location.search.split('=')[1].split('&')[0];
-		console.log('news_id:',news_id)
 		getRequest(news_id);
 	}
 
