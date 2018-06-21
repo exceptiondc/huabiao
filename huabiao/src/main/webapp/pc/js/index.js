@@ -48,8 +48,10 @@ $(function(){
 
 				$('.case_list p').hide();
         		$('.case_list').hover(function(){
+					$(this).css('padding-top', '116px')
 					$(this).find('p, .mask, .anli_icon').show();
 				},function(){
+        			$(this).css('padding-top', '155px')
 					$(this).find('p, .mask, .anli_icon').hide();
 				});
 

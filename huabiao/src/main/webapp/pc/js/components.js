@@ -70,7 +70,7 @@ $(function(){
 		el: ".header"
 	})
 
-	if(window.location.pathname == '/' ){
+	if(window.location.pathname == '/' || window.location.pathname.indexOf('/index') > 0 ){
 		$('.footer_lg').show();
 		$('.footer').css({'height': '430px', 'background': 'url("/huabiao/pc/img/footer_bg.png") no-repeat'});
 		$('.footer_info ul li a, .gotop').css('color','#D5D5D5');
