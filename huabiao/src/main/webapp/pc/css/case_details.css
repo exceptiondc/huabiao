@@ -57,7 +57,7 @@ h3 {
 }
 
 .case_text img {
-	width: 100%!important;
+	/*width: 100%!important;*/
 	display: block;
 }
 

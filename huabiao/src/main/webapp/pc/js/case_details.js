@@ -45,8 +45,6 @@ var case_content = function(data){
 						<h3>${ data.title }</h3>
 						<p>发布于<span>${ postTime }</span>日</p>
 					</div>
-				
-					<img src="${ data.icon }" width="100%" height="380px">
 					<div class="case_text">${ data.content }</div>
 					`
 
