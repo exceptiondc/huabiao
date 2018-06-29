@@ -60,7 +60,7 @@ var caseList = function (data){
 							<h4>${ data.title }</h4>
 							<p>${ data.descr }</p>
 							<div class="more">
-								<p><a href="#">查看详情></a></p>
+								<a href="#">查看详情></a>
 								<span>${ data.postTime.substr(0, 10)}</span>
 							</div>
 						</dd>

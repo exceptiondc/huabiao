@@ -83,12 +83,29 @@
 
 .case_list ul li dl dd p {
 	width: 540px;
+	height: 41px;
 	font-size: 14px;
 	color: #999;
-	display: -webkit-box;
+	/*display: -webkit-box;
 	-webkit-box-orient: vertical;
 	-webkit-line-clamp: 2;
-	overflow: hidden;
+	overflow: hidden;*/
+
+	 position:relative;
+    line-height:1.4em;
+    /* 3 times the line-height to show 3 lines */
+    overflow:hidden;
+
+}
+
+.case_list ul li dl dd p::after {
+    content:"...";
+    font-weight:bold;
+    position:absolute;
+    bottom:0;
+    right: -2px;
+	padding-right: 0px;
+
 }
 
 .case_list ul li dl dd .more {
@@ -98,14 +115,14 @@
 	margin-top: 40px;
 }
 
-.case_list ul li dl dd .more p {
+/*.case_list ul li dl dd .more p {
 	width: 102px;
 	height: 30px;
 	border: 1px solid #999;
 	border-radius: 16px;
-}
+}*/
 
-.case_list ul li dl dd .more p a {
+.case_list ul li dl dd .more a {
 	width: 102px;
 	height: 30px;
 	font-size: 14px;
@@ -113,6 +130,8 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	border: 1px solid #999;
+	border-radius: 16px;
 }
 
 .case_list ul li dl dd .more span {
