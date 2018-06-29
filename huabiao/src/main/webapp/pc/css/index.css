@@ -282,17 +282,18 @@
 .programme_item ul {
 	width: 100%;
 	display: flex;
-	justify-content: space-between;
+	flex-wrap: wrap;
+	/*justify-content: space-between;*/
 }
 
 .programme_item ul li {
 	background: #fff;
 	border-radius: 6px;
-	margin-right: 30px;
+	margin-right: 26px;
 }
 
 .programme_item ul li:nth-child(4), .programme_item ul li:last-child {
-	margin-right: 0;
+	margin-right: 0!important;
 }
 
 .programme_item ul li:nth-child(-n+4) {
@@ -354,9 +355,13 @@
 }
 
 .programme_item ul li a .item_text p {
+	width: 240px;
 	margin-top: 20px;
 	color: #666;
 	font-size: 16px;
+	overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
 }
 
 .programme_more a {

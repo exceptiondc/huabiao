@@ -13,7 +13,7 @@ $(function(){
         	success:function(result) { 
             	if (result.statusCode == 200) {
             		var data = result.data;  
-          	  		$('.solution_content').append('<div class="solution_text">' + data.content + '</div>');
+          	  		$('.solution_content').append(solution_content(data));
                }             
            },  
            error: function (XMLHttpRequest, textStatus, errorThrown) {  
@@ -39,3 +39,15 @@ $(function(){
 	// 	history.go(-1);
 	// });
 });
+
+var solution_content = function(data){
+	var postTime = data.postTime.substr(0, 10);
+	var contentTpl = `<div class="solution_title" style="margin-bottom: 40px;">
+						<h3>${ data.title }</h3>
+						<p>发布于<span>${ postTime }</span>日</p>
+					</div>
+					<div class="case_text">${ data.content }</div>
+					`
+
+		return contentTpl;
+}

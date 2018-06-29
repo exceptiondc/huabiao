@@ -163,104 +163,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</div>
 					<div class="programme_item">
 						<ul>
-							<li>
-								<a href="javascript:void(0);">
-									<div class="item_img">
-										<img src="/huabiao/pc/img/fangan-ny.png" width="280" height="270">
-									</div>
-									<div class="item_text">
-										<h4>智慧社区<img src="/huabiao/pc/img/fangan-more.png"></h4>
-										<span>Intelligence community</span>
-										<p>运用物联网技术将社区智能化</p>
-									</div>
-								</a>
-							</li>
-							<li>
-								<a href="javascript:void(0);">
-									<div class="item_img">
-										<img src="/huabiao/pc/img/fangan-ny2.png" width="280" height="270">
-									</div>	
-									<div class="item_text">
-										<h4>智慧农业<img src="/huabiao/pc/img/fangan-more.png"></h4>
-										<span>Intelligent agriculture</span>
-										<p>运用物联网技术将社区智能化</p>
-									</div>
-								</a>
-							</li>
-							<li>
-								<a href="javascript:void(0);">
-									<div class="item_img">
-										<img src="/huabiao/pc/img/fangan-ny.png" width="280" height="270">
-									</div>
-									<div class="item_text">
-										<h4>智慧交通<img src="/huabiao/pc/img/fangan-more.png"></h4>
-										<span>intelligent transportation</span>
-										<p>运用物联网技术将社区智能化</p>
-									</div>	
-								</a>
-							</li>
-							<li>
-								<a href="javascript:void(0);">
-									<div class="item_img">
-										<img src="/huabiao/pc/img/fangan-ny2.png" width="280" height="270">
-									</div>
-									<div class="item_text">
-										<h4>智慧教育<img src="/huabiao/pc/img/fangan-more.png"></h4>
-										<span>smart education</span>
-										<p>运用物联网技术将社区智能化</p>
-									</div>	
-								</a>
-							</li>
-						</ul>
-						<ul>
-							<li>
-								<a href="javascript:void(0);">
-									<div class="item_img">
-										<img src="/huabiao/pc/img/fangan-ny.png" width="280" height="270">
-									</div>
-									<div class="item_text">
-										<h4>智慧医疗<img src="/huabiao/pc/img/fangan-more.png"></h4>
-										<span>Wisdom medical</span>
-										<p>运用物联网技术将社区智能化</p>
-									</div>	
-								</a>
-							</li>
-							<li>
-								<a href="javascript:void(0);">
-									<div class="item_img">
-										<img src="/huabiao/pc/img/fangan-ny2.png" width="280" height="270">
-									</div>
-									<div class="item_text">
-										<h4>智慧生活<img src="/huabiao/pc/img/fangan-more.png"></h4>
-										<span>intelligent life</span>
-										<p>运用物联网技术将社区智能化</p>
-									</div>	
-								</a>
-							</li>
-							<li>
-								<a href="javascript:void(0);">
-									<div class="item_img">
-										<img src="/huabiao/pc/img/fangan-ny.png" width="280" height="270">
-									</div>
-									<div class="item_text">
-										<h4>大数据<img src="/huabiao/pc/img/fangan-more.png"></h4>
-										<span>Hadoop</span>
-										<p>运用物联网技术将社区智能化</p>
-									</div>	
-								</a>
-							</li>
-							<li>
-								<a href="javascript:void(0);">
-									<div class="item_img">
-										<img src="/huabiao/pc/img/fangan-ny2.png" width="280" height="270">
-									</div>
-									<div class="item_text">
-										<h4>共享充电<img src="/huabiao/pc/img/fangan-more.png"></h4>
-										<span>Share the charge</span>
-										<p>运用物联网技术将社区智能化</p>
-									</div>	
-								</a>
-							</li>
+							
 						</ul>
 					</div>
 				</div>
@@ -277,39 +180,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<!-- <span class="border_org"></span> -->
 					</div>
 					<div class="case_item">
-						<!-- <div class="swiper-container swiper-container-horizontal" id="swiper-container1">
-							<div class="swiper-wrapper">
-								
-							</div>
-							<div class="swiper-button-prev"></div>
-							<div class="case_more"><a href="case.html">查看更多></a></div>
-    						<div class="swiper-button-next"></div>
-						</div> -->
 						<div class="case_con">
 							
 						</div>
 					</div>
 				</div>
 			</div>
-			<!-- <div class="hua_news">
-				<div class="news_content">
-					<div class="title">
-						<h3>华事记</h3>
-						<p>夜阑风雨声   华事知多少</p>
-						<span class="border_org"></span>
-					</div>
-					<div class="news_item">
-						<div class="swiper-container swiper-container-horizontal" id="swiper-container2">
-							<div class="swiper-wrapper">
-								
-							</div>
-							<div class="swiper-button-prev"></div>
-							<div class="case_more"><a href="hua_news.html">查看更多></a></div>
-			    						<div class="swiper-button-next"></div>
-						</div>
-					</div>
-				</div>
-			</div> -->
 		</div>
 		<div class="footer"></div>
 	</div>

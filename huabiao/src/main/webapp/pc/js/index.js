@@ -36,16 +36,6 @@ $(function(){
         			$('.case_con').append(caseLists(e));
         		});
 
-    //     		var mySwiper1 = new Swiper('#swiper-container1',{
-				//  	slidesPerView : 3,
-				// 	spaceBetween : 20,
-				// 	loop: true,
-				// 	navigation: {
-			 //    	nextEl: '.swiper-button-next',
-			 //    	prevEl: '.swiper-button-prev',
-				//   },
-				// });
-
 				$('.case_list p').hide();
         		$('.case_list').hover(function(){
 					$(this).css('padding-top', '116px')
@@ -63,7 +53,7 @@ $(function(){
 					}else{
 						location.href='pc/main/'+'case_details.html?id=' + solutionId;
 					}
-          		});
+       		});
         	},
         	error: function (XMLHttpRequest, textStatus, errorThrown) {  
     			console.log('网络连接异常，请重试！'); 
@@ -120,55 +110,45 @@ $(function(){
 
 	bannerImg();
 
-	//新闻版块
-	var caseList = function (){
-			$.ajax({  
+	//解决方案
+	var project = function (){
+		$.ajax({  
         	type:"post",  
-        	url: API + "huabiao/system/announce/list/json?type=news&pageIndex=1",  
-        	dataType: "json",
+        	url: API + "huabiao/system/announce/list/json",  
+        	dataType: "json",  
+     		data: { 
+     			type: 'schemes',
+     			order: 'id',
+     			// sort: 'asc',
+     			// pageIndex: '1',
+     			// pageSize: '3',
+     		}, 
         	success:function(result) {
         		var data = result.data;
+        		console.log('方案：',data)
         		data.map( e => {
-        			$('#swiper-container2 .swiper-wrapper').append(case_list(e));
+        			$('.programme_item ul').append(projectList(e));
         		});
-        		var mySwiper1 = new Swiper('#swiper-container2',{
-				 	slidesPerView : 2,
-					navigation: {
-				    	nextEl: '.swiper-button-next',
-				    	prevEl: '.swiper-button-prev',
-				  	},
-				});
 
-				$('.news_list').hover(function(){
-					$(this).css({
-						'background': '#fff',
-						'box-shadow': '10px 0px 24px rgba(0,0,0,0.06)'
-					});
-				},function(){
-					$(this).css({
-						'background': '#f3f3f3', 
-						'box-shadow': 'none'
-					})
-				});
-
-				$('#swiper-container2 .swiper-wrapper .swiper-slide').click(function(){
-             		var newsId = $(this).attr('id');
-
-             		if(location.href.indexOf('pc/main') > 0){
-							location.href='news_details.html?id=' + newsId;
-						}else{
-							location.href='pc/main/'+'news_details.html?id=' + newsId;
-						}
-             	});
+        		$('.programme_item ul li').click(function(){
+	          		var solutionId = $(this).attr('id');
+	          		var solutionType = $(this).attr('type');
+	          		location.href='solution_details.html?id=' + solutionId + '&type=' + solutionType;
+	          		if(location.href.indexOf('pc/main') > 0){
+						location.href='solution_details.html?id=' + solutionId + '&type=' + solutionType;
+					}else{
+						location.href='pc/main/'+'solution_details.html?id=' + solutionId + '&type=' + solutionType;
+					}
+       		});
+			
         	},
         	error: function (XMLHttpRequest, textStatus, errorThrown) {  
-         			console.log('网络连接异常，请重试！')  
+    			console.log('网络连接异常，请重试！'); 
         	}
-      });
+   	})
 	}
 
-	caseList();
-
+	project();
 });
 
 var banner = function (data){
@@ -205,4 +185,23 @@ var caseLists = function (data){
 					</div>`
 
 	return caseTpl;
+}
+
+
+//解决方案
+var projectList = function (data){
+	var projectTpl = `<li id="${ data.id }" type="${ data.title }">
+								<a href="javascript:void(0);">
+									<div class="item_img">
+										<img src="${ data.picc }" width="280" height="270">
+									</div>
+									<div class="item_text">
+										<h4>${ data.title }<img src="/huabiao/pc/img/fangan-more.png"></h4>
+										<span>${ data.keyword }</span>
+										<p>${ data.descr }</p>
+									</div>
+								</a>
+							</li>`
+
+	return projectTpl;
 }
