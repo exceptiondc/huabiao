@@ -13,14 +13,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" type="text/css" href="/huabiao/pc/css/swiper-4.2.2.min.css">
 	<link rel="stylesheet" type="text/css" href="/huabiao/pc/css/components.css">
 	<!-- <link rel="stylesheet" type="text/css" href="/huabiao/pc/css/iview.css"> -->
-	<link rel="stylesheet" type="text/css" href="http://unpkg.com/iview/dist/styles/iview.css">
+	<link rel="stylesheet" type="text/css" href="https://unpkg.com/iview/dist/styles/iview.css">
 	<script type="text/javascript" src="/huabiao/pc/js/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript" src="/huabiao/pc/jq/jquery-lazyload/jquery.lazyload.js"></script>
 	<script type="text/javascript" src="/huabiao/pc/js/swiper-4.2.2.min.js"></script>
 	<script type="text/javascript" src="/huabiao/pc/js/swiper-4.2.2.min.js"></script>
 	<!-- <script type="text/javascript" src="/huabiao/pc/js/vue.min.js"></script> -->
-    <script type="text/javascript" src="http://vuejs.org/js/vue.min.js"></script>
-    <script type="text/javascript" src="http://unpkg.com/iview/dist/iview.min.js"></script>
+    <script type="text/javascript" src="https://vuejs.org/js/vue.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/iview/dist/iview.min.js"></script>
 	<script type="text/javascript" src="/huabiao/pc/js/components.js"></script>
 	<script type="text/javascript" src="/huabiao/pc/js/index.js"></script>
 	<title>首页</title>
