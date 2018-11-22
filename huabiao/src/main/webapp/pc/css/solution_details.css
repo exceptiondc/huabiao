@@ -38,6 +38,7 @@ h3 {
 
 .solution_content {
 	width: 100%!important;
+	margin: 0 auto;
 }
 
 .solution_title h3 {
